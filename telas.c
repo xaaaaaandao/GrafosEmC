@@ -6,6 +6,25 @@ void telaLimpa(){
 	system("clear");
 }
 
+void telaVerticeRemovido(){
+	printf(ANSI_COLOR_GREEN "╔═══════════════════════════════╗\n" ANSI_COLOR_RESET);
+	printf(ANSI_COLOR_GREEN "║ Vértice removido com sucesso! ║\n" ANSI_COLOR_RESET);
+	printf(ANSI_COLOR_GREEN "╚═══════════════════════════════╝\n" ANSI_COLOR_RESET);
+}
+
+void telaArestaRemovido(){
+	printf(ANSI_COLOR_GREEN "╔══════════════════════════════╗\n" ANSI_COLOR_RESET);
+	printf(ANSI_COLOR_GREEN "║ Aresta removida com sucesso! ║\n" ANSI_COLOR_RESET);
+	printf(ANSI_COLOR_GREEN "╚══════════════════════════════╝\n" ANSI_COLOR_RESET);
+}
+
+void telaRemoverVertice(){
+	printf("╔═══════════════════════════════════════╗\n");
+	printf("║ Digite o id do vértice a ser removido ║\n");
+	printf("╚═══════════════════════════════════════╝\n");
+	printf("> ");
+}
+
 void telaPesoAresta(){
 	printf("╔══════════════════════════════╗\n");
 	printf("║ Digite o peso da sua aresta  ║\n");
@@ -46,6 +65,12 @@ void telaSemVertice(){
 	printf(ANSI_COLOR_RED "╔══════════════════════╗\n" ANSI_COLOR_RESET);
 	printf(ANSI_COLOR_RED "║ Não existe vértices! ║\n" ANSI_COLOR_RESET);
 	printf(ANSI_COLOR_RED "╚══════════════════════╝\n" ANSI_COLOR_RESET);
+}
+
+void telaSemAresta(){
+	printf(ANSI_COLOR_RED "╔═════════════════════════╗\n" ANSI_COLOR_RESET);
+	printf(ANSI_COLOR_RED "║ Não existe essa aresta! ║\n" ANSI_COLOR_RESET);
+	printf(ANSI_COLOR_RED "╚═════════════════════════╝\n" ANSI_COLOR_RESET);
 }
 
 void telaArestaAdicionado(){
@@ -162,7 +187,9 @@ void telaPrincipal(){
 	printf("║ 3 - Matriz de adjacência     ║\n");
 	printf("║ 4 - Lista de adjacência      ║\n");
 	printf("║ 5 - Carregar arquivo         ║\n");
-	printf("║ 6 - Sair                     ║\n");
+	printf("║ 6 - Remover vértice          ║\n");
+	printf("║ 7 - Remover aresta           ║\n");
+	printf("║ 8 - Sair                     ║\n");
 	printf("╚══════════════════════════════╝\n");
 	printf("╔══════════════════════════════╗\n");
 	printf("║   Digite a opção desejada:   ║\n");

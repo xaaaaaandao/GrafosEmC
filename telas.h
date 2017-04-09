@@ -13,6 +13,10 @@
 #include "lista.h"
 
 bool existeVertice(Lista*, int);
+void telaVerticeRemovido();
+void telaArestaRemovido();
+void telaSemAresta();
+void telaRemoverVertice();
 void telaLimpa();
 void telaErro();
 void telaPesoAresta();

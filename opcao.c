@@ -117,13 +117,13 @@ void opcaoAresta(Lista *l){
 		if(grafoPonderado){
 			peso = opcaoPesoAresta();
 		} else {
-			peso = 0;
+			peso = 1;
 		}
 		//quando a aresta não existe
 		if((verticeOrigem == verticeDestino) && (grafoDirigido == false)){
 			telaLimpa();
 			telaErroGrafoNaoDirigido();
-		} else if(existeAresta(l, verticeOrigem, verticeDestino, grafoDirigido, peso)){
+		} else if(insereAresta(l, verticeOrigem, verticeDestino, grafoDirigido, peso)){
 			telaLimpa();
 			telaArestaAdicionado();	
 			//printf("Origem: %d\n", verticeOrigem);
@@ -132,6 +132,47 @@ void opcaoAresta(Lista *l){
 			//quando existea a aresta
 			telaLimpa();
 			telaArestaExistente();
+		}
+	}
+}
+
+void opcaoRemoveVertice(Lista *l){
+	int id;
+	telaRemoverVertice();
+	scanf(" %d", &id);
+	if(vaziaLista(l)){
+		telaLimpa();
+		telaSemVertice();
+	} else if(existeVertice(l, id)){
+		removeVertice(l, id);
+		telaLimpa();
+		telaVerticeRemovido();
+	} else {
+		telaLimpa();
+		telaErro();
+		opcaoRemoveVertice(l);
+	}
+}
+
+void opcaoRemoveAresta(Lista *l){
+	if(vaziaLista(l)){
+		telaLimpa();
+		telaSemVertice();
+	} else {
+		//quando tem vértices
+		telaLimpa();
+		int verticeOrigem = opcaoArestaOrigem(l);
+		telaLimpa();
+		int verticeDestino = opcaoArestaDestino(l);
+		if(existeAresta(l, verticeOrigem, verticeDestino)){
+			//Verificar se é dirigido ou não
+			//Se for dirigido executa a remoção uma vez
+			//Se não for dirigido executa outra vez
+			printf("Existe a aresta");
+		} else {
+			telaLimpa();
+			telaSemAresta();
+			opcaoSecundario(l);
 		}
 	}
 }
@@ -195,6 +236,25 @@ void opcaoPrincipal(Lista *l){
 			printf("Carregar arquivo\n");
 			break;	
 		case 6:
+			telaLimpa();
+			if(vaziaLista(l)){
+				telaSemVertice();
+			} else {
+				opcaoRemoveVertice(l);
+			}
+			opcaoSecundario(l);
+			break;
+		case 7:
+			telaLimpa();
+			if(vaziaLista(l)){
+				telaSemVertice();
+			} else {
+				opcaoRemoveAresta(l);
+				printf("Remover aresta");
+			}
+			opcaoSecundario(l);
+			break;		
+		case 8:
 			sairPrograma();
 			break;	
 		default:

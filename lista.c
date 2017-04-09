@@ -3,31 +3,107 @@
 #include "lista.h"
 #include "telas.h"
 
-bool existeAresta(Lista *l, int origem, int destino, bool tipoGrafo, int peso){
+void removerInicioVertice(Lista *l){
+	No *auxiliar;
+	auxiliar = l -> primeiro;
+	l -> primeiro = l -> primeiro -> proximo;
+	free(auxiliar);
+	//l -> tamanho--;
+}
+
+
+void removerFimVertice(Lista *l){
+	No *ultimo = l -> primeiro, *penultimo = l -> primeiro;
+			 
+	while(ultimo->proximo != NULL){
+		penultimo = ultimo;
+		ultimo = ultimo->proximo;
+	}
+	
+	penultimo->proximo = NULL;
+	l -> ultimo = penultimo;
+	free(ultimo);
+//	l -> tamanho--;
+}
+
+void removerMeioVertice(Lista *l, int id){
+	No *atual = l -> primeiro, *anterior = l -> primeiro;
+			 
+	while(atual -> id != id){
+		anterior = atual;
+		atual = atual -> proximo;
+	}
+	
+	anterior -> proximo = atual -> proximo;
+	free(atual);
+}
+
+bool removeVertice(Lista *l, int id){
+	No *auxiliar = l -> primeiro;
+	while(auxiliar != NULL){
+		if(auxiliar -> id == id){
+			limpaListaAdjacente(auxiliar -> adjacente);
+			break;
+		}
+		auxiliar = auxiliar -> proximo;
+	}
+
+	if(auxiliar == l -> primeiro){
+		removerInicioVertice(l);		
+	} else if (auxiliar -> proximo == NULL){
+		removerFimVertice(l);
+	} else {
+		removerMeioVertice(l, id);
+	}
+	//remover aresta
+	//andar todos vértices de origem, e verificar se na adjacência tem o vértice
+}
+
+bool existeAresta(Lista *l, int origem, int destino){
 	No *auxiliar = l -> primeiro;
 	noAdjacente *auxiliarAdjacente;
 	while(auxiliar != NULL){
 		if(auxiliar -> id == origem){
-			if(vaziaListaAdjacente(auxiliar -> l)){
+			auxiliarAdjacente = auxiliar -> adjacente ->  primeiro;
+			while(auxiliarAdjacente != NULL){
+				if(auxiliarAdjacente -> id == destino){
+					return true;
+				}
+				auxiliarAdjacente = auxiliarAdjacente -> proximo;
+			}
+			return false;
+
+		}
+		auxiliar = auxiliar -> proximo;
+	}
+	return false;
+}
+
+bool insereAresta(Lista *l, int origem, int destino, bool tipoGrafo, int peso){
+	No *auxiliar = l -> primeiro;
+	noAdjacente *auxiliarAdjacente;
+	while(auxiliar != NULL){
+		if(auxiliar -> id == origem){
+			if(vaziaListaAdjacente(auxiliar -> adjacente)){
 				if(tipoGrafo){
-					inserirListaAdjacente(auxiliar -> l, destino, peso);
+					inserirListaAdjacente(auxiliar -> adjacente, destino, peso);
 				} else {
-					inserirListaAdjacente(auxiliar -> l, destino, peso);
-					existeAresta(l, destino, origem, tipoGrafo, peso);
+					inserirListaAdjacente(auxiliar -> adjacente, destino, peso);
+					insereAresta(l, destino, origem, tipoGrafo, peso);
 				}
 				return true;
 			} else {
-				auxiliarAdjacente = auxiliar -> l -> primeiro;
+				auxiliarAdjacente = auxiliar -> adjacente -> primeiro;
 				while(auxiliarAdjacente != NULL){
 					if(auxiliarAdjacente -> id == destino)
 						return false;
 					auxiliarAdjacente = auxiliarAdjacente -> proximo;
 				}
 				if(tipoGrafo){
-					inserirListaAdjacente(auxiliar -> l, destino, peso);
+					inserirListaAdjacente(auxiliar -> adjacente, destino, peso);
 				} else {
-					inserirListaAdjacente(auxiliar -> l, destino, peso);
-					existeAresta(l, destino, origem, tipoGrafo, peso);
+					inserirListaAdjacente(auxiliar -> adjacente, destino, peso);
+					insereAresta(l, destino, origem, tipoGrafo, peso);
 				}	
 				return true;		
 			}
@@ -159,8 +235,8 @@ void inserirLista(Lista *l){
 	novoNo -> id = l -> tamanho;
 	novoNo -> proximo = NULL;
 	
-	novoNo -> l = (listaAdjacente*) malloc (sizeof(listaAdjacente));
-	inicializarListaAdjacente(novoNo -> l);
+	novoNo -> adjacente = (listaAdjacente*) malloc (sizeof(listaAdjacente));
+	inicializarListaAdjacente(novoNo -> adjacente);
 
 	if (vaziaLista(l)){
 		l -> primeiro = novoNo;
@@ -202,7 +278,7 @@ void imprimirLista(Lista *l){
 		auxiliar = l -> primeiro;
 		while (auxiliar != NULL){ 
 			printf("Id: %d\n", auxiliar -> id);
-			imprimirListaAdjacente(auxiliar -> l, auxiliar -> id);
+			imprimirListaAdjacente(auxiliar -> adjacente, auxiliar -> id);
 			auxiliar = auxiliar -> proximo;
 		}
 	}    

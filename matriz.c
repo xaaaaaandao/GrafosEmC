@@ -26,7 +26,7 @@ void imprimirMatrizAdjacencia(Lista *l, bool tipoGrafo){
  	}
  	inicializarMatriz(matrizAdjacencia, l -> tamanho);
  	while(auxiliar != NULL){
- 		auxiliarAdjacente = auxiliar -> l -> primeiro;
+ 		auxiliarAdjacente = auxiliar -> adjacente -> primeiro;
  		while(auxiliarAdjacente != NULL){
  			if(tipoGrafo){
  				matrizAdjacencia[auxiliar -> id][auxiliarAdjacente -> id] = auxiliarAdjacente -> peso;	

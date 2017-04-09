@@ -17,7 +17,7 @@ typedef struct{
 
 typedef struct no{
 	int id;
-	listaAdjacente *l; 
+	listaAdjacente *adjacente; 
 	struct no *proximo;
 }No;
 
@@ -26,7 +26,10 @@ typedef struct{
 	int tamanho;
 }Lista;
 
-bool existeAresta(Lista*, int, int, bool, int);
+void removerInicioVertice(Lista*);
+bool existeAresta(Lista*, int, int);
+bool removeVertice(Lista*, int);
+bool insereAresta(Lista*, int, int, bool, int);
 void limpaListaAdjacente(listaAdjacente*);
 void limpaLista(Lista*);
 void inicializarListaAdjacente(listaAdjacente*);
