@@ -27,6 +27,7 @@ typedef struct{
 }Lista;
 
 void removerInicioVertice(Lista*);
+void removeAresta(Lista*, int, int);
 bool existeAresta(Lista*, int, int);
 bool removeVertice(Lista*, int);
 bool insereAresta(Lista*, int, int, bool, int);

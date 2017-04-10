@@ -165,10 +165,12 @@ void opcaoRemoveAresta(Lista *l){
 		telaLimpa();
 		int verticeDestino = opcaoArestaDestino(l);
 		if(existeAresta(l, verticeOrigem, verticeDestino)){
-			//Verificar se é dirigido ou não
-			//Se for dirigido executa a remoção uma vez
-			//Se não for dirigido executa outra vez
-			printf("Existe a aresta");
+			if(grafoDirigido){
+				removeAresta(l, verticeOrigem, verticeDestino);
+			} else {
+				removeAresta(l, verticeOrigem, verticeDestino);
+				removeAresta(l, verticeDestino, verticeOrigem);
+			}
 		} else {
 			telaLimpa();
 			telaSemAresta();
@@ -250,7 +252,6 @@ void opcaoPrincipal(Lista *l){
 				telaSemVertice();
 			} else {
 				opcaoRemoveAresta(l);
-				printf("Remover aresta");
 			}
 			opcaoSecundario(l);
 			break;		

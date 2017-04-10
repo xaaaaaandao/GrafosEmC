@@ -3,6 +3,88 @@
 #include "lista.h"
 #include "telas.h"
 
+void removerFimAresta(listaAdjacente *l){
+	noAdjacente *ultimo = l -> primeiro, *penultimo = l -> primeiro;
+			 
+	while(ultimo -> proximo != NULL){
+		penultimo = ultimo;
+		ultimo = ultimo->proximo;
+	}
+	
+	penultimo -> proximo = NULL;
+	l -> ultimo = penultimo;
+	free(ultimo);
+}
+
+void removerMeioAresta(listaAdjacente *l, int id){
+	noAdjacente *atual = l -> primeiro;
+	noAdjacente *anterior = l -> primeiro;
+	noAdjacente *proximo, *auxiliar;
+
+	atual = l -> primeiro;		 
+	while(atual -> id != id){
+		anterior = atual;
+		atual = atual -> proximo;
+	}
+	
+	auxiliar = l -> primeiro;
+	while(auxiliar != NULL){
+		if(auxiliar -> anterior == atual){
+			proximo = auxiliar;
+			break;
+		}
+		auxiliar = auxiliar -> proximo;
+	}
+
+	anterior -> proximo = atual -> proximo;
+	proximo -> anterior = anterior;
+	free(atual);
+}
+
+void removerInicioAresta(listaAdjacente* l){
+	noAdjacente *auxiliar;
+	auxiliar = l -> primeiro;
+	l -> primeiro = l -> primeiro -> proximo;
+	l -> primeiro -> anterior = NULL;
+	free(auxiliar);
+}
+
+void removeAresta(Lista *l, int origem, int destino){
+	bool achouDestino;
+	listaAdjacente *adjacente;
+	noAdjacente *auxiliarAdjacente;
+	No *auxiliar = l -> primeiro;
+	while(auxiliar != NULL){
+		if(auxiliar -> id == origem){
+			auxiliarAdjacente = auxiliar -> adjacente -> primeiro;
+			while(auxiliarAdjacente != NULL){
+				if(auxiliarAdjacente -> id == destino){
+					achouDestino = true;
+					break;
+				}
+				auxiliarAdjacente = auxiliarAdjacente -> proximo;
+			}
+			if(achouDestino){
+				break;
+			}
+		}
+		auxiliar = auxiliar -> proximo;
+	}
+
+	if(auxiliarAdjacente -> anterior == NULL && auxiliarAdjacente -> proximo == NULL){
+		free(auxiliarAdjacente);
+		auxiliar -> adjacente = (listaAdjacente*) malloc (sizeof(listaAdjacente));
+		inicializarListaAdjacente(auxiliar -> adjacente);
+	} else if(auxiliarAdjacente -> anterior == NULL){
+		removerInicioAresta(auxiliar -> adjacente);
+	} else if(auxiliarAdjacente -> proximo == NULL){
+		removerFimAresta(auxiliar -> adjacente);
+	} else {
+		removerMeioAresta(auxiliar -> adjacente, destino);
+	}
+}
+
+
 void removerInicioVertice(Lista *l){
 	No *auxiliar;
 	auxiliar = l -> primeiro;
