@@ -189,7 +189,10 @@ void telaPrincipal(){
 	printf("║ 5 - Carregar arquivo         ║\n");
 	printf("║ 6 - Remover vértice          ║\n");
 	printf("║ 7 - Remover aresta           ║\n");
-	printf("║ 8 - Sair                     ║\n");
+	printf("║ 8 - Busca em largura         ║\n");
+	printf("║ 9 - Busca em profundidade    ║\n");
+	printf("║10 - Ordenação topológica     ║\n");
+	printf("║11 - Sair                     ║\n");
 	printf("╚══════════════════════════════╝\n");
 	printf("╔══════════════════════════════╗\n");
 	printf("║   Digite a opção desejada:   ║\n");

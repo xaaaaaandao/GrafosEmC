@@ -171,6 +171,8 @@ void opcaoRemoveAresta(Lista *l){
 				removeAresta(l, verticeOrigem, verticeDestino);
 				removeAresta(l, verticeDestino, verticeOrigem);
 			}
+			telaLimpa();
+			telaArestaRemovido();
 		} else {
 			telaLimpa();
 			telaSemAresta();
@@ -256,6 +258,15 @@ void opcaoPrincipal(Lista *l){
 			opcaoSecundario(l);
 			break;		
 		case 8:
+			printf("Busca em largura");
+			break;	
+		case 9:
+			printf("Busca em profundidade");
+			break;	
+		case 10:
+			printf("Ordenação topológica");
+			break;	
+		case 11:
 			sairPrograma();
 			break;	
 		default:
