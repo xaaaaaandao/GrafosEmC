@@ -331,6 +331,14 @@ void inserirLista(Lista *l){
 	l -> tamanho++;
 }
 
+No *getAdjacente(Lista *l, int id) {
+	No *no = l -> primeiro;
+
+	while (no -> id != id)
+		no = no -> proximo; 
+	return no;
+}
+
 int tamanhoListaAdjacente(listaAdjacente *l){
 	return (l -> tamanho);
 }

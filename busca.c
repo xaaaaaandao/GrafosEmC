@@ -2,6 +2,80 @@
 #include <stdlib.h>
 #include "lista.h"
 #include "fila.h"
+#include <stdbool.h>
+
+
+bool BuscaEmProfundidade(Lista *l, No *no) {
+
+	static int tempo = 0;
+	static bool ciclico = false;
+
+	tempo++;
+	no -> tempoDescoberta = tempo;
+	no -> cor = Cinza;
+
+	noAdjacente *aux = no -> adjacente -> primeiro;
+	No *auxiliar;
+
+	while (aux != NULL) {
+		auxiliar = getAdjacente(l, aux -> id);
+		if (auxiliar -> cor == Branco) {
+			auxiliar -> pai = no -> id;
+			BuscaEmProfundidade(l, auxiliar);
+		} else if (auxiliar -> cor == Cinza){
+			ciclico = true;
+		}
+		aux = aux -> proximo;
+	}
+
+	no -> cor = Preto;
+	tempo++;
+	no -> tempoFinalizacao = tempo;
+
+	return ciclico;
+}
+
+void iniciarBuscaEmProfundidade(Lista *l) {
+
+	No *auxiliar = l -> primeiro;
+	bool ciclico;
+
+	while(auxiliar != NULL){
+		auxiliar -> cor = Branco;
+		auxiliar -> tempoDescoberta = -1;
+		auxiliar -> tempoFinalizacao = -1;
+		auxiliar -> pai = -1;
+		auxiliar = auxiliar -> proximo;
+	}
+
+	auxiliar = l -> primeiro;
+
+	while(auxiliar != NULL){
+		if (auxiliar -> cor == Branco) {
+			ciclico = BuscaEmProfundidade(l, auxiliar);
+		}
+		auxiliar = auxiliar -> proximo;
+	}	
+
+	auxiliar = l -> primeiro;
+
+	while(auxiliar != NULL){
+		
+		printf("\nid: %d\n", auxiliar -> id);
+		printf("pai: %d\n", auxiliar -> pai);
+		printf("tempo Descoberta: %d\n", auxiliar -> tempoDescoberta);
+		printf("tempo Finalizacao: %d\n", auxiliar -> tempoFinalizacao);
+		printf("cor: %d\n", auxiliar -> cor);
+
+		auxiliar = auxiliar -> proximo;
+	}	
+
+	if (ciclico) 
+		printf("Grafo Ciclico\n");
+	else
+		printf("Grafo Aciclico\n");
+
+}
 
 Fila *inicializaBuscaLargura(Lista *l){
 	Fila *f = (Fila*) malloc (sizeof(Fila));

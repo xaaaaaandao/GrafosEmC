@@ -20,6 +20,7 @@ typedef struct{
 typedef struct no{
 	int pai;
 	int tempoDescoberta;
+	int tempoFinalizacao;
 	enum coresVertices cor;
 	int id;
 	listaAdjacente *adjacente; 
@@ -44,6 +45,7 @@ int vaziaListaAdjacente(listaAdjacente*);
 int vaziaLista(Lista*);
 void inserirListaAdjacente(listaAdjacente*, int, int);
 void inserirLista(Lista*);
+No *getAdjacente(Lista*, int);
 int tamanhoListaAdjacente(listaAdjacente*);
 int tamanhoLista(Lista*);
 void imprimirListaAdjacente(listaAdjacente*, int);

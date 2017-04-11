@@ -239,7 +239,7 @@ void opcaoPrincipal(Lista *l){
 			break;	
 		case 5:
 			printf("Carregar arquivo\n");
-			inserirLista(l);
+			/*inserirLista(l);
 			inserirLista(l);
 			inserirLista(l);
 			inserirLista(l);
@@ -256,7 +256,21 @@ void opcaoPrincipal(Lista *l){
 			insereAresta(l, 3, 8, false, 1);
 			insereAresta(l, 4, 5, false, 1);
 			insereAresta(l, 6, 7, false, 1);
-			insereAresta(l, 7, 8, false, 1);
+			insereAresta(l, 7, 8, false, 1);*/
+			inserirLista(l);
+			inserirLista(l);
+			inserirLista(l);
+			inserirLista(l);
+			inserirLista(l);
+			inserirLista(l);
+			insereAresta(l, 1, 2, true, 1);
+			insereAresta(l, 1, 4, true, 1);
+			insereAresta(l, 2, 5, true, 1);
+			insereAresta(l, 3, 5, true, 1);
+			insereAresta(l, 3, 6, true, 1);
+			insereAresta(l, 4, 2, true, 1);
+			insereAresta(l, 5, 4, true, 1);
+			insereAresta(l, 6, 6, true, 1);
 			opcaoSecundario(l);
 			break;	
 		case 6:
@@ -283,6 +297,8 @@ void opcaoPrincipal(Lista *l){
 			break;	
 		case 9:
 			printf("Busca em profundidade");
+			iniciarBuscaEmProfundidade(l); 
+			opcaoSecundario(l);
 			break;	
 		case 10:
 			printf("Ordenação topológica");
