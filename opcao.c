@@ -4,6 +4,7 @@
 #include "matriz.h"
 #include "opcao.h"
 #include "telas.h"
+#include "busca.h"
 
 bool grafoDirigido;
 bool grafoPonderado;
@@ -238,6 +239,25 @@ void opcaoPrincipal(Lista *l){
 			break;	
 		case 5:
 			printf("Carregar arquivo\n");
+			inserirLista(l);
+			inserirLista(l);
+			inserirLista(l);
+			inserirLista(l);
+			inserirLista(l);
+			inserirLista(l);
+			inserirLista(l);
+			inserirLista(l);
+			insereAresta(l, 1, 6, false, 1);
+			insereAresta(l, 1, 4, false, 1);
+			insereAresta(l, 2, 3, false, 1);
+			insereAresta(l, 2, 6, false, 1);
+			insereAresta(l, 2, 7, false, 1);
+			insereAresta(l, 3, 7, false, 1);
+			insereAresta(l, 3, 8, false, 1);
+			insereAresta(l, 4, 5, false, 1);
+			insereAresta(l, 6, 7, false, 1);
+			insereAresta(l, 7, 8, false, 1);
+			opcaoSecundario(l);
 			break;	
 		case 6:
 			telaLimpa();
@@ -258,7 +278,8 @@ void opcaoPrincipal(Lista *l){
 			opcaoSecundario(l);
 			break;		
 		case 8:
-			printf("Busca em largura");
+			buscaLargura(l);
+			opcaoSecundario(l);
 			break;	
 		case 9:
 			printf("Busca em profundidade");

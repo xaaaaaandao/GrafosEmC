@@ -3,6 +3,8 @@
 
 #include <stdbool.h>
 
+enum coresVertices{Branco = 1, Cinza = 2, Preto = 3};
+
 typedef struct noadjacente{
 	int id;
 	int peso;
@@ -16,6 +18,9 @@ typedef struct{
 }listaAdjacente;
 
 typedef struct no{
+	int pai;
+	int tempoDescoberta;
+	enum coresVertices cor;
 	int id;
 	listaAdjacente *adjacente; 
 	struct no *proximo;
