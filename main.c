@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "lista.h"
-#include "telas.h"
 #include "opcao.h"
+#include "telas.h"
 
 int main(){
 	Lista *l = (Lista*) malloc (sizeof(Lista));

@@ -2,9 +2,36 @@
 #include <stdlib.h>
 #include "telas.h"
 
+/* Limpa a tela */
 void telaLimpa(){
 	system("clear");
 }
+
+/* Telas de mensagens */
+void telaBuscaEmProfundidade(){
+	printf(ANSI_COLOR_GREEN "╔════════════════════════╗\n" ANSI_COLOR_RESET);
+	printf(ANSI_COLOR_GREEN "║ Busca em Profundidade! ║\n" ANSI_COLOR_RESET);
+	printf(ANSI_COLOR_GREEN "╚════════════════════════╝\n" ANSI_COLOR_RESET);
+}
+
+void telaBuscaEmLargura(){
+	printf(ANSI_COLOR_GREEN "╔═══════════════════╗\n" ANSI_COLOR_RESET);
+	printf(ANSI_COLOR_GREEN "║ Busca em Largura! ║\n" ANSI_COLOR_RESET);
+	printf(ANSI_COLOR_GREEN "╚═══════════════════╝\n" ANSI_COLOR_RESET);
+}
+
+void telaExemploGrafoDirigido(){
+	printf(ANSI_COLOR_GREEN "╔═══════════════════════════════════════╗\n" ANSI_COLOR_RESET);
+	printf(ANSI_COLOR_GREEN "║ Exemplo de Grafo dirigido adicionado! ║\n" ANSI_COLOR_RESET);
+	printf(ANSI_COLOR_GREEN "╚═══════════════════════════════════════╝\n" ANSI_COLOR_RESET);
+}
+
+void telaExemploGrafoNaoDirigido(){
+	printf(ANSI_COLOR_GREEN "╔═══════════════════════════════════════════╗\n" ANSI_COLOR_RESET);
+	printf(ANSI_COLOR_GREEN "║ Exemplo de Grafo não-dirigido adicionado! ║\n" ANSI_COLOR_RESET);
+	printf(ANSI_COLOR_GREEN "╚═══════════════════════════════════════════╝\n" ANSI_COLOR_RESET);
+}
+
 
 void telaVerticeRemovido(){
 	printf(ANSI_COLOR_GREEN "╔═══════════════════════════════╗\n" ANSI_COLOR_RESET);
@@ -16,19 +43,6 @@ void telaArestaRemovido(){
 	printf(ANSI_COLOR_GREEN "╔══════════════════════════════╗\n" ANSI_COLOR_RESET);
 	printf(ANSI_COLOR_GREEN "║ Aresta removida com sucesso! ║\n" ANSI_COLOR_RESET);
 	printf(ANSI_COLOR_GREEN "╚══════════════════════════════╝\n" ANSI_COLOR_RESET);
-}
-
-void telaRemoverVertice(){
-	printf("╔═══════════════════════════════════════╗\n");
-	printf("║ Digite o id do vértice a ser removido ║\n");
-	printf("╚═══════════════════════════════════════╝\n");
-	printf("> ");
-}
-
-void telaPesoAresta(){
-	printf("╔══════════════════════════════╗\n");
-	printf("║ Digite o peso da sua aresta  ║\n");
-	printf("╚══════════════════════════════╝\n");
 }
 
 void telaErro(){
@@ -103,20 +117,6 @@ void telaGrafoEhNaoPonderado(){
 	printf(ANSI_COLOR_GREEN "╚════════════════════════════════════╝\n" ANSI_COLOR_RESET);
 }
 
-void telaArestaOrigem(){
-	printf("╔════════════════════════════╗\n");
-	printf("║ Digite o vértice de origem ║\n");
-	printf("╚════════════════════════════╝\n");
-	printf("> ");
-}
-
-void telaArestaDestino(){
-	printf("╔═════════════════════════════╗\n");
-	printf("║ Digite o vértice de destino ║\n");
-	printf("╚═════════════════════════════╝\n");
-	printf("> ");
-}
-
 void telaVerticeAdicionado(int id){
 	if(id < 10){
 		printf(ANSI_COLOR_GREEN "╔═════════════════════════════════════════╗\n" ANSI_COLOR_RESET);
@@ -135,6 +135,35 @@ void telaVerticeAdicionado(int id){
 		printf(ANSI_COLOR_GREEN "║ O vértice %d foi adicionado com sucesso! ║\n" ANSI_COLOR_RESET, id);
 		printf(ANSI_COLOR_GREEN "╚════════════════════════════════════════════╝\n" ANSI_COLOR_RESET);				
 	}
+}
+
+/* Telas de mensagem de valores */
+void telaRemoverVertice(){
+	printf("╔═══════════════════════════════════════╗\n");
+	printf("║ Digite o id do vértice a ser removido ║\n");
+	printf("╚═══════════════════════════════════════╝\n");
+	printf("> ");
+}
+
+void telaPesoAresta(){
+	printf("╔══════════════════════════════╗\n");
+	printf("║ Digite o peso da sua aresta  ║\n");
+	printf("╚══════════════════════════════╝\n");
+	printf("> ");
+}
+
+void telaArestaOrigem(){
+	printf("╔════════════════════════════╗\n");
+	printf("║ Digite o vértice de origem ║\n");
+	printf("╚════════════════════════════╝\n");
+	printf("> ");
+}
+
+void telaArestaDestino(){
+	printf("╔═════════════════════════════╗\n");
+	printf("║ Digite o vértice de destino ║\n");
+	printf("╚═════════════════════════════╝\n");
+	printf("> ");
 }
 
 void telaContinuar(){
@@ -200,3 +229,16 @@ void telaPrincipal(){
 	printf("> ");
 }
 
+void telaExemploCarregaArquivo(){
+	printf("╔════════════════════════════════╗\n");
+	printf("║    Escolha a opção desejada    ║\n");
+	printf("╠════════════════════════════════╣\n");
+	printf("║ 1 - Exemplo grafo dirigido     ║\n");
+	printf("║ 2 - Exemplo grafo não-dirigido ║\n");
+	printf("║ 3 - Sair                       ║\n");
+	printf("╚════════════════════════════════╝\n");
+	printf("╔════════════════════════════════╗\n");
+	printf("║    Digite a opção desejada:    ║\n");
+	printf("╚════════════════════════════════╝\n");
+	printf("> ");
+}

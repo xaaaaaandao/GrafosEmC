@@ -32,11 +32,19 @@ typedef struct{
 	int tamanho;
 }Lista;
 
-void removerInicioVertice(Lista*);
+void exemploGrafoNaoDirigido(Lista*);
+void exemploGrafoDirigido(Lista*);
+void removerFimAresta(listaAdjacente*);
+void removerMeioAresta(listaAdjacente*, int);
+void removerInicioAresta(listaAdjacente*);
 void removeAresta(Lista*, int, int);
-bool existeAresta(Lista*, int, int);
+void removerInicioVertice(Lista*);
+void removerFimVertice(Lista*);
+void removerMeioVertice(Lista*, int);
 bool removeVertice(Lista*, int);
+bool existeAresta(Lista*, int, int);
 bool insereAresta(Lista*, int, int, bool, int);
+bool existeVertice(Lista*, int);
 void limpaListaAdjacente(listaAdjacente*);
 void limpaLista(Lista*);
 void inicializarListaAdjacente(listaAdjacente*);
@@ -50,6 +58,5 @@ int tamanhoListaAdjacente(listaAdjacente*);
 int tamanhoLista(Lista*);
 void imprimirListaAdjacente(listaAdjacente*, int);
 void imprimirLista(Lista*);
-
 
 #endif /* LISTA_H */

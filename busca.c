@@ -1,9 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "lista.h"
-#include "fila.h"
 #include <stdbool.h>
+#include "busca.h"
+#include "telas.h"
 
+/* Operações da busca em profundidade */
 
 bool BuscaEmProfundidade(Lista *l, No *no) {
 
@@ -35,7 +36,7 @@ bool BuscaEmProfundidade(Lista *l, No *no) {
 	return ciclico;
 }
 
-void iniciarBuscaEmProfundidade(Lista *l) {
+bool iniciarBuscaEmProfundidade(Lista *l) {
 
 	No *auxiliar = l -> primeiro;
 	bool ciclico;
@@ -56,26 +57,15 @@ void iniciarBuscaEmProfundidade(Lista *l) {
 		}
 		auxiliar = auxiliar -> proximo;
 	}	
-
-	auxiliar = l -> primeiro;
-
-	while(auxiliar != NULL){
-		
-		printf("\nid: %d\n", auxiliar -> id);
-		printf("pai: %d\n", auxiliar -> pai);
-		printf("tempo Descoberta: %d\n", auxiliar -> tempoDescoberta);
-		printf("tempo Finalizacao: %d\n", auxiliar -> tempoFinalizacao);
-		printf("cor: %d\n", auxiliar -> cor);
-
-		auxiliar = auxiliar -> proximo;
-	}	
-
-	if (ciclico) 
-		printf("Grafo Ciclico\n");
-	else
-		printf("Grafo Aciclico\n");
-
 }
+
+void buscaProfundidade(Lista *l){
+	bool ciclico = inicializaBuscaLargura(l);
+	//Imprimir a árvore
+	telaBuscaEmProfundidade();
+}
+
+/* Operações da busca em largura */
 
 Fila *inicializaBuscaLargura(Lista *l){
 	Fila *f = (Fila*) malloc (sizeof(Fila));
@@ -98,7 +88,6 @@ Fila *inicializaBuscaLargura(Lista *l){
 	return f;
 }
 
-//coloca os valores e enfilerar
 void preencheCorValorEnfilera(Lista *l, int id, Fila *f, int tempoDescoberta, int pai){
 	No *auxiliar = l -> primeiro;
 	while(auxiliar != NULL){
@@ -111,7 +100,6 @@ void preencheCorValorEnfilera(Lista *l, int id, Fila *f, int tempoDescoberta, in
 		auxiliar = auxiliar -> proximo;
 	}
 }
-
 
 void realizaBuscaLargura(Lista *l, Fila *f){
 	No *auxiliar;
@@ -138,12 +126,6 @@ void realizaBuscaLargura(Lista *l, Fila *f){
 void buscaLargura(Lista *l){
 	Fila *filaBuscaLargura = inicializaBuscaLargura(l);
 	realizaBuscaLargura(l , filaBuscaLargura);
-	No *auxiliar = l -> primeiro;
-	while(auxiliar != NULL){
-		printf("id: %d\n", auxiliar -> id);
-		printf("pai: %d\n", auxiliar -> pai);
-		printf("tempoDescoberta: %d\n", auxiliar -> tempoDescoberta);
-		printf("cor: %d\n\n", auxiliar -> cor);
-		auxiliar = auxiliar -> proximo;
-	}
+	//Imprimir a árovre
+	telaBuscaEmLargura();
 }

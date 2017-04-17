@@ -1,68 +1,21 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include "busca.h"
 #include "matriz.h"
 #include "opcao.h"
 #include "telas.h"
-#include "busca.h"
 
 bool grafoDirigido;
 bool grafoPonderado;
+
+/* Sai do programa */
 
 void sairPrograma(){
 	exit(1);
 }
 
-void opcaoGrafo(){
-	int opcao;
-	telaGrafo();
-	scanf(" %d", &opcao);
-	switch(opcao){
-		case 1:
-			telaLimpa();
-			grafoDirigido = true;
-			telaGrafoEhDirigido();
-			break;
-		case 2:
-			telaLimpa();
-			grafoDirigido = false;
-			telaGrafoEhNaoDirigido();
-			break;
-		case 3:
-			sairPrograma();
-			break;	
-		default:
-			telaLimpa();		
-			telaErro();
-			opcaoGrafo();
-	}
-}
-
-void opcaoGrafoPonderado(){
-	int opcao;
-	telaGrafoPonderado();
-	scanf(" %d", &opcao);
-	switch(opcao){
-		case 1:
-			telaLimpa();
-			grafoPonderado = true;
-			telaGrafoEhPonderado();
-			break;
-		case 2:
-			telaLimpa();
-			grafoPonderado = false;
-			telaGrafoEhNaoPonderado();
-			break;
-		case 3:
-			sairPrograma();
-			break;	
-		default:
-			telaLimpa();		
-			telaErro();
-			opcaoGrafoPonderado();
-	}
-}
-
+/* Vértice de origem da aresta */
 int opcaoArestaOrigem(Lista *l){
 	int opcao;
 	telaArestaOrigem();
@@ -76,6 +29,7 @@ int opcaoArestaOrigem(Lista *l){
 	}
 }
 
+/* Vértice de destino da aresta */
 int opcaoArestaDestino(Lista *l){
 	int opcao;
 	telaArestaDestino();
@@ -89,6 +43,7 @@ int opcaoArestaDestino(Lista *l){
 	}	
 }
 
+/* Peso da aresta */
 int opcaoPesoAresta(){
 	int opcao;
 	telaPesoAresta();
@@ -102,6 +57,7 @@ int opcaoPesoAresta(){
 	}
 }
 
+/* Adiciona uma nova aresta */
 void opcaoAresta(Lista *l){
 	//quando não tem vértices
 	if(vaziaLista(l)){
@@ -137,6 +93,7 @@ void opcaoAresta(Lista *l){
 	}
 }
 
+/* Verifica qual vértice remover */
 void opcaoRemoveVertice(Lista *l){
 	int id;
 	telaRemoverVertice();
@@ -155,6 +112,7 @@ void opcaoRemoveVertice(Lista *l){
 	}
 }
 
+/* Verifica qual aresta quer remover */
 void opcaoRemoveAresta(Lista *l){
 	if(vaziaLista(l)){
 		telaLimpa();
@@ -182,6 +140,86 @@ void opcaoRemoveAresta(Lista *l){
 	}
 }
 
+/* Verifica se é um grafo dirigido ou não */
+void opcaoGrafo(){
+	int opcao;
+	telaGrafo();
+	scanf(" %d", &opcao);
+	switch(opcao){
+		case 1:
+			telaLimpa();
+			grafoDirigido = true;
+			telaGrafoEhDirigido();
+			break;
+		case 2:
+			telaLimpa();
+			grafoDirigido = false;
+			telaGrafoEhNaoDirigido();
+			break;
+		case 3:
+			sairPrograma();
+			break;	
+		default:
+			telaLimpa();		
+			telaErro();
+			opcaoGrafo();
+			break;
+	}
+}
+
+/* Verificar se é grafo ponderado ou não */
+void opcaoGrafoPonderado(){
+	int opcao;
+	telaGrafoPonderado();
+	scanf(" %d", &opcao);
+	switch(opcao){
+		case 1:
+			telaLimpa();
+			grafoPonderado = true;
+			telaGrafoEhPonderado();
+			break;
+		case 2:
+			telaLimpa();
+			grafoPonderado = false;
+			telaGrafoEhNaoPonderado();
+			break;
+		case 3:
+			sairPrograma();
+			break;	
+		default:
+			telaLimpa();		
+			telaErro();
+			opcaoGrafoPonderado();
+			break;
+	}
+}
+
+/* Verificar se quer usar os exemplos */
+void opcaoCarregarArquivo(Lista *l){
+	int opcao;
+	telaExemploCarregaArquivo();
+	scanf(" %d", &opcao);
+	switch(opcao){
+		case 1:
+			telaExemploGrafoDirigido();
+			exemploGrafoDirigido(l);
+			break;
+		case 2:
+			telaExemploGrafoNaoDirigido();
+			exemploGrafoNaoDirigido(l);
+			break;
+		case 3:
+			sairPrograma();
+			break;	
+		default:
+			telaLimpa();		
+			telaErro();
+			opcaoSecundario(l);
+			break;
+	}
+}
+
+/* Verifica se deseja continuar ou sair */
 void opcaoSecundario(Lista *l){
 	int opcao;
 	telaContinuar();
@@ -198,9 +236,11 @@ void opcaoSecundario(Lista *l){
 			telaLimpa();		
 			telaErro();
 			opcaoSecundario(l);
+			break;
 	}
 }
 
+/* Chama as demais funções */
 void opcaoPrincipal(Lista *l){
 	int opcao;
 	telaPrincipal();
@@ -238,39 +278,11 @@ void opcaoPrincipal(Lista *l){
 			opcaoSecundario(l);
 			break;	
 		case 5:
-			printf("Carregar arquivo\n");
-			/*inserirLista(l);
-			inserirLista(l);
-			inserirLista(l);
-			inserirLista(l);
-			inserirLista(l);
-			inserirLista(l);
-			inserirLista(l);
-			inserirLista(l);
-			insereAresta(l, 1, 6, false, 1);
-			insereAresta(l, 1, 4, false, 1);
-			insereAresta(l, 2, 3, false, 1);
-			insereAresta(l, 2, 6, false, 1);
-			insereAresta(l, 2, 7, false, 1);
-			insereAresta(l, 3, 7, false, 1);
-			insereAresta(l, 3, 8, false, 1);
-			insereAresta(l, 4, 5, false, 1);
-			insereAresta(l, 6, 7, false, 1);
-			insereAresta(l, 7, 8, false, 1);*/
-			inserirLista(l);
-			inserirLista(l);
-			inserirLista(l);
-			inserirLista(l);
-			inserirLista(l);
-			inserirLista(l);
-			insereAresta(l, 1, 2, true, 1);
-			insereAresta(l, 1, 4, true, 1);
-			insereAresta(l, 2, 5, true, 1);
-			insereAresta(l, 3, 5, true, 1);
-			insereAresta(l, 3, 6, true, 1);
-			insereAresta(l, 4, 2, true, 1);
-			insereAresta(l, 5, 4, true, 1);
-			insereAresta(l, 6, 6, true, 1);
+			if(vaziaLista(l)){
+				telaSemVertice();
+			} else {
+				opcaoCarregarArquivo(l);
+			}
 			opcaoSecundario(l);
 			break;	
 		case 6:
@@ -296,8 +308,7 @@ void opcaoPrincipal(Lista *l){
 			opcaoSecundario(l);
 			break;	
 		case 9:
-			printf("Busca em profundidade");
-			iniciarBuscaEmProfundidade(l); 
+			buscaProfundidade(l); 
 			opcaoSecundario(l);
 			break;	
 		case 10:
@@ -310,5 +321,6 @@ void opcaoPrincipal(Lista *l){
 			telaLimpa();		
 			telaErro();
 			opcaoPrincipal(l);
+			break;
 	}
 }

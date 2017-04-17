@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include "matriz.h"
 
+/* Operações de matriz */
+
 void inicializarMatriz(int **matriz, int tamanho){
 	int i, j;
 	for(i = 0; i < tamanho; i++){

@@ -3,6 +3,38 @@
 #include "lista.h"
 #include "telas.h"
 
+/* Carregar arquivos */
+
+void exemploGrafoNaoDirigido(Lista *l){
+	for(int i = 0; i < 8; i++)
+		inserirLista(l);
+	insereAresta(l, 1, 6, false, 1);
+	insereAresta(l, 1, 4, false, 1);
+	insereAresta(l, 2, 3, false, 1);
+	insereAresta(l, 2, 6, false, 1);
+	insereAresta(l, 2, 7, false, 1);
+	insereAresta(l, 3, 7, false, 1);
+	insereAresta(l, 3, 8, false, 1);
+	insereAresta(l, 4, 5, false, 1);
+	insereAresta(l, 6, 7, false, 1);
+	insereAresta(l, 7, 8, false, 1);
+}
+
+void exemploGrafoDirigido(Lista *l){
+	for(int i = 0; i < 6; i++)
+		inserirLista(l);
+	insereAresta(l, 1, 2, true, 1);
+	insereAresta(l, 1, 4, true, 1);
+	insereAresta(l, 2, 5, true, 1);
+	insereAresta(l, 3, 5, true, 1);
+	insereAresta(l, 3, 6, true, 1);
+	insereAresta(l, 4, 2, true, 1);
+	insereAresta(l, 5, 4, true, 1);
+	insereAresta(l, 6, 6, true, 1);
+}
+
+/* Operações de lista */
+
 void removerFimAresta(listaAdjacente *l){
 	noAdjacente *ultimo = l -> primeiro, *penultimo = l -> primeiro;
 			 
@@ -90,7 +122,6 @@ void removerInicioVertice(Lista *l){
 	auxiliar = l -> primeiro;
 	l -> primeiro = l -> primeiro -> proximo;
 	free(auxiliar);
-	//l -> tamanho--;
 }
 
 
@@ -105,7 +136,6 @@ void removerFimVertice(Lista *l){
 	penultimo->proximo = NULL;
 	l -> ultimo = penultimo;
 	free(ultimo);
-//	l -> tamanho--;
 }
 
 void removerMeioVertice(Lista *l, int id){
@@ -137,8 +167,6 @@ bool removeVertice(Lista *l, int id){
 	} else {
 		removerMeioVertice(l, id);
 	}
-	//remover aresta
-	//andar todos vértices de origem, e verificar se na adjacência tem o vértice
 }
 
 bool existeAresta(Lista *l, int origem, int destino){
