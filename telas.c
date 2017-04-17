@@ -8,6 +8,12 @@ void telaLimpa(){
 }
 
 /* Telas de mensagens */
+void telaOrdenacaoTopologica(){
+	printf(ANSI_COLOR_GREEN "╔═══════════════════════╗\n" ANSI_COLOR_RESET);
+	printf(ANSI_COLOR_GREEN "║ Ordenação topológica! ║\n" ANSI_COLOR_RESET);
+	printf(ANSI_COLOR_GREEN "╚═══════════════════════╝\n" ANSI_COLOR_RESET);
+}
+
 void telaBuscaEmProfundidade(){
 	printf(ANSI_COLOR_GREEN "╔════════════════════════╗\n" ANSI_COLOR_RESET);
 	printf(ANSI_COLOR_GREEN "║ Busca em Profundidade! ║\n" ANSI_COLOR_RESET);
