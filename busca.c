@@ -57,6 +57,8 @@ bool iniciarBuscaEmProfundidade(Lista *l) {
 		}
 		auxiliar = auxiliar -> proximo;
 	}	
+
+	return ciclico;
 }
 
 void buscaProfundidade(Lista *l){

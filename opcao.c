@@ -278,11 +278,7 @@ void opcaoPrincipal(Lista *l){
 			opcaoSecundario(l);
 			break;	
 		case 5:
-			if(vaziaLista(l)){
-				telaSemVertice();
-			} else {
-				opcaoCarregarArquivo(l);
-			}
+			opcaoCarregarArquivo(l);
 			opcaoSecundario(l);
 			break;	
 		case 6:
@@ -312,9 +308,19 @@ void opcaoPrincipal(Lista *l){
 			opcaoSecundario(l);
 			break;	
 		case 10:
-			printf("Ordenação topológica");
+			printf("Ordenação topológica\n");
 			break;	
 		case 11:
+			//printf("Grafo ciclico ou aciclico\n");
+
+			if(inicializaBuscaLargura(l)){
+				telaGrafoCiclico();
+			} else {
+				telaGrafoAciclico();
+			}
+			opcaoSecundario(l);
+			break;
+		case 12:
 			sairPrograma();
 			break;	
 		default:

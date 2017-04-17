@@ -8,6 +8,18 @@ void telaLimpa(){
 }
 
 /* Telas de mensagens */
+void telaGrafoAciclico(){
+	printf(ANSI_COLOR_GREEN "╔═════════════════╗\n" ANSI_COLOR_RESET);
+	printf(ANSI_COLOR_GREEN "║ Grafo aciclico! ║\n" ANSI_COLOR_RESET);
+	printf(ANSI_COLOR_GREEN "╚═════════════════╝\n" ANSI_COLOR_RESET);
+}
+
+void telaGrafoCiclico(){
+	printf(ANSI_COLOR_GREEN "╔════════════════╗\n" ANSI_COLOR_RESET);
+	printf(ANSI_COLOR_GREEN "║ Grafo ciclico! ║\n" ANSI_COLOR_RESET);
+	printf(ANSI_COLOR_GREEN "╚════════════════╝\n" ANSI_COLOR_RESET);
+}
+
 void telaOrdenacaoTopologica(){
 	printf(ANSI_COLOR_GREEN "╔═══════════════════════╗\n" ANSI_COLOR_RESET);
 	printf(ANSI_COLOR_GREEN "║ Ordenação topológica! ║\n" ANSI_COLOR_RESET);
@@ -227,7 +239,8 @@ void telaPrincipal(){
 	printf("║ 8 - Busca em largura         ║\n");
 	printf("║ 9 - Busca em profundidade    ║\n");
 	printf("║10 - Ordenação topológica     ║\n");
-	printf("║11 - Sair                     ║\n");
+	printf("║11 - Grafo ciclico ou aciclico║\n");
+	printf("║12 - Sair                     ║\n");
 	printf("╚══════════════════════════════╝\n");
 	printf("╔══════════════════════════════╗\n");
 	printf("║   Digite a opção desejada:   ║\n");
