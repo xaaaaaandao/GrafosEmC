@@ -1,0 +1,13 @@
+language: c
+
+compiler: gcc 
+
+os: linux
+
+script: make all
+
+notifications:
+  email:
+    recipients:
+      - alexandre.ykz@gmail.com
+    on_success: always

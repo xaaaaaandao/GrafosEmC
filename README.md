@@ -1,25 +1,29 @@
-# Teoria dos Grafos - UTFPR - CM - (2017-1)
+# Grafos
 
-Implementação de Grafos na linguagem de programação em C. Para executar esse programa, você deve acessar o local dos arquivos pelo terminal e executar pelo comando make ou make all. 
+Teoria dos Grafos - UTFPR - CM - (2017-1)
 
-### Requisitos
-
-Precisa ter instalado o compilador GCC e um editor de texto da sua preferência
+### Execução
 
 ```
-sudo apt-get install gcc
+$ git clone https://github.com/xaaaaaandao/GrafosEmC.git
+
+$ make all
+```
+
+### Compilar
+
+```
+$ make compile
 ```
 
 ### Compilar e executar
 
-Para evitar de ter que compilar todas as bibliotecas manualmente, criamos um arquivo Makefile. Então para compilar devemos que dar o seguinte comando:
-
 ```
-make compile
+$ make all
 ```
 
-Já para compilar e executar
+### Executar
 
 ```
-make all
+$ ./main
 ```
