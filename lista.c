@@ -6,7 +6,8 @@
 /* Carregar arquivos */
 
 void exemploGrafoNaoDirigido(Lista *l){
-	for(int i = 0; i < 8; i++)
+	int i;
+	for(i = 0; i < 8; i++)
 		inserirLista(l);
 	insereAresta(l, 1, 6, false, 1);
 	insereAresta(l, 1, 4, false, 1);
@@ -21,7 +22,8 @@ void exemploGrafoNaoDirigido(Lista *l){
 }
 
 void exemploGrafoDirigido(Lista *l){
-	for(int i = 0; i < 6; i++)
+	int i;
+	for(i = 0; i < 6; i++)
 		inserirLista(l);
 	insereAresta(l, 1, 2, true, 1);
 	insereAresta(l, 1, 4, true, 1);
