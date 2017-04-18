@@ -62,8 +62,24 @@ bool iniciarBuscaEmProfundidade(Lista *l) {
 }
 
 void buscaProfundidade(Lista *l){
-	bool ciclico = inicializaBuscaLargura(l);
-	//Imprimir a árvore
+	bool ciclico = iniciarBuscaEmProfundidade(l);
+	No *aux = l->primeiro;
+	No *auxiliar;
+	
+	while(aux != NULL) {
+		if(aux -> pai == -1)
+			printf("Raíz e Pai: %d\n", aux -> id);
+		else 
+			printf("Pai: %d\n", aux -> id);
+		auxiliar = l -> primeiro;
+		while (auxiliar != NULL) {
+			if (auxiliar -> pai == aux -> id)
+				printf("Filho: %d\n", auxiliar -> id);
+			auxiliar = auxiliar -> proximo;
+		}
+		aux = aux -> proximo;
+	}
+
 	telaBuscaEmProfundidade();
 }
 
@@ -126,8 +142,26 @@ void realizaBuscaLargura(Lista *l, Fila *f){
 }
 
 void buscaLargura(Lista *l){
+
+	No *aux = l->primeiro;
+	No *auxiliar;
+	
 	Fila *filaBuscaLargura = inicializaBuscaLargura(l);
 	realizaBuscaLargura(l , filaBuscaLargura);
-	//Imprimir a árovre
+	
+	while(aux != NULL) {
+		if(aux -> pai == -1)
+			printf("Raíz e Pai: %d\n", aux -> id);
+		else 
+			printf("Pai: %d\n", aux -> id);
+		auxiliar = l -> primeiro;
+		while (auxiliar != NULL) {
+			if (auxiliar -> pai == aux -> id)
+				printf("Filho: %d\n", auxiliar -> id);
+			auxiliar = auxiliar -> proximo;
+		}
+		aux = aux -> proximo;
+	}
+
 	telaBuscaEmLargura();
 }
