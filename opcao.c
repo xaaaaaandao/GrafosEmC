@@ -201,10 +201,12 @@ void opcaoCarregarArquivo(Lista *l){
 	scanf(" %d", &opcao);
 	switch(opcao){
 		case 1:
+			telaLimpa();
 			telaExemploGrafoDirigido();
 			exemploGrafoDirigido(l);
 			break;
 		case 2:
+			telaLimpa();
 			telaExemploGrafoNaoDirigido();
 			exemploGrafoNaoDirigido(l);
 			break;
@@ -278,6 +280,7 @@ void opcaoPrincipal(Lista *l){
 			opcaoSecundario(l);
 			break;	
 		case 5:
+			telaLimpa();
 			opcaoCarregarArquivo(l);
 			opcaoSecundario(l);
 			break;	
@@ -300,20 +303,37 @@ void opcaoPrincipal(Lista *l){
 			opcaoSecundario(l);
 			break;		
 		case 8:
-			buscaLargura(l);
+			telaLimpa();
+			if(vaziaLista(l)){
+				telaSemVertice();
+			} else {
+				buscaLargura(l);	
+			}
 			opcaoSecundario(l);
 			break;	
 		case 9:
-			buscaProfundidade(l); 
+			telaLimpa();
+			if(vaziaLista(l)){
+				telaSemVertice();
+			} else {
+				buscaProfundidade(l);
+			}
 			opcaoSecundario(l);
 			break;	
 		case 10:
-			printf("Ordenação topológica\n");
+			telaLimpa();
+			if(vaziaLista(l)){
+				telaSemVertice();
+			} else {
+				printf("Ordenação topológica\n");
+			}
+			opcaoSecundario(l);
 			break;	
 		case 11:
-			//printf("Grafo ciclico ou aciclico\n");
-
-			if(inicializaBuscaLargura(l)){
+			telaLimpa();
+			if(vaziaLista(l)){
+				telaSemVertice();
+			} else if(inicializaBuscaLargura(l)){
 				telaGrafoCiclico();
 			} else {
 				telaGrafoAciclico();
