@@ -333,7 +333,7 @@ void opcaoPrincipal(Lista *l){
 			telaLimpa();
 			if(vaziaLista(l)){
 				telaSemVertice();
-			} else if(inicializaBuscaLargura(l)){
+			} else if(iniciarBuscaEmProfundidade(l)){
 				telaGrafoCiclico();
 			} else {
 				telaGrafoAciclico();
