@@ -341,6 +341,16 @@ void opcaoPrincipal(Lista *l){
 			opcaoSecundario(l);
 			break;
 		case 12:
+			telaLimpa();
+			if(vaziaLista(l)){
+				telaSemVertice();
+			} else {
+				telaComponenteFortementeConexa();
+				printf("Componente fortemente conexa\n");
+			}
+			opcaoSecundario(l);
+			break;
+		case 13:
 			sairPrograma();
 			break;	
 		default:

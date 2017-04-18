@@ -8,6 +8,12 @@ void telaLimpa(){
 }
 
 /* Telas de mensagens */
+void telaComponenteFortementeConexa(){
+	printf(ANSI_COLOR_GREEN "╔═══════════════════════════════╗\n" ANSI_COLOR_RESET);
+	printf(ANSI_COLOR_GREEN "║ Componente fortemente conexa! ║\n" ANSI_COLOR_RESET);
+	printf(ANSI_COLOR_GREEN "╚═══════════════════════════════╝\n" ANSI_COLOR_RESET);
+}
+
 void telaGrafoAciclico(){
 	printf(ANSI_COLOR_GREEN "╔═════════════════╗\n" ANSI_COLOR_RESET);
 	printf(ANSI_COLOR_GREEN "║ Grafo aciclico! ║\n" ANSI_COLOR_RESET);
@@ -226,22 +232,23 @@ void telaGrafoPonderado(){
 }
 
 void telaPrincipal(){
-	printf("╔══════════════════════════════╗\n");
-	printf("║   Escolha a opção desejada   ║\n");
-	printf("╠══════════════════════════════╣\n");
-	printf("║ 1 - Inserir vértice          ║\n");
-	printf("║ 2 - Inserir aresta           ║\n");
-	printf("║ 3 - Matriz de adjacência     ║\n");
-	printf("║ 4 - Lista de adjacência      ║\n");
-	printf("║ 5 - Carregar arquivo         ║\n");
-	printf("║ 6 - Remover vértice          ║\n");
-	printf("║ 7 - Remover aresta           ║\n");
-	printf("║ 8 - Busca em largura         ║\n");
-	printf("║ 9 - Busca em profundidade    ║\n");
-	printf("║10 - Ordenação topológica     ║\n");
-	printf("║11 - Grafo ciclico ou aciclico║\n");
-	printf("║12 - Sair                     ║\n");
-	printf("╚══════════════════════════════╝\n");
+	printf("╔════════════════════════════════╗\n");
+	printf("║    Escolha a opção desejada    ║\n");
+	printf("╠════════════════════════════════╣\n");
+	printf("║ 1 - Inserir vértice            ║\n");
+	printf("║ 2 - Inserir aresta             ║\n");
+	printf("║ 3 - Matriz de adjacência       ║\n");
+	printf("║ 4 - Lista de adjacência        ║\n");
+	printf("║ 5 - Carregar arquivo           ║\n");
+	printf("║ 6 - Remover vértice            ║\n");
+	printf("║ 7 - Remover aresta             ║\n");
+	printf("║ 8 - Busca em largura           ║\n");
+	printf("║ 9 - Busca em profundidade      ║\n");
+	printf("║10 - Ordenação topológica       ║\n");
+	printf("║11 - Grafo ciclico ou aciclico  ║\n");
+	printf("║12 - Componente fortmente conexa║\n");
+	printf("║13 - Sair                       ║\n");
+	printf("╚════════════════════════════════╝\n");
 	printf("╔══════════════════════════════╗\n");
 	printf("║   Digite a opção desejada:   ║\n");
 	printf("╚══════════════════════════════╝\n");
