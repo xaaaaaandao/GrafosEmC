@@ -48,7 +48,7 @@ int opcaoPesoAresta(){
 	int opcao;
 	telaPesoAresta();
 	scanf(" %d", &opcao);
-	if(opcao > 0){
+	if(opcao >= 1){
 		return opcao;
 	} else {
 		telaLimpa();
