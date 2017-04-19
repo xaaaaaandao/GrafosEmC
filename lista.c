@@ -1,38 +1,43 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "lista.h"
+#include "opcao.h"
 #include "telas.h"
 
 /* Carregar arquivos */
 
 void exemploGrafoNaoDirigido(Lista *l){
 	int i;
+	grafoDirigido = false;
+	grafoPonderado = false;
 	for(i = 0; i < 8; i++)
 		inserirLista(l);
-	insereAresta(l, 1, 6, false, 1);
-	insereAresta(l, 1, 4, false, 1);
-	insereAresta(l, 2, 3, false, 1);
-	insereAresta(l, 2, 6, false, 1);
-	insereAresta(l, 2, 7, false, 1);
-	insereAresta(l, 3, 7, false, 1);
-	insereAresta(l, 3, 8, false, 1);
-	insereAresta(l, 4, 5, false, 1);
-	insereAresta(l, 6, 7, false, 1);
-	insereAresta(l, 7, 8, false, 1);
+	insereAresta(l, 1, 6, grafoDirigido, 1);
+	insereAresta(l, 1, 4, grafoDirigido, 1);
+	insereAresta(l, 2, 3, grafoDirigido, 1);
+	insereAresta(l, 2, 6, grafoDirigido, 1);
+	insereAresta(l, 2, 7, grafoDirigido, 1);
+	insereAresta(l, 3, 7, grafoDirigido, 1);
+	insereAresta(l, 3, 8, grafoDirigido, 1);
+	insereAresta(l, 4, 5, grafoDirigido, 1);
+	insereAresta(l, 6, 7, grafoDirigido, 1);
+	insereAresta(l, 7, 8, grafoDirigido, 1);
 }
 
 void exemploGrafoDirigido(Lista *l){
 	int i;
 	for(i = 0; i < 6; i++)
 		inserirLista(l);
-	insereAresta(l, 1, 2, true, 1);
-	insereAresta(l, 1, 4, true, 1);
-	insereAresta(l, 2, 5, true, 1);
-	insereAresta(l, 3, 5, true, 1);
-	insereAresta(l, 3, 6, true, 1);
-	insereAresta(l, 4, 2, true, 1);
-	insereAresta(l, 5, 4, true, 1);
-	insereAresta(l, 6, 6, true, 1);
+	grafoDirigido = true;
+	grafoPonderado = false;
+	insereAresta(l, 1, 2, grafoDirigido, 1);
+	insereAresta(l, 1, 4, grafoDirigido, 1);
+	insereAresta(l, 2, 5, grafoDirigido, 1);
+	insereAresta(l, 3, 5, grafoDirigido, 1);
+	insereAresta(l, 3, 6, grafoDirigido, 1);
+	insereAresta(l, 4, 2, grafoDirigido, 1);
+	insereAresta(l, 5, 4, grafoDirigido, 1);
+	insereAresta(l, 6, 6, grafoDirigido, 1);
 }
 
 /* Operações de lista */

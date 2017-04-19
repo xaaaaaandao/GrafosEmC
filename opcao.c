@@ -2,12 +2,10 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include "busca.h"
+#include "exercicios.h"
 #include "matriz.h"
 #include "opcao.h"
 #include "telas.h"
-
-bool grafoDirigido;
-bool grafoPonderado;
 
 /* Sai do programa */
 
@@ -135,7 +133,7 @@ void opcaoRemoveAresta(Lista *l){
 		} else {
 			telaLimpa();
 			telaSemAresta();
-			opcaoSecundario(l);
+			opcaoPrincipal(l);
 		}
 	}
 }
@@ -216,28 +214,76 @@ void opcaoCarregarArquivo(Lista *l){
 		default:
 			telaLimpa();		
 			telaErro();
-			opcaoSecundario(l);
+			opcaoPrincipal(l);
 			break;
 	}
 }
 
-/* Verifica se deseja continuar ou sair */
-void opcaoSecundario(Lista *l){
+/* Peso da aresta */
+int opcaoValorN(){
+	int valor;
+	telaValorN();
+	scanf(" %d", &valor);
+	if(valor > -1){
+		return valor;
+	} else {
+		telaLimpa();
+		telaErro();
+		opcaoValorN();
+	}
+}
+
+/* Chama as demais funções */
+void opcaoExercicio(Lista *l){
 	int opcao;
-	telaContinuar();
+	telaExercicio();
 	scanf(" %d", &opcao);
 	switch(opcao){
 		case 1:
-			telaLimpa();
+			printf("...\n");
 			opcaoPrincipal(l);
 			break;
 		case 2:
+			printf("...\n");
+			opcaoPrincipal(l);
+			break;
+		case 3:
+			printf("...\n");
+			opcaoPrincipal(l);
+			break;	
+		case 4:
+			telaLimpa();
+			if(iniciarBuscaEmProfundidade(l)){
+				telaGrafoCiclico();
+			} else {
+				telaGrafoAciclico();
+			}
+			opcaoPrincipal(l);
+			break;	
+		case 5:
+			printf("...\n");
+			opcaoPrincipal(l);
+			break;	
+		case 6:
+			printf("...\n");
+			opcaoPrincipal(l);
+			break;
+		case 7:
+			telaLimpa();
+			comparaVerticeAresta(l, opcaoValorN());
+			opcaoPrincipal(l);
+			break;		
+		case 8:
+			printf("...\n");
+			opcaoPrincipal(l);
+			break;	
+		case 9:
 			sairPrograma();
 			break;	
 		default:
 			telaLimpa();		
 			telaErro();
-			opcaoSecundario(l);
+			opcaoPrincipal(l);
 			break;
 	}
 }
@@ -253,11 +299,11 @@ void opcaoPrincipal(Lista *l){
 			imprimirLista(l);
 			telaLimpa();
 			telaVerticeAdicionado(l -> tamanho - 1);
-			opcaoSecundario(l);
+			opcaoPrincipal(l);
 			break;
 		case 2:
 			opcaoAresta(l);
-			opcaoSecundario(l);
+			opcaoPrincipal(l);
 			break;
 		case 3:
 			telaLimpa();
@@ -267,7 +313,7 @@ void opcaoPrincipal(Lista *l){
 				telaMatrizAdjacencia();
 				imprimirMatrizAdjacencia(l, grafoPonderado);
 			}
-			opcaoSecundario(l);
+			opcaoPrincipal(l);
 			break;	
 		case 4:
 			telaLimpa();
@@ -277,12 +323,12 @@ void opcaoPrincipal(Lista *l){
 				telaListaAdjacencia();
 				imprimirLista(l);
 			}
-			opcaoSecundario(l);
+			opcaoPrincipal(l);
 			break;	
 		case 5:
 			telaLimpa();
 			opcaoCarregarArquivo(l);
-			opcaoSecundario(l);
+			opcaoPrincipal(l);
 			break;	
 		case 6:
 			telaLimpa();
@@ -291,7 +337,7 @@ void opcaoPrincipal(Lista *l){
 			} else {
 				opcaoRemoveVertice(l);
 			}
-			opcaoSecundario(l);
+			opcaoPrincipal(l);
 			break;
 		case 7:
 			telaLimpa();
@@ -300,7 +346,7 @@ void opcaoPrincipal(Lista *l){
 			} else {
 				opcaoRemoveAresta(l);
 			}
-			opcaoSecundario(l);
+			opcaoPrincipal(l);
 			break;		
 		case 8:
 			telaLimpa();
@@ -309,7 +355,7 @@ void opcaoPrincipal(Lista *l){
 			} else {
 				buscaLargura(l);	
 			}
-			opcaoSecundario(l);
+			opcaoPrincipal(l);
 			break;	
 		case 9:
 			telaLimpa();
@@ -318,7 +364,7 @@ void opcaoPrincipal(Lista *l){
 			} else {
 				buscaProfundidade(l);
 			}
-			opcaoSecundario(l);
+			opcaoPrincipal(l);
 			break;	
 		case 10:
 			telaLimpa();
@@ -327,7 +373,7 @@ void opcaoPrincipal(Lista *l){
 			} else {
 				printf("Ordenação topológica\n");
 			}
-			opcaoSecundario(l);
+			opcaoPrincipal(l);
 			break;	
 		case 11:
 			telaLimpa();
@@ -338,7 +384,7 @@ void opcaoPrincipal(Lista *l){
 			} else {
 				telaGrafoAciclico();
 			}
-			opcaoSecundario(l);
+			opcaoPrincipal(l);
 			break;
 		case 12:
 			telaLimpa();
@@ -348,9 +394,19 @@ void opcaoPrincipal(Lista *l){
 				telaComponenteFortementeConexa();
 				printf("Componente fortemente conexa\n");
 			}
-			opcaoSecundario(l);
+			opcaoPrincipal(l);
 			break;
 		case 13:
+			telaLimpa();
+			if(vaziaLista(l)){
+				telaSemVertice();
+			} else {
+				printf("dsadsas\n");
+				opcaoExercicio(l);
+			}
+			opcaoPrincipal(l);
+			break;			
+		case 14:
 			sairPrograma();
 			break;	
 		default:

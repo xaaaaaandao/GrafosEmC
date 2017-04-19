@@ -161,7 +161,50 @@ void telaVerticeAdicionado(int id){
 	}
 }
 
+void telaNMaiorNVertice(){
+	printf(ANSI_COLOR_GREEN "╔═════════════════════════════════════╗\n" ANSI_COLOR_RESET);
+	printf(ANSI_COLOR_GREEN "║ N é maior que o número de vértices! ║\n" ANSI_COLOR_RESET);
+	printf(ANSI_COLOR_GREEN "╚═════════════════════════════════════╝\n" ANSI_COLOR_RESET);		
+}
+
+void telaNIgualNVertice(){
+	printf("╔══════════════════════════════════╗\n");
+	printf("║ N é igual ao número de vértices! ║\n");
+	printf("╚══════════════════════════════════╝\n");		
+}
+
+void telaNMenorNVertice(){
+	printf(ANSI_COLOR_RED "╔═════════════════════════════════════╗\n" ANSI_COLOR_RESET);
+	printf(ANSI_COLOR_RED "║ N é menor que o número de vértices! ║\n" ANSI_COLOR_RESET);
+	printf(ANSI_COLOR_RED "╚═════════════════════════════════════╝\n" ANSI_COLOR_RESET);		
+}
+
+void telaNIgualNAresta(){
+	printf("╔════════════════════════════════╗\n");
+	printf("║ N é igual ao número de aretas! ║\n");
+	printf("╚════════════════════════════════╝\n");		
+}
+
+void telaNMaiorNAresta(){
+	printf(ANSI_COLOR_GREEN "╔════════════════════════════════════╗\n" ANSI_COLOR_RESET);
+	printf(ANSI_COLOR_GREEN "║ N é maior que o número de arestas! ║\n" ANSI_COLOR_RESET);
+	printf(ANSI_COLOR_GREEN "╚════════════════════════════════════╝\n" ANSI_COLOR_RESET);			
+}
+
+void telaNMenorNAresta(){
+	printf(ANSI_COLOR_RED "╔════════════════════════════════════╗\n" ANSI_COLOR_RESET);
+	printf(ANSI_COLOR_RED "║ N é menor que o número de arestas! ║\n" ANSI_COLOR_RESET);
+	printf(ANSI_COLOR_RED "╚════════════════════════════════════╝\n" ANSI_COLOR_RESET);			
+}
+
 /* Telas de mensagem de valores */
+void telaValorN(){
+	printf("╔═════════════════════╗\n");
+	printf("║ Digite o valor de N ║\n");
+	printf("╚═════════════════════╝\n");
+	printf("> ");
+}
+
 void telaRemoverVertice(){
 	printf("╔═══════════════════════════════════════╗\n");
 	printf("║ Digite o id do vértice a ser removido ║\n");
@@ -190,16 +233,23 @@ void telaArestaDestino(){
 	printf("> ");
 }
 
-void telaContinuar(){
-	printf("╔══════════════════════════════╗\n");
-	printf("║   Escolha a opção desejada   ║\n");
-	printf("╠══════════════════════════════╣\n");
-	printf("║ 1 - Continuar                ║\n");
-	printf("║ 2 - Sair                     ║\n");
-	printf("╚══════════════════════════════╝\n");
-	printf("╔══════════════════════════════╗\n");
-	printf("║   Digite a opção desejada:   ║\n");
-	printf("╚══════════════════════════════╝\n");
+void telaExercicio(){
+	printf("╔══════════════════════════════════╗\n");
+	printf("║     Escolha a opção desejada     ║\n");
+	printf("╠══════════════════════════════════╣\n");
+	printf("║ 1 - ...                          ║\n");
+	printf("║ 2 - Grau máximo (1B)             ║\n");
+	printf("║ 3 - Dirigido -> Não-dirigido (2) ║\n");
+	printf("║ 4 - Grafo Bi-partido (3)         ║\n");
+	printf("║ 5 - Ciclico | Acicilico (4)      ║\n");
+	printf("║ 6 - Ancestral | Descendente (5)  ║\n");
+	printf("║ 7 - Nº aresta | vértice (6)      ║\n");
+	printf("║ 8 - Nº compoentes f. conexas (7) ║\n");
+	printf("║ 9 - Sair                         ║\n");
+	printf("╚══════════════════════════════════╝\n");
+	printf("╔══════════════════════════════════════════╗\n");
+	printf("║         Digite a opção desejada:         ║\n");
+	printf("╚══════════════════════════════════════════╝\n");
 	printf("> ");
 }
 
@@ -247,7 +297,8 @@ void telaPrincipal(){
 	printf("║10 - Ordenação topológica       ║\n");
 	printf("║11 - Grafo ciclico ou aciclico  ║\n");
 	printf("║12 - Componente fortmente conexa║\n");
-	printf("║13 - Sair                       ║\n");
+	printf("║13 - Exercícios                 ║\n");
+	printf("║14 - Sair                       ║\n");
 	printf("╚════════════════════════════════╝\n");
 	printf("╔══════════════════════════════╗\n");
 	printf("║   Digite a opção desejada:   ║\n");
