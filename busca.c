@@ -43,6 +43,7 @@ void imprimeArvore(Lista *l){
 		//é folha
 		} else if (nFilho == 0){
 			printf("%d é folha.\n", auxiliarPai -> id);					
+			printf("============================\n");
 		}
 
 		auxiliarFilho = l -> primeiro;
@@ -50,7 +51,7 @@ void imprimeArvore(Lista *l){
 			if(auxiliarFilho -> pai == auxiliarPai -> id){
 				if(nFilho == 1){
 					printf(" %d.\n", auxiliarFilho -> id);
-					printf("============================\n\n");
+					printf("============================\n");
 				} else {
 					printf(" %d,", auxiliarFilho -> id);
 					nFilho--;
@@ -59,6 +60,7 @@ void imprimeArvore(Lista *l){
 			auxiliarFilho = auxiliarFilho -> proximo;
 		}
 
+		printf("\n");
 		auxiliarPai = auxiliarPai -> proximo;
 	}
 }
@@ -125,22 +127,7 @@ void buscaProfundidade(Lista *l){
 	No *aux = l->primeiro;
 	No *auxiliar;
 	
-	while(aux != NULL) {
-		if(aux -> pai == -1)
-			printf("Raíz e Pai: %d\n", aux -> id);
-		else 
-			printf("Pai: %d\n", aux -> id);
-		auxiliar = l -> primeiro;
-		while (auxiliar != NULL) {
-			if (auxiliar -> pai == aux -> id)
-				printf("Filho: %d\n", auxiliar -> id);
-			auxiliar = auxiliar -> proximo;
-		}
-		aux = aux -> proximo;
-	}
-
 	telaBuscaEmProfundidade();
-
 	imprimeArvore(l);
 }
 
