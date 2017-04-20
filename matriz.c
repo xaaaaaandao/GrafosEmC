@@ -18,6 +18,30 @@ void inicializarMatriz(int **matriz, int tamanho){
 	}
 }
 
+int **matrizAdjacencia(Lista *l, bool tipoGrafo){
+	No *auxiliar = l -> primeiro;
+	noAdjacente *auxiliarAdjacente;
+	int **matrizAdjacencia = (int**) malloc (l -> tamanho * sizeof(int*));
+	int i, j;
+	for(i = 0; i < l -> tamanho; i++){
+		matrizAdjacencia[i] = (int*) malloc (l -> tamanho * sizeof(int)); //Aloca um Vetor de Inteiros para cada posição do Vetor de Ponteiros.
+ 	}
+ 	inicializarMatriz(matrizAdjacencia, l -> tamanho);
+ 	while(auxiliar != NULL){
+ 		auxiliarAdjacente = auxiliar -> adjacente -> primeiro;
+ 		while(auxiliarAdjacente != NULL){
+ 			if(tipoGrafo){
+ 				matrizAdjacencia[auxiliar -> id][auxiliarAdjacente -> id] = auxiliarAdjacente -> peso;	
+ 			} else {
+				matrizAdjacencia[auxiliar -> id][auxiliarAdjacente -> id] = 1;	 				
+ 			}
+ 			auxiliarAdjacente = auxiliarAdjacente -> proximo;
+ 		}
+ 		auxiliar = auxiliar -> proximo;
+ 	}
+ 	return matrizAdjacencia;
+}
+
 void imprimirMatrizAdjacencia(Lista *l, bool tipoGrafo){
 	No *auxiliar = l -> primeiro;
 	noAdjacente *auxiliarAdjacente;

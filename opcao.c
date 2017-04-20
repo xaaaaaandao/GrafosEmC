@@ -244,14 +244,11 @@ void opcaoExercicio(Lista *l){
 			opcaoPrincipal(l);
 			break;
 		case 2:
-			printf("...\n");
-			opcaoPrincipal(l);
-			break;
-		case 3:
-			printf("...\n");
+			telaLimpa();
+			matrizAdjacenciaToListaAdjacencia(l);
 			opcaoPrincipal(l);
 			break;	
-		case 4:
+		case 3:
 			telaLimpa();
 			if(iniciarBuscaEmProfundidade(l)){
 				telaGrafoCiclico();
@@ -260,24 +257,24 @@ void opcaoExercicio(Lista *l){
 			}
 			opcaoPrincipal(l);
 			break;	
-		case 5:
+		case 4:
 			printf("...\n");
 			opcaoPrincipal(l);
 			break;	
-		case 6:
+		case 5:
 			printf("...\n");
 			opcaoPrincipal(l);
 			break;
-		case 7:
+		case 6:
 			telaLimpa();
 			comparaVerticeAresta(l, opcaoValorN());
 			opcaoPrincipal(l);
 			break;		
-		case 8:
+		case 7:
 			printf("...\n");
 			opcaoPrincipal(l);
 			break;	
-		case 9:
+		case 8:
 			sairPrograma();
 			break;	
 		default:
@@ -401,7 +398,6 @@ void opcaoPrincipal(Lista *l){
 			if(vaziaLista(l)){
 				telaSemVertice();
 			} else {
-				printf("dsadsas\n");
 				opcaoExercicio(l);
 			}
 			opcaoPrincipal(l);

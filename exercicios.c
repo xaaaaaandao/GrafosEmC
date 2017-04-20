@@ -1,55 +1,81 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "exercicios.h"
+#include "matriz.h"
+#include "opcao.h"
 #include "telas.h"
 
-//Se eu usar a busca em profundidade eu vou ter um resultado, se eu usar a busca em largura outro, qual usar?
-int grauSaida(Lista *l, int id){
-	int grau = 0;
-	No *auxiliar = l -> primeiro;
-	noAdjacente *auxiliarAdjacente;
+/**
+	Exercício 1A.
+	-> Podemos modelar sendo que o vértice seriamos nós, e as arestas seria quando enviamos
+	as "cartas" para o próximo destino assinar até chegar o professor.
+**/
 
-	while(auxiliar != NULL){
-		if(auxiliar -> id == id){
-			auxiliarAdjacente = auxiliar -> adjacente -> primeiro;
-			while(auxiliarAdjacente != NULL){
-				grau++;
-				auxiliarAdjacente = auxiliarAdjacente -> proximo;
+/**
+	Exercício 1B.
+	-> Aplicar a busca em largura para cada vértice.
+**/
+
+
+/**
+	Exercício 2.
+**/
+void matrizAdjacenciaToListaAdjacencia(Lista *l){
+	Lista *listaNaoDirigida = (Lista*) malloc (sizeof(Lista));
+	inicializarLista(listaNaoDirigida);
+
+	int numeroVertice = nVertice(l);
+	int **matriz = (int**) malloc (numeroVertice * sizeof(int*));
+	int i, j;
+	
+	for(i = 0; i < numeroVertice; i++){
+		matriz[i] = (int*) malloc (numeroVertice * sizeof(int)); //Aloca um Vetor de Inteiros para cada posição do Vetor de Ponteiros.
+ 	}
+
+ 	matriz = matrizAdjacencia(l, grafoDirigido);
+
+	
+
+ 	for(i = 0; i < numeroVertice; i++)
+ 		inserirLista(listaNaoDirigida);
+
+	for(i = 1; i < numeroVertice + 1; i++){
+		for(j = 1; j < numeroVertice + 1; j++){
+			if(matriz[i][j] == 1){
+				if(i != j)
+					insereAresta(listaNaoDirigida, i, j, false, 1);
 			}
-			return grau;
 		}
-		auxiliar = auxiliar -> proximo;
 	}
-	return -1;
-}
 
-int grauEntrada(Lista *l, int id){
-	int grau = 0;
-	No *auxiliar = l -> primeiro;
-	noAdjacente *auxiliarAdjacente;
-
-	while(auxiliar != NULL){
-		if(auxiliar -> id == id){
-			auxiliarAdjacente = auxiliar -> adjacente -> primeiro;
-			while(auxiliarAdjacente != NULL){
-				grau++;
-				auxiliarAdjacente = auxiliarAdjacente -> proximo;
-			}
-			return grau;
+	telaLimpa();
+	telaMatrizAdjacencia();
+	for(i = 0; i < numeroVertice + 1; i++){
+		for(j = 0; j < numeroVertice + 1; j++){
+			printf("%d ", matriz[i][j]);
 		}
-		auxiliar = auxiliar -> proximo;
+		printf("\n");
 	}
-	return -1;
+
+	telaListaAdjacencia();
+	imprimirLista(listaNaoDirigida);
 }
 
-int grauMaximo(Lista *l, int origem, int destino){
-
-}
+/**
+	Exercício 3 pintando ele de duas cores.
+**/
 
 /**
 	Exercício 4 já temos uma função que desenvolve isso.
 **/
 
-//exercício 7
+/**
+	Exercício 5 usar busca em profundidade para verificar se os filhos tem algum adjacente 
+**/
+
+/**
+	Exercício 6.
+**/
 int nAresta(Lista *l){
 	No *auxiliar = l -> primeiro;
 	noAdjacente *auxiliarAdjacente;
@@ -97,3 +123,7 @@ void comparaVerticeAresta(Lista *l, int n){
 	else if(n < numeroAresta)
 		telaNMenorNAresta();
 }
+
+/**
+	Exercício 7.
+**/

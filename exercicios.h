@@ -3,6 +3,8 @@
 
 #include "lista.h"
 
+
+void matrizAdjacenciaToListaAdjacencia(Lista*);
 int nAresta(Lista *l);
 int nVertice(Lista*);
 void comparaVerticeAresta(Lista*, int);

@@ -5,6 +5,7 @@
 #include "lista.h"
 
 void inicializarMatriz();
+int **matrizAdjacencia(Lista*, bool);
 void imprimirMatrizAdjacencia(Lista*, bool);
 
 
