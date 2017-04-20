@@ -5,6 +5,7 @@
 #include "exercicios.h"
 #include "matriz.h"
 #include "opcao.h"
+#include "ordenacao.h"
 #include "telas.h"
 
 /* Sai do programa */
@@ -368,7 +369,8 @@ void opcaoPrincipal(Lista *l){
 			if(vaziaLista(l)){
 				telaSemVertice();
 			} else {
-				printf("Ordenação topológica\n");
+				telaOrdenacaoTopologica();
+				ordenacaoTopologica(l);
 			}
 			opcaoPrincipal(l);
 			break;	

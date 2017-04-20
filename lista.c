@@ -31,13 +31,13 @@ void exemploGrafoDirigido(Lista *l){
 	grafoDirigido = true;
 	grafoPonderado = false;
 	insereAresta(l, 1, 2, grafoDirigido, 1);
-	insereAresta(l, 1, 4, grafoDirigido, 1);
+	//insereAresta(l, 1, 4, grafoDirigido, 1);
 	insereAresta(l, 2, 5, grafoDirigido, 1);
 	insereAresta(l, 3, 5, grafoDirigido, 1);
 	insereAresta(l, 3, 6, grafoDirigido, 1);
-	insereAresta(l, 4, 2, grafoDirigido, 1);
+	//insereAresta(l, 4, 2, grafoDirigido, 1);
 	insereAresta(l, 5, 4, grafoDirigido, 1);
-	insereAresta(l, 6, 6, grafoDirigido, 1);
+	//insereAresta(l, 6, 6, grafoDirigido, 1);
 }
 
 /* Operações de lista */
@@ -366,6 +366,25 @@ void inserirLista(Lista *l){
 	l -> tamanho++;
 }
 
+void insereListaOrdenacaoTopologica(Lista *l, int id){
+	No *novoNo = (No*) malloc (sizeof(No));
+	novoNo -> id = id;
+	novoNo -> proximo = NULL;
+	
+	novoNo -> adjacente = (listaAdjacente*) malloc (sizeof(listaAdjacente));
+	inicializarListaAdjacente(novoNo -> adjacente);
+
+	if (vaziaLista(l)){
+		l -> primeiro = novoNo;
+		l -> ultimo = novoNo;
+	} else {
+		novoNo -> proximo = l -> primeiro;
+		l -> primeiro = novoNo;
+	}
+	
+	l -> tamanho++;
+}
+
 No *getAdjacente(Lista *l, int id) {
 	No *no = l -> primeiro;
 
@@ -409,4 +428,17 @@ void imprimirLista(Lista *l){
 	}    
 }
 
+void imprimirListaOrdenacaoTopologica(Lista *l){
+	if (vaziaLista(l)){
+		printf("Empty list!\n");
+	} else {
+		No *auxiliar;
+		auxiliar = l -> primeiro;
+		while (auxiliar != NULL){ 
+			printf("%d ", auxiliar -> id);
+			auxiliar = auxiliar -> proximo;
+		}
+		printf("\n");
+	}    
+}
     

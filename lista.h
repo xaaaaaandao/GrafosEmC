@@ -53,10 +53,12 @@ int vaziaListaAdjacente(listaAdjacente*);
 int vaziaLista(Lista*);
 void inserirListaAdjacente(listaAdjacente*, int, int);
 void inserirLista(Lista*);
+void insereListaOrdenacaoTopologica(Lista*, int);
 No *getAdjacente(Lista*, int);
 int tamanhoListaAdjacente(listaAdjacente*);
 int tamanhoLista(Lista*);
 void imprimirListaAdjacente(listaAdjacente*, int);
 void imprimirLista(Lista*);
+void imprimirListaOrdenacaoTopologica(Lista*);
 
 #endif /* LISTA_H */

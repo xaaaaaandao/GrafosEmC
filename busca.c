@@ -4,8 +4,6 @@
 #include "busca.h"
 #include "telas.h"
 
-
-
 int numeroFilho(Lista *l, int id){
 	int numeroFilho = 0;
 	No *auxiliar = l -> primeiro;	
@@ -123,10 +121,7 @@ bool iniciarBuscaEmProfundidade(Lista *l) {
 }
 
 void buscaProfundidade(Lista *l){
-	bool ciclico = iniciarBuscaEmProfundidade(l);
-	No *aux = l->primeiro;
-	No *auxiliar;
-	
+	iniciarBuscaEmProfundidade(l);
 	telaBuscaEmProfundidade();
 	imprimeArvore(l);
 }
@@ -192,7 +187,6 @@ void realizaBuscaLargura(Lista *l, Fila *f){
 void buscaLargura(Lista *l){
 	Fila *filaBuscaLargura = inicializaBuscaLargura(l);
 	realizaBuscaLargura(l , filaBuscaLargura);
-
 	telaBuscaEmLargura();
 	imprimeArvore(l);
 }

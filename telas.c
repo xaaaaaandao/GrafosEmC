@@ -8,6 +8,18 @@ void telaLimpa(){
 }
 
 /* Telas de mensagens */
+void telaOrdenacaoTopologica(){
+	printf(ANSI_COLOR_GREEN "╔═══════════════════════╗\n" ANSI_COLOR_RESET);
+	printf(ANSI_COLOR_GREEN "║ Ordenação topológica! ║\n" ANSI_COLOR_RESET);
+	printf(ANSI_COLOR_GREEN "╚═══════════════════════╝\n" ANSI_COLOR_RESET);
+}
+
+void telaOrdenacaoTopologicaCiclico(){
+	printf(ANSI_COLOR_RED "╔════════════════════════════════════════════╗\n" ANSI_COLOR_RESET);
+	printf(ANSI_COLOR_RED "║ Ordenação topológica só pode ser aciclico! ║\n" ANSI_COLOR_RESET);
+	printf(ANSI_COLOR_RED "╚════════════════════════════════════════════╝\n" ANSI_COLOR_RESET);
+}
+
 void telaComponenteFortementeConexa(){
 	printf(ANSI_COLOR_GREEN "╔═══════════════════════════════╗\n" ANSI_COLOR_RESET);
 	printf(ANSI_COLOR_GREEN "║ Componente fortemente conexa! ║\n" ANSI_COLOR_RESET);
@@ -24,12 +36,6 @@ void telaGrafoCiclico(){
 	printf(ANSI_COLOR_GREEN "╔════════════════╗\n" ANSI_COLOR_RESET);
 	printf(ANSI_COLOR_GREEN "║ Grafo ciclico! ║\n" ANSI_COLOR_RESET);
 	printf(ANSI_COLOR_GREEN "╚════════════════╝\n" ANSI_COLOR_RESET);
-}
-
-void telaOrdenacaoTopologica(){
-	printf(ANSI_COLOR_GREEN "╔═══════════════════════╗\n" ANSI_COLOR_RESET);
-	printf(ANSI_COLOR_GREEN "║ Ordenação topológica! ║\n" ANSI_COLOR_RESET);
-	printf(ANSI_COLOR_GREEN "╚═══════════════════════╝\n" ANSI_COLOR_RESET);
 }
 
 void telaBuscaEmProfundidade(){

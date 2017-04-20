@@ -10,10 +10,11 @@
 #define ANSI_COLOR_RESET   "\x1b[0m"
 
 void telaLimpa();
+void telaOrdenacaoTopologica();
+void telaOrdenacaoTopologicaCiclico();
 void telaComponenteFortementeConexa();
 void telaGrafoAciclico();
 void telaGrafoCiclico();
-void telaOrdenacaoTopologica();
 void telaBuscaEmProfundidade();
 void telaBuscaEmLargura();
 void telaExemploGrafoDirigido();
