@@ -4,6 +4,64 @@
 #include "busca.h"
 #include "telas.h"
 
+
+
+int numeroFilho(Lista *l, int id){
+	int numeroFilho = 0;
+	No *auxiliar = l -> primeiro;	
+	
+	while(auxiliar != NULL){
+		if(auxiliar -> pai == id)
+			numeroFilho++;
+		auxiliar = auxiliar -> proximo;
+	}
+
+	return numeroFilho;
+}
+
+void imprimeArvore(Lista *l){
+	No *auxiliarPai = l -> primeiro;
+	No *auxiliarFilho;	
+	int nFilho;
+
+	while(auxiliarPai != NULL){
+
+		nFilho = numeroFilho(l, auxiliarPai -> id);
+		
+		//nó raíz e folha
+		if(auxiliarPai -> pai == -1 & nFilho == 0){
+			printf("%d raíz e folha ->", auxiliarPai -> id);
+
+		//nó raíz e pai
+		} else if(auxiliarPai -> pai == -1 & nFilho > 0){
+			printf("%d raíz e pai ->", auxiliarPai -> id);			
+
+		//pai de alguém 
+		} else if (nFilho > 0) {
+			printf("%d pai ->", auxiliarPai -> id);
+
+		//é folha
+		} else if (nFilho == 0){
+			printf("%d é folha.\n", auxiliarPai -> id);					
+		}
+
+		auxiliarFilho = l -> primeiro;
+		while(auxiliarFilho != NULL){
+			if(auxiliarFilho -> pai == auxiliarPai -> id){
+				if(nFilho == 1){
+					printf(" %d.\n", auxiliarFilho -> id);					
+				} else {
+					printf(" %d,", auxiliarFilho -> id);
+					nFilho--;
+				}
+			}
+			auxiliarFilho = auxiliarFilho -> proximo;
+		}
+
+		auxiliarPai = auxiliarPai -> proximo;
+	}
+}
+
 /* Operações da busca em profundidade */
 
 bool BuscaEmProfundidade(Lista *l, No *no) {
@@ -81,6 +139,8 @@ void buscaProfundidade(Lista *l){
 	}
 
 	telaBuscaEmProfundidade();
+
+	imprimeArvore(l);
 }
 
 /* Operações da busca em largura */
@@ -142,26 +202,9 @@ void realizaBuscaLargura(Lista *l, Fila *f){
 }
 
 void buscaLargura(Lista *l){
-
-	No *aux = l->primeiro;
-	No *auxiliar;
-	
 	Fila *filaBuscaLargura = inicializaBuscaLargura(l);
 	realizaBuscaLargura(l , filaBuscaLargura);
-	
-	while(aux != NULL) {
-		if(aux -> pai == -1)
-			printf("Raíz e Pai: %d\n", aux -> id);
-		else 
-			printf("Pai: %d\n", aux -> id);
-		auxiliar = l -> primeiro;
-		while (auxiliar != NULL) {
-			if (auxiliar -> pai == aux -> id)
-				printf("Filho: %d\n", auxiliar -> id);
-			auxiliar = auxiliar -> proximo;
-		}
-		aux = aux -> proximo;
-	}
 
 	telaBuscaEmLargura();
+	imprimeArvore(l);
 }
