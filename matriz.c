@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "matriz.h"
+#include "exercicios.h"
 
 /* Operações de matriz */
 
@@ -21,12 +22,13 @@ void inicializarMatriz(int **matriz, int tamanho){
 int **matrizAdjacencia(Lista *l, bool tipoGrafo){
 	No *auxiliar = l -> primeiro;
 	noAdjacente *auxiliarAdjacente;
-	int **matrizAdjacencia = (int**) malloc (l -> tamanho * sizeof(int*));
+	int numeroVertice = nVertice(l) + 1;
+	int **matrizAdjacencia = (int**) malloc (numeroVertice * sizeof(int*));
 	int i, j;
-	for(i = 0; i < l -> tamanho; i++){
-		matrizAdjacencia[i] = (int*) malloc (l -> tamanho * sizeof(int)); //Aloca um Vetor de Inteiros para cada posição do Vetor de Ponteiros.
+	for(i = 0; i < numeroVertice; i++){
+		matrizAdjacencia[i] = (int*) malloc (numeroVertice * sizeof(int)); //Aloca um Vetor de Inteiros para cada posição do Vetor de Ponteiros.
  	}
- 	inicializarMatriz(matrizAdjacencia, l -> tamanho);
+ 	inicializarMatriz(matrizAdjacencia, numeroVertice);
  	while(auxiliar != NULL){
  		auxiliarAdjacente = auxiliar -> adjacente -> primeiro;
  		while(auxiliarAdjacente != NULL){
@@ -45,12 +47,13 @@ int **matrizAdjacencia(Lista *l, bool tipoGrafo){
 void imprimirMatrizAdjacencia(Lista *l, bool tipoGrafo){
 	No *auxiliar = l -> primeiro;
 	noAdjacente *auxiliarAdjacente;
-	int **matrizAdjacencia = (int**) malloc (l -> tamanho * sizeof(int*));
+	int numeroVertice = nVertice(l) + 1;
+	int **matrizAdjacencia = (int**) malloc (numeroVertice * sizeof(int*));
 	int i, j;
-	for(i = 0; i < l -> tamanho; i++){
-		matrizAdjacencia[i] = (int*) malloc (l -> tamanho * sizeof(int)); //Aloca um Vetor de Inteiros para cada posição do Vetor de Ponteiros.
+	for(i = 0; i < numeroVertice; i++){
+		matrizAdjacencia[i] = (int*) malloc (numeroVertice * sizeof(int)); //Aloca um Vetor de Inteiros para cada posição do Vetor de Ponteiros.
  	}
- 	inicializarMatriz(matrizAdjacencia, l -> tamanho);
+ 	inicializarMatriz(matrizAdjacencia, numeroVertice);
  	while(auxiliar != NULL){
  		auxiliarAdjacente = auxiliar -> adjacente -> primeiro;
  		while(auxiliarAdjacente != NULL){
@@ -63,8 +66,8 @@ void imprimirMatrizAdjacencia(Lista *l, bool tipoGrafo){
  		}
  		auxiliar = auxiliar -> proximo;
  	}
- 	for(i = 0; i < l -> tamanho; i++){
- 		for(j = 0; j < l -> tamanho; j++){
+ 	for(i = 0; i < numeroVertice; i++){
+ 		for(j = 0; j < numeroVertice; j++){
  			printf("%d  ", matrizAdjacencia[i][j]);
  		}
  		printf("\n");

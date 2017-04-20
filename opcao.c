@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include "busca.h"
+#include "componente.h"
 #include "exercicios.h"
 #include "matriz.h"
 #include "opcao.h"
@@ -391,7 +392,7 @@ void opcaoPrincipal(Lista *l){
 				telaSemVertice();
 			} else {
 				telaComponenteFortementeConexa();
-				printf("Componente fortemente conexa\n");
+				componenteFortementeConexa(l);
 			}
 			opcaoPrincipal(l);
 			break;

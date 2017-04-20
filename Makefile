@@ -7,7 +7,8 @@ all:
 	gcc fila.c -c
 	gcc ordenacao.c -c
 	gcc exercicios.c -c
-	gcc main.c -o main matriz.o lista.o telas.o opcao.o busca.o fila.o exercicios.o ordenacao.o
+	gcc componente.c -c
+	gcc main.c -o main matriz.o lista.o telas.o opcao.o busca.o fila.o exercicios.o ordenacao.o componente.o
 	./main
 
 compile:
@@ -19,4 +20,5 @@ compile:
 	gcc fila.c -c
 	gcc ordenacao.c -c
 	gcc exercicios.c -c
-	gcc main.c -o main matriz.o lista.o telas.o opcao.o busca.o fila.o exercicios.o ordenacao.o
+	gcc componente.c -c
+	gcc main.c -o main matriz.o lista.o telas.o opcao.o busca.o fila.o exercicios.o ordenacao.o componente.o
