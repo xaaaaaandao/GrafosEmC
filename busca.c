@@ -49,7 +49,8 @@ void imprimeArvore(Lista *l){
 		while(auxiliarFilho != NULL){
 			if(auxiliarFilho -> pai == auxiliarPai -> id){
 				if(nFilho == 1){
-					printf(" %d.\n", auxiliarFilho -> id);					
+					printf(" %d.\n", auxiliarFilho -> id);
+					printf("============================\n\n");
 				} else {
 					printf(" %d,", auxiliarFilho -> id);
 					nFilho--;
