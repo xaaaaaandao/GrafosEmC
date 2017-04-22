@@ -4,6 +4,8 @@
 #include "lista.h"
 #include "fila.h"
 
+int tempo;
+
 bool BuscaEmProfundidade(Lista*, No*);
 bool iniciarBuscaEmProfundidade(Lista*);
 void buscaProfundidade(Lista*);

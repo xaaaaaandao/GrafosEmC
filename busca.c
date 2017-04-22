@@ -67,10 +67,12 @@ void imprimeArvore(Lista *l){
 
 bool BuscaEmProfundidade(Lista *l, No *no) {
 
-	static int tempo = 0;
 	static bool ciclico = false;
 
 	tempo++;
+	printf("começo\n");
+	printf("id: %d\n", no -> id);
+	printf("tempo: %d\n\n", tempo);
 	no -> tempoDescoberta = tempo;
 	no -> cor = Cinza;
 
@@ -90,6 +92,9 @@ bool BuscaEmProfundidade(Lista *l, No *no) {
 
 	no -> cor = Preto;
 	tempo++;
+	printf("fim\n");
+	printf("id: %d\n", no -> id);
+	printf("tempo: %d\n\n", tempo);
 	no -> tempoFinalizacao = tempo;
 
 	return ciclico;
@@ -117,10 +122,12 @@ bool iniciarBuscaEmProfundidade(Lista *l) {
 		auxiliar = auxiliar -> proximo;
 	}	
 
+	imprimirListaTempo(l);
 	return ciclico;
 }
 
 void buscaProfundidade(Lista *l){
+	tempo = 0;
 	iniciarBuscaEmProfundidade(l);
 	telaBuscaEmProfundidade();
 	imprimeArvore(l);

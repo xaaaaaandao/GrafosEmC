@@ -35,6 +35,7 @@ void exemploGrafoDirigido(Lista *l){
 	insereAresta(l, 2, 5, grafoDirigido, 1);
 	insereAresta(l, 3, 5, grafoDirigido, 1);
 	insereAresta(l, 3, 6, grafoDirigido, 1);
+	insereAresta(l, 4, 1, grafoDirigido, 1);
 	//insereAresta(l, 4, 2, grafoDirigido, 1);
 	insereAresta(l, 5, 4, grafoDirigido, 1);
 	//insereAresta(l, 6, 6, grafoDirigido, 1);
@@ -423,6 +424,22 @@ void imprimirLista(Lista *l){
 		while (auxiliar != NULL){ 
 			printf("Id: %d\n", auxiliar -> id);
 			imprimirListaAdjacente(auxiliar -> adjacente, auxiliar -> id);
+			auxiliar = auxiliar -> proximo;
+		}
+	}    
+}
+
+void imprimirListaTempo(Lista *l){
+	if (vaziaLista(l)){
+		printf("Empty list!\n");
+	} else {
+		No *auxiliar;
+		auxiliar = l -> primeiro;
+		while (auxiliar != NULL){ 
+			printf("Pai: %d\n", auxiliar -> pai);
+			printf("Id: %d\n", auxiliar -> id);
+			printf("tempoDescoberta: %d\n", auxiliar -> tempoDescoberta);
+			printf("tempoFinalizacao: %d\n\n", auxiliar -> tempoFinalizacao);
 			auxiliar = auxiliar -> proximo;
 		}
 	}    

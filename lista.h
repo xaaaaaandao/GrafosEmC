@@ -59,6 +59,7 @@ int tamanhoListaAdjacente(listaAdjacente*);
 int tamanhoLista(Lista*);
 void imprimirListaAdjacente(listaAdjacente*, int);
 void imprimirLista(Lista*);
+void imprimirListaTempo(Lista*);
 void imprimirListaOrdenacaoTopologica(Lista*);
 
 #endif /* LISTA_H */
