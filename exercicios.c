@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "exercicios.h"
+#include "fila.h"
 #include "matriz.h"
 #include "opcao.h"
 #include "telas.h"
@@ -56,6 +57,71 @@ void matrizAdjacenciaToListaAdjacencia(Lista *l){
 /**
 	Exercício 3 pintando ele de duas cores.
 **/
+Fila *inicializaBiPartido(Lista *l){
+	Fila *f = (Fila*) malloc (sizeof(Fila));
+	No *auxiliar = l -> primeiro;
+	inicializarFila(f);
+	while(auxiliar != NULL){
+		auxiliar -> cor = Branco;
+		auxiliar = auxiliar -> proximo;
+	}
+	l -> primeiro -> cor = Vermelho;
+	enfilerarFila(f, l -> primeiro -> id);
+	return f;
+}
+
+bool preencheAdjacente(Lista *l, int cor, int id, Fila *f){
+	No *auxiliar = l -> primeiro;
+	while(auxiliar != NULL){
+		if(auxiliar -> id == id){
+			if(auxiliar -> cor == Branco){
+				if(cor == VERTICEVERMELHO){
+					auxiliar -> cor = Amarelo;
+				} else if(cor == VERTICEAMARELO){
+					auxiliar -> cor = Vermelho;
+				}
+				enfilerarFila(f, id);
+			} else if(auxiliar -> cor == cor){
+				return false;
+			}
+		}
+		auxiliar = auxiliar -> proximo;
+	}
+	return true;
+}
+
+bool realizaTesteBiPartido(Lista *l, Fila *f){
+	No *auxiliar;
+	noAdjacente *auxiliarAdjacente;
+	int id;
+	while(!vaziaFila(f)){
+		id = desenfilerarFila(f);
+		auxiliar = l -> primeiro;
+		while(auxiliar != NULL){
+			if(auxiliar -> id == id){
+				auxiliarAdjacente = auxiliar -> adjacente -> primeiro;
+				while(auxiliarAdjacente != NULL){
+					if(preencheAdjacente(l, auxiliar -> cor, auxiliarAdjacente -> id, f) == false){
+						return false;	
+					}
+					auxiliarAdjacente = auxiliarAdjacente -> proximo;
+				}
+				break;
+			}
+			auxiliar = auxiliar -> proximo;
+		}
+		auxiliar -> cor = Preto;
+	}
+	return true;
+}
+
+void ehBiPartido(Lista *l){
+	Fila *fila = inicializaBiPartido(l);
+	if(realizaTesteBiPartido(l , fila))
+		printf("eh bi partido\n");
+	else
+		printf("nao eh bi partido\n");
+}
 
 /**
 	Exercício 4 já temos uma função que desenvolve isso.

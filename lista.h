@@ -3,7 +3,7 @@
 
 #include <stdbool.h>
 
-enum coresVertices{Branco = 1, Cinza = 2, Preto = 3};
+enum coresVertices{Branco = 1, Cinza = 2, Preto = 3, Vermelho = 4, Amarelo = 5} Cores;
 
 typedef struct noadjacente{
 	int id;

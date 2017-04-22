@@ -249,16 +249,16 @@ void opcaoExercicio(Lista *l){
 			opcaoPrincipal(l);
 			break;	
 		case 3:
+			ehBiPartido(l);
+			opcaoPrincipal(l);
+			break;	
+		case 4:
 			telaLimpa();
 			if(iniciarBuscaEmProfundidade(l)){
 				telaGrafoCiclico();
 			} else {
 				telaGrafoAciclico();
 			}
-			opcaoPrincipal(l);
-			break;	
-		case 4:
-			printf("...\n");
 			opcaoPrincipal(l);
 			break;	
 		case 5:
@@ -350,7 +350,8 @@ void opcaoPrincipal(Lista *l){
 			if(vaziaLista(l)){
 				telaSemVertice();
 			} else {
-				buscaLargura(l);	
+				buscaLargura(l);
+				imprimirListaTempo(l);	
 			}
 			opcaoPrincipal(l);
 			break;	
@@ -360,6 +361,7 @@ void opcaoPrincipal(Lista *l){
 				telaSemVertice();
 			} else {
 				buscaProfundidade(l);
+				imprimirListaTempo(l);	
 			}
 			opcaoPrincipal(l);
 			break;	
@@ -388,6 +390,8 @@ void opcaoPrincipal(Lista *l){
 			telaLimpa();
 			if(vaziaLista(l)){
 				telaSemVertice();
+			} else if(grafoDirigido == false){
+				telaCFCDirigido();
 			} else {
 				telaComponenteFortementeConexa();
 				componenteFortementeConexa(l);

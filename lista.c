@@ -10,6 +10,7 @@ void exemploGrafoNaoDirigido(Lista *l){
 	int i;
 	grafoDirigido = false;
 	grafoPonderado = false;
+	/*
 	for(i = 0; i < 8; i++){
 		inserirLista(l);
 	}
@@ -22,7 +23,19 @@ void exemploGrafoNaoDirigido(Lista *l){
 	insereAresta(l, 3, 8, grafoDirigido, 1);
 	insereAresta(l, 4, 5, grafoDirigido, 1);
 	insereAresta(l, 6, 7, grafoDirigido, 1);
-	insereAresta(l, 7, 8, grafoDirigido, 1);
+	insereAresta(l, 7, 8, grafoDirigido, 1);*/
+	for(i = 0; i < 8; i++){
+		inserirLista(l);
+	}
+	insereAresta(l, 1, 2, grafoDirigido, 1);
+	insereAresta(l, 1, 3, grafoDirigido, 1);
+	insereAresta(l, 2, 3, grafoDirigido, 1);
+	insereAresta(l, 2, 5, grafoDirigido, 1);
+	insereAresta(l, 4, 5, grafoDirigido, 1);
+	insereAresta(l, 5, 2, grafoDirigido, 1);
+	insereAresta(l, 5, 4, grafoDirigido, 1);
+	insereAresta(l, 5, 6, grafoDirigido, 1);
+	insereAresta(l, 6, 7, grafoDirigido, 1);
 }
 
 void exemploGrafoDirigido(Lista *l){
@@ -36,9 +49,10 @@ void exemploGrafoDirigido(Lista *l){
 	insereAresta(l, 2, 5, grafoDirigido, 1);
 	insereAresta(l, 3, 5, grafoDirigido, 1);
 	insereAresta(l, 3, 6, grafoDirigido, 1);
-	/* Exemplo: retirar quando não tem ordenação topológica
-	insereAresta(l, 4, 1, grafoDirigido, 1); */
+	/* Exemplo: retirar quando não tem ordenação topológica */
+	insereAresta(l, 4, 1, grafoDirigido, 1);
 	insereAresta(l, 5, 4, grafoDirigido, 1);
+
 }
 
 /* Operações de lista */

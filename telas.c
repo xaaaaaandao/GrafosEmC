@@ -82,6 +82,12 @@ void telaErro(){
 	printf(ANSI_COLOR_RED "╚══════════════════════════════╝\n" ANSI_COLOR_RESET);
 }
 
+void telaCFCDirigido(){
+	printf(ANSI_COLOR_RED "╔════════════════════════════════════════════════╗\n" ANSI_COLOR_RESET);
+	printf(ANSI_COLOR_RED "║ Componente Fortemente deve ser grafo dirigido! ║\n" ANSI_COLOR_RESET);
+	printf(ANSI_COLOR_RED "╚════════════════════════════════════════════════╝\n" ANSI_COLOR_RESET);
+}
+
 void telaErroGrafoNaoDirigido(){
 	printf(ANSI_COLOR_RED "╔════════════════════════════════════════════════════════════════╗\n" ANSI_COLOR_RESET);
 	printf(ANSI_COLOR_RED "║ O vértice não pode voltar para si mesmo no grafo não-dirigido! ║\n" ANSI_COLOR_RESET);

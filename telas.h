@@ -22,6 +22,7 @@ void telaExemploGrafoNaoDirigido();
 void telaVerticeRemovido();
 void telaArestaRemovido();
 void telaErro();
+void telaCFCDirigido();
 void telaErroGrafoNaoDirigido();
 void telaListaAdjacencia();
 void telaMatrizAdjacencia();
