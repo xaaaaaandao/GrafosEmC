@@ -8,6 +8,18 @@ void telaLimpa(){
 }
 
 /* Telas de mensagens */
+void telaDescedenteTemArestaRetorno(){
+	printf(ANSI_COLOR_GREEN "╔════════════════════════════════════════════════════════════╗\n" ANSI_COLOR_RESET);
+	printf(ANSI_COLOR_GREEN "║ O descendente tem uma aresta de retorno para um ancestral! ║\n" ANSI_COLOR_RESET);
+	printf(ANSI_COLOR_GREEN "╚════════════════════════════════════════════════════════════╝\n" ANSI_COLOR_RESET);
+}
+
+void telaDescedenteNaoTemArestaRetorno(){
+	printf(ANSI_COLOR_RED "╔════════════════════════════════════════════════════════════════╗\n" ANSI_COLOR_RESET);
+	printf(ANSI_COLOR_RED "║ O descendente não tem uma aresta de retorno para um ancestral! ║\n" ANSI_COLOR_RESET);
+	printf(ANSI_COLOR_RED "╚════════════════════════════════════════════════════════════════╝\n" ANSI_COLOR_RESET);
+}
+
 void telaGrafoBiPartido(){
 	printf(ANSI_COLOR_GREEN "╔═══════════════════════╗\n" ANSI_COLOR_RESET);
 	printf(ANSI_COLOR_GREEN "║ O Grafo é Bi-partido! ║\n" ANSI_COLOR_RESET);
@@ -277,6 +289,13 @@ void telaArestaDestino(){
 	printf("> ");
 }
 
+void telaVertice(){
+	printf("╔═══════════════════╗\n");
+	printf("║ Digite um vértice ║\n");
+	printf("╚═══════════════════╝\n");
+	printf("> ");
+}
+
 void telaExercicio(){
 	printf("╔══════════════════════════════════╗\n");
 	printf("║     Escolha a opção desejada     ║\n");
@@ -341,7 +360,9 @@ void telaPrincipal(){
 	printf("║11 - Grafo ciclico ou aciclico  ║\n");
 	printf("║12 - Componente fortmente conexa║\n");
 	printf("║13 - Exercícios                 ║\n");
-	printf("║14 - Sair                       ║\n");
+	printf("║14 - Imprimir tempo e pai       ║\n");
+	printf("║15 - Resetar grafos             ║\n");
+	printf("║16 - Sair                       ║\n");
 	printf("╚════════════════════════════════╝\n");
 	printf("╔══════════════════════════════╗\n");
 	printf("║   Digite a opção desejada:   ║\n");

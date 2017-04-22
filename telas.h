@@ -10,6 +10,8 @@
 #define ANSI_COLOR_RESET   "\x1b[0m"
 
 void telaLimpa();
+void telaDescedenteTemArestaRetorno();
+void telaDescedenteNaoTemArestaRetorno();
 void telaGrafoBiPartido();
 void telaGrafoNaoBiPartido();
 void telaOrdenacaoTopologica();
@@ -49,6 +51,7 @@ void telaRemoverVertice();
 void telaPesoAresta();
 void telaArestaOrigem();
 void telaArestaDestino();
+void telaVertice();
 void telaExercicio();
 void telaGrafo();
 void telaGrafoPonderado();

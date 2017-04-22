@@ -264,6 +264,18 @@ void limpaLista(Lista *l){
 	free(l);
 }
 
+Lista *limpaTodasLista(Lista *l){
+	No *auxiliar = l -> primeiro;
+	while(auxiliar != NULL){
+		limpaListaAdjacente(auxiliar -> adjacente);
+		auxiliar = auxiliar -> proximo;
+	}
+	limpaLista(l);
+	l = (Lista*) malloc (sizeof(Lista));
+	inicializarLista(l);
+	return l;
+}
+
 void inicializarListaAdjacente(listaAdjacente *l){
 	l -> primeiro = NULL;
 	l -> ultimo = NULL;

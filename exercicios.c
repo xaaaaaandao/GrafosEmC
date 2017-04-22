@@ -150,16 +150,8 @@ bool verificaFilhos(Lista *l, int id, int tempoDescoberta){
 	noAdjacente *auxiliarAdjacente;
 	while(auxiliar != NULL){
 		if(auxiliar -> id == id){
-			if(vaziaListaAdjacente(auxiliar -> adjacente)){
-				return false;
-			}
-			printf("id: %d\n", id);
 			auxiliarAdjacente = auxiliar -> adjacente -> primeiro;
 			while(auxiliarAdjacente != NULL){
-				printf("id: %d\n", auxiliar -> id);
-				printf("tempoDescoberta: %d\n", auxiliar -> tempoDescoberta);
-				printf("auxiliar id: %d\n", auxiliarAdjacente -> id);
-				printf("tempoDescoberta: %d\n", valorTempoDescoberta(l, auxiliarAdjacente -> id));
 				if(auxiliar -> tempoDescoberta > valorTempoDescoberta(l, auxiliarAdjacente -> id)){
 					return true;
 				}
@@ -191,10 +183,12 @@ bool descendenteArestaRetorno(Lista *l, int id){
 	auxiliar = l -> primeiro;
 	while(auxiliar != NULL){
 		if(auxiliar -> tempoDescoberta > tempoDescoberta && auxiliar -> tempoFinalizacao < tempoFinalizacao){
+			if(vaziaListaAdjacente(auxiliar -> adjacente)){
+				break;
+			}
 			if(verificaFilhos(l, auxiliar -> id, tempoDescoberta)){
 				return true;
 			}
-			//printf("id: %d\n", auxiliar -> id);
 		}
 		auxiliar = auxiliar -> proximo;
 	}

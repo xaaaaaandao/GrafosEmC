@@ -233,6 +233,19 @@ int opcaoValorN(){
 	}
 }
 
+int opcaoVertice(Lista *l){
+	int vertice;
+	telaVertice();
+	scanf(" %d", &vertice);
+	if(existeVertice(l, vertice)){
+		return vertice;
+	} else {
+		telaLimpa();
+		telaErro();
+		opcaoVertice(l);
+	}
+}
+
 /* Chama as demais funções */
 void opcaoExercicio(Lista *l){
 	int opcao;
@@ -263,10 +276,12 @@ void opcaoExercicio(Lista *l){
 			opcaoPrincipal(l);
 			break;	
 		case 5:
-			if(descendenteArestaRetorno(l, 2))
-				printf("tem\n");
-			else 
-				printf("não tem\n");
+			telaLimpa();
+			if(descendenteArestaRetorno(l, opcaoVertice(l))){
+				telaDescedenteTemArestaRetorno();
+			} else {
+				telaDescedenteNaoTemArestaRetorno();
+			}
 			opcaoPrincipal(l);
 			break;
 		case 6:
@@ -275,7 +290,15 @@ void opcaoExercicio(Lista *l){
 			opcaoPrincipal(l);
 			break;		
 		case 7:
-			printf("...\n");
+			telaLimpa();
+			if(vaziaLista(l)){
+				telaSemVertice();
+			} else if(grafoDirigido == false){
+				telaCFCDirigido();
+			} else {
+				telaComponenteFortementeConexa();
+				componenteFortementeConexa(l);
+			}
 			opcaoPrincipal(l);
 			break;	
 		case 8:
@@ -412,6 +435,24 @@ void opcaoPrincipal(Lista *l){
 			opcaoPrincipal(l);
 			break;			
 		case 14:
+			telaLimpa();
+			if(vaziaLista(l)){
+				telaSemVertice();
+			} else {
+				imprimirListaTempo(l);
+			}
+			opcaoPrincipal(l);
+			break;	
+		case 15:
+			telaLimpa();
+			if(vaziaLista(l)){
+				telaSemVertice();
+			} else {
+				limpaTodasLista(l);
+			}
+			opcaoPrincipal(l);
+			break;	
+		case 16:
 			sairPrograma();
 			break;	
 		default:

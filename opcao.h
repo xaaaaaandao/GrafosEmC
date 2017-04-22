@@ -17,6 +17,7 @@ void opcaoGrafo();
 void opcaoGrafoPonderado();
 void opcaoCarregarArquivo(Lista*);
 int opcaoValorN();
+int opcaoVertice(Lista*);
 void opcaoExercicio(Lista*);
 void opcaoPrincipal(Lista*);
 
