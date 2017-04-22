@@ -22,3 +22,9 @@ compile:
 	gcc exercicios.c -c
 	gcc componente.c -c
 	gcc main.c -o main matriz.o lista.o telas.o opcao.o busca.o fila.o exercicios.o ordenacao.o componente.o
+
+up:
+	git checkout master
+	git pull origin master
+	git merge xandao
+	git push origin master

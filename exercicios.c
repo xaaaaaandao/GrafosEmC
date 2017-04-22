@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "busca.h"
 #include "exercicios.h"
 #include "fila.h"
 #include "matriz.h"
@@ -83,6 +84,8 @@ bool preencheAdjacente(Lista *l, int cor, int id, Fila *f){
 				enfilerarFila(f, id);
 			} else if(auxiliar -> cor == cor){
 				return false;
+			} else if(((auxiliar -> cor == Vermelho) && (cor ==VERTICEAMARELO)) || ((auxiliar -> cor == Vermelho) && (cor ==VERTICEAMARELO))){
+				return true;
 			}
 		}
 		auxiliar = auxiliar -> proximo;
@@ -117,10 +120,11 @@ bool realizaTesteBiPartido(Lista *l, Fila *f){
 
 void ehBiPartido(Lista *l){
 	Fila *fila = inicializaBiPartido(l);
-	if(realizaTesteBiPartido(l , fila))
-		printf("eh bi partido\n");
-	else
-		printf("nao eh bi partido\n");
+	if(realizaTesteBiPartido(l , fila)){
+		telaGrafoBiPartido();
+	} else  {
+		telaGrafoNaoBiPartido();
+	}
 }
 
 /**
@@ -130,6 +134,72 @@ void ehBiPartido(Lista *l){
 /**
 	Exercício 5 usar busca em profundidade para verificar se os filhos tem algum adjacente 
 **/
+int valorTempoDescoberta(Lista *l, int id){
+	No *auxiliar = l -> primeiro;
+	while(auxiliar != NULL){
+		if(auxiliar -> id == id){
+			return auxiliar -> tempoDescoberta;
+		}
+		auxiliar = auxiliar -> proximo;
+	}
+	return -1;
+}
+
+bool verificaFilhos(Lista *l, int id, int tempoDescoberta){
+	No *auxiliar = l -> primeiro;
+	noAdjacente *auxiliarAdjacente;
+	while(auxiliar != NULL){
+		if(auxiliar -> id == id){
+			if(vaziaListaAdjacente(auxiliar -> adjacente)){
+				return false;
+			}
+			printf("id: %d\n", id);
+			auxiliarAdjacente = auxiliar -> adjacente -> primeiro;
+			while(auxiliarAdjacente != NULL){
+				printf("id: %d\n", auxiliar -> id);
+				printf("tempoDescoberta: %d\n", auxiliar -> tempoDescoberta);
+				printf("auxiliar id: %d\n", auxiliarAdjacente -> id);
+				printf("tempoDescoberta: %d\n", valorTempoDescoberta(l, auxiliarAdjacente -> id));
+				if(auxiliar -> tempoDescoberta > valorTempoDescoberta(l, auxiliarAdjacente -> id)){
+					return true;
+				}
+				auxiliarAdjacente = auxiliarAdjacente -> proximo;
+			}
+		}
+		auxiliar = auxiliar -> proximo;
+	}
+	return false;
+}
+
+bool descendenteArestaRetorno(Lista *l, int id){
+	buscaProfundidade(l);
+	telaLimpa();
+	No *auxiliar = l -> primeiro;
+	int tempoDescoberta, tempoFinalizacao;
+	while(auxiliar != NULL){
+		if(auxiliar -> id == id){
+			if(auxiliar -> pai == -1){
+				return false;
+			} else {			
+				tempoDescoberta = auxiliar -> tempoDescoberta;
+				tempoFinalizacao = auxiliar -> tempoFinalizacao;
+				break;	
+			}
+		}
+		auxiliar = auxiliar -> proximo;
+	}
+	auxiliar = l -> primeiro;
+	while(auxiliar != NULL){
+		if(auxiliar -> tempoDescoberta > tempoDescoberta && auxiliar -> tempoFinalizacao < tempoFinalizacao){
+			if(verificaFilhos(l, auxiliar -> id, tempoDescoberta)){
+				return true;
+			}
+			//printf("id: %d\n", auxiliar -> id);
+		}
+		auxiliar = auxiliar -> proximo;
+	}
+	return false;
+}
 
 /**
 	Exercício 6.
@@ -179,5 +249,5 @@ void comparaVerticeAresta(Lista *l, int n){
 }
 
 /**
-	Exercício 7.
+	Exercício 7 já temos uma função que desenvolve isso.
 **/

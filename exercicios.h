@@ -11,5 +11,6 @@ int nAresta(Lista*);
 int nVertice(Lista*);
 void comparaVerticeAresta(Lista*, int);
 void ehBiPartido(Lista*);
+bool descendenteArestaRetorno(Lista*, int);
 
 #endif /* EXERCICIOS_H */

@@ -10,7 +10,7 @@ void exemploGrafoNaoDirigido(Lista *l){
 	int i;
 	grafoDirigido = false;
 	grafoPonderado = false;
-	/*
+	
 	for(i = 0; i < 8; i++){
 		inserirLista(l);
 	}
@@ -23,8 +23,8 @@ void exemploGrafoNaoDirigido(Lista *l){
 	insereAresta(l, 3, 8, grafoDirigido, 1);
 	insereAresta(l, 4, 5, grafoDirigido, 1);
 	insereAresta(l, 6, 7, grafoDirigido, 1);
-	insereAresta(l, 7, 8, grafoDirigido, 1);*/
-	for(i = 0; i < 8; i++){
+	insereAresta(l, 7, 8, grafoDirigido, 1);
+/*	for(i = 0; i < 8; i++){
 		inserirLista(l);
 	}
 	insereAresta(l, 1, 2, grafoDirigido, 1);
@@ -35,7 +35,7 @@ void exemploGrafoNaoDirigido(Lista *l){
 	insereAresta(l, 5, 2, grafoDirigido, 1);
 	insereAresta(l, 5, 4, grafoDirigido, 1);
 	insereAresta(l, 5, 6, grafoDirigido, 1);
-	insereAresta(l, 6, 7, grafoDirigido, 1);
+	insereAresta(l, 6, 7, grafoDirigido, 1);*/
 }
 
 void exemploGrafoDirigido(Lista *l){

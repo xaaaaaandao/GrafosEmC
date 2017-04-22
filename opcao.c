@@ -249,6 +249,7 @@ void opcaoExercicio(Lista *l){
 			opcaoPrincipal(l);
 			break;	
 		case 3:
+			telaLimpa();
 			ehBiPartido(l);
 			opcaoPrincipal(l);
 			break;	
@@ -262,7 +263,10 @@ void opcaoExercicio(Lista *l){
 			opcaoPrincipal(l);
 			break;	
 		case 5:
-			printf("...\n");
+			if(descendenteArestaRetorno(l, 2))
+				printf("tem\n");
+			else 
+				printf("não tem\n");
 			opcaoPrincipal(l);
 			break;
 		case 6:

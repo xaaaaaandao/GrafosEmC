@@ -8,6 +8,17 @@ void telaLimpa(){
 }
 
 /* Telas de mensagens */
+void telaGrafoBiPartido(){
+	printf(ANSI_COLOR_GREEN "╔═══════════════════════╗\n" ANSI_COLOR_RESET);
+	printf(ANSI_COLOR_GREEN "║ O Grafo é Bi-partido! ║\n" ANSI_COLOR_RESET);
+	printf(ANSI_COLOR_GREEN "╚═══════════════════════╝\n" ANSI_COLOR_RESET);
+}
+
+void telaGrafoNaoBiPartido(){
+	printf(ANSI_COLOR_RED "╔═══════════════════════════╗\n" ANSI_COLOR_RESET);
+	printf(ANSI_COLOR_RED "║ O Grafo não é Bi-partido! ║\n" ANSI_COLOR_RESET);
+	printf(ANSI_COLOR_RED "╚═══════════════════════════╝\n" ANSI_COLOR_RESET);
+}
 
 void telaOrdenacaoTopologica(){
 	printf(ANSI_COLOR_GREEN "╔═══════════════════════╗\n" ANSI_COLOR_RESET);
