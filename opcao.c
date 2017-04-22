@@ -388,7 +388,6 @@ void opcaoPrincipal(Lista *l){
 				telaSemVertice();
 			} else {
 				buscaProfundidade(l);
-				imprimirListaTempo(l);	
 			}
 			opcaoPrincipal(l);
 			break;	
@@ -439,6 +438,7 @@ void opcaoPrincipal(Lista *l){
 			if(vaziaLista(l)){
 				telaSemVertice();
 			} else {
+				telaPaiETempos();
 				imprimirListaTempo(l);
 			}
 			opcaoPrincipal(l);
@@ -448,6 +448,7 @@ void opcaoPrincipal(Lista *l){
 			if(vaziaLista(l)){
 				telaSemVertice();
 			} else {
+				telaGrafoResetado();
 				limpaTodasLista(l);
 			}
 			opcaoPrincipal(l);

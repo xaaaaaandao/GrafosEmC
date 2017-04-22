@@ -10,6 +10,8 @@
 #define ANSI_COLOR_RESET   "\x1b[0m"
 
 void telaLimpa();
+void telaGrafoResetado();
+void telaPaiETempos();
 void telaDescedenteTemArestaRetorno();
 void telaDescedenteNaoTemArestaRetorno();
 void telaGrafoBiPartido();

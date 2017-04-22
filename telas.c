@@ -8,6 +8,18 @@ void telaLimpa(){
 }
 
 /* Telas de mensagens */
+void telaGrafoResetado(){
+	printf(ANSI_COLOR_GREEN "╔═════════════════╗\n" ANSI_COLOR_RESET);
+	printf(ANSI_COLOR_GREEN "║ Grafo resetado! ║\n" ANSI_COLOR_RESET);
+	printf(ANSI_COLOR_GREEN "╚═════════════════╝\n" ANSI_COLOR_RESET);
+}
+
+void telaPaiETempos(){
+	printf(ANSI_COLOR_GREEN "╔══════════════╗\n" ANSI_COLOR_RESET);
+	printf(ANSI_COLOR_GREEN "║ Pai e tempos ║\n" ANSI_COLOR_RESET);
+	printf(ANSI_COLOR_GREEN "╚══════════════╝\n" ANSI_COLOR_RESET);
+}
+
 void telaDescedenteTemArestaRetorno(){
 	printf(ANSI_COLOR_GREEN "╔════════════════════════════════════════════════════════════╗\n" ANSI_COLOR_RESET);
 	printf(ANSI_COLOR_GREEN "║ O descendente tem uma aresta de retorno para um ancestral! ║\n" ANSI_COLOR_RESET);
