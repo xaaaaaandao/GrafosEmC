@@ -7,8 +7,17 @@ bool grafoDirigido;
 bool grafoPonderado;
 
 void sairPrograma();
+int opcaoArestaOrigem(Lista*);
+int opcaoArestaDestino(Lista*);
+int opcaoPesoAresta();
+void opcaoAresta(Lista*);
+void opcaoRemoveVertice(Lista*);
+void opcaoRemoveAresta(Lista*);
 void opcaoGrafo();
 void opcaoGrafoPonderado();
+void opcaoCarregarArquivo(Lista*);
+int opcaoValorN();
+void opcaoExercicio(Lista*);
 void opcaoPrincipal(Lista*);
 
 #endif /* OPCAO_H */

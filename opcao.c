@@ -83,8 +83,6 @@ void opcaoAresta(Lista *l){
 		} else if(insereAresta(l, verticeOrigem, verticeDestino, grafoDirigido, peso)){
 			telaLimpa();
 			telaArestaAdicionado();	
-			//printf("Origem: %d\n", verticeOrigem);
-			//printf("Destino: %d\n", verticeDestino);	
 		} else {
 			//quando existea a aresta
 			telaLimpa();

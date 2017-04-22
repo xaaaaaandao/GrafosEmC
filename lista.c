@@ -10,8 +10,9 @@ void exemploGrafoNaoDirigido(Lista *l){
 	int i;
 	grafoDirigido = false;
 	grafoPonderado = false;
-	for(i = 0; i < 8; i++)
+	for(i = 0; i < 8; i++){
 		inserirLista(l);
+	}
 	insereAresta(l, 1, 6, grafoDirigido, 1);
 	insereAresta(l, 1, 4, grafoDirigido, 1);
 	insereAresta(l, 2, 3, grafoDirigido, 1);
@@ -26,31 +27,27 @@ void exemploGrafoNaoDirigido(Lista *l){
 
 void exemploGrafoDirigido(Lista *l){
 	int i;
-	for(i = 0; i < 6; i++)
+	for(i = 0; i < 6; i++){
 		inserirLista(l);
+	}
 	grafoDirigido = true;
 	grafoPonderado = false;
 	insereAresta(l, 1, 2, grafoDirigido, 1);
-	//insereAresta(l, 1, 4, grafoDirigido, 1);
 	insereAresta(l, 2, 5, grafoDirigido, 1);
 	insereAresta(l, 3, 5, grafoDirigido, 1);
 	insereAresta(l, 3, 6, grafoDirigido, 1);
-	insereAresta(l, 4, 1, grafoDirigido, 1);
-	//insereAresta(l, 4, 2, grafoDirigido, 1);
+	/* Exemplo: retirar quando não tem ordenação topológica
+	insereAresta(l, 4, 1, grafoDirigido, 1); */
 	insereAresta(l, 5, 4, grafoDirigido, 1);
-	//insereAresta(l, 6, 6, grafoDirigido, 1);
 }
 
 /* Operações de lista */
-
 void removerFimAresta(listaAdjacente *l){
-	noAdjacente *ultimo = l -> primeiro, *penultimo = l -> primeiro;
-			 
+	noAdjacente *ultimo = l -> primeiro, *penultimo = l -> primeiro;			 
 	while(ultimo -> proximo != NULL){
 		penultimo = ultimo;
 		ultimo = ultimo->proximo;
-	}
-	
+	}	
 	penultimo -> proximo = NULL;
 	l -> ultimo = penultimo;
 	free(ultimo);
@@ -60,13 +57,11 @@ void removerMeioAresta(listaAdjacente *l, int id){
 	noAdjacente *atual = l -> primeiro;
 	noAdjacente *anterior = l -> primeiro;
 	noAdjacente *proximo, *auxiliar;
-
 	atual = l -> primeiro;		 
 	while(atual -> id != id){
 		anterior = atual;
 		atual = atual -> proximo;
 	}
-	
 	auxiliar = l -> primeiro;
 	while(auxiliar != NULL){
 		if(auxiliar -> anterior == atual){
@@ -75,7 +70,6 @@ void removerMeioAresta(listaAdjacente *l, int id){
 		}
 		auxiliar = auxiliar -> proximo;
 	}
-
 	anterior -> proximo = atual -> proximo;
 	proximo -> anterior = anterior;
 	free(atual);
@@ -110,7 +104,6 @@ void removeAresta(Lista *l, int origem, int destino){
 		}
 		auxiliar = auxiliar -> proximo;
 	}
-
 	if(auxiliarAdjacente -> anterior == NULL && auxiliarAdjacente -> proximo == NULL){
 		free(auxiliarAdjacente);
 		auxiliar -> adjacente = (listaAdjacente*) malloc (sizeof(listaAdjacente));
@@ -135,25 +128,21 @@ void removerInicioVertice(Lista *l){
 
 void removerFimVertice(Lista *l){
 	No *ultimo = l -> primeiro, *penultimo = l -> primeiro;
-			 
 	while(ultimo->proximo != NULL){
 		penultimo = ultimo;
 		ultimo = ultimo->proximo;
 	}
-	
 	penultimo->proximo = NULL;
 	l -> ultimo = penultimo;
 	free(ultimo);
 }
 
 void removerMeioVertice(Lista *l, int id){
-	No *atual = l -> primeiro, *anterior = l -> primeiro;
-			 
+	No *atual = l -> primeiro, *anterior = l -> primeiro; 
 	while(atual -> id != id){
 		anterior = atual;
 		atual = atual -> proximo;
 	}
-	
 	anterior -> proximo = atual -> proximo;
 	free(atual);
 }
@@ -167,7 +156,6 @@ bool removeVertice(Lista *l, int id){
 		}
 		auxiliar = auxiliar -> proximo;
 	}
-
 	if(auxiliar == l -> primeiro){
 		removerInicioVertice(l);		
 	} else if (auxiliar -> proximo == NULL){
@@ -190,7 +178,6 @@ bool existeAresta(Lista *l, int origem, int destino){
 				auxiliarAdjacente = auxiliarAdjacente -> proximo;
 			}
 			return false;
-
 		}
 		auxiliar = auxiliar -> proximo;
 	}
@@ -284,23 +271,18 @@ int vaziaLista(Lista *l){
 }  
 
 void inserirListaAdjacente(listaAdjacente *l, int id, int peso){
-
 	bool flag = true;
-
 	noAdjacente *novoNo = (noAdjacente*) malloc (sizeof(noAdjacente));
 	novoNo -> id = id;
 	novoNo -> peso = peso;
 	novoNo -> anterior = NULL;
 	novoNo -> proximo = NULL;
-	
 	noAdjacente *aux = (noAdjacente*) malloc (sizeof(noAdjacente));
-
 	if (vaziaListaAdjacente(l)){
 		l -> primeiro = novoNo;
 		l -> ultimo = novoNo;
 	} else {
 		aux = l -> primeiro;
-
 		while(aux -> proximo != NULL) {
 			if (id < aux -> id) {
 				if (aux != l -> primeiro) {
@@ -314,10 +296,8 @@ void inserirListaAdjacente(listaAdjacente *l, int id, int peso){
 					break;
 				}
 			}
-
 			aux = aux -> proximo;
 		}
-
 		if (flag) {
 			if (aux == l -> primeiro) {
 				if (id < aux -> id) {
@@ -342,9 +322,7 @@ void inserirListaAdjacente(listaAdjacente *l, int id, int peso){
 				}
 			}
 		}
-
 	}
-	
 	l -> tamanho++;
 }
 
@@ -352,10 +330,8 @@ void inserirLista(Lista *l){
 	No *novoNo = (No*) malloc (sizeof(No));
 	novoNo -> id = l -> tamanho;
 	novoNo -> proximo = NULL;
-	
 	novoNo -> adjacente = (listaAdjacente*) malloc (sizeof(listaAdjacente));
 	inicializarListaAdjacente(novoNo -> adjacente);
-
 	if (vaziaLista(l)){
 		l -> primeiro = novoNo;
 		l -> ultimo = novoNo;
@@ -363,7 +339,6 @@ void inserirLista(Lista *l){
 		l -> ultimo -> proximo = novoNo;
 		l -> ultimo = novoNo;
 	}
-	
 	l -> tamanho++;
 }
 
@@ -371,10 +346,8 @@ void insereListaOrdenacaoTopologica(Lista *l, int id){
 	No *novoNo = (No*) malloc (sizeof(No));
 	novoNo -> id = id;
 	novoNo -> proximo = NULL;
-	
 	novoNo -> adjacente = (listaAdjacente*) malloc (sizeof(listaAdjacente));
 	inicializarListaAdjacente(novoNo -> adjacente);
-
 	if (vaziaLista(l)){
 		l -> primeiro = novoNo;
 		l -> ultimo = novoNo;
@@ -382,13 +355,11 @@ void insereListaOrdenacaoTopologica(Lista *l, int id){
 		novoNo -> proximo = l -> primeiro;
 		l -> primeiro = novoNo;
 	}
-	
 	l -> tamanho++;
 }
 
 No *getAdjacente(Lista *l, int id) {
 	No *no = l -> primeiro;
-
 	while (no -> id != id)
 		no = no -> proximo; 
 	return no;

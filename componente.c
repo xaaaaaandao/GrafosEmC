@@ -1,10 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "busca.h"
+#include "componente.h"
 #include "exercicios.h"
-#include "lista.h"
 #include "matriz.h"
 #include "opcao.h"
+#include "telas.h"
 
 void matrizTranspota(int** matrizOrigem, int **matrizDestino, int tamanho){
 	int i, j;
@@ -36,14 +37,10 @@ void ordemDecrescenteFinalizacao(Lista *l, int numeroVertice, int vetorID[]){
 	Lista *lAuxiliar = (Lista*) malloc (sizeof(Lista));
 	No *auxiliar = l -> primeiro, *auxiliarCopia, *auxiliarZerado;
 	int n = numeroVertice - 1, maior = -1, i, j = 0;
-	
 	inicializarLista(lAuxiliar);
-	
 	for(i = 0; i < numeroVertice - 1; i++)
 		inserirLista(lAuxiliar); 
-	
 	auxiliarCopia = lAuxiliar -> primeiro;
-
 	while(auxiliar != NULL){
 		auxiliarCopia -> pai = auxiliar -> pai;
 		auxiliarCopia -> tempoDescoberta = auxiliar -> tempoDescoberta;
@@ -52,7 +49,6 @@ void ordemDecrescenteFinalizacao(Lista *l, int numeroVertice, int vetorID[]){
 		auxiliar = auxiliar -> proximo;
 		auxiliarCopia = auxiliarCopia -> proximo;
 	}
-
 	while(n > 0){
 		auxiliarCopia = lAuxiliar -> primeiro;
 		while(auxiliarCopia != NULL){
@@ -65,8 +61,6 @@ void ordemDecrescenteFinalizacao(Lista *l, int numeroVertice, int vetorID[]){
 		auxiliarZerado -> tempoFinalizacao = -1;
 		vetorID[j] = auxiliarZerado -> id;
 		j++;
-		//printf("tempoFinalizacao: %d\n", maior);
-		//printf("id: %d\n", auxiliarZerado -> id);
 		maior = -1;
 		n--;
 	}
@@ -75,33 +69,19 @@ void ordemDecrescenteFinalizacao(Lista *l, int numeroVertice, int vetorID[]){
 void componenteFortementeConexa(Lista *l){
 	Lista *lTransposta = (Lista*) malloc (sizeof(Lista));
 	No *auxiliar;
-	inicializarLista(lTransposta);
-	int numeroVertice = nVertice(l) + 1;
+	int i, j, numeroPai = 0, numeroVertice = nVertice(l) + 1, vetorID[numeroVertice];
 	int **matriz = (int**) malloc (numeroVertice * sizeof(int*));
 	int **matrizDestino = (int**) malloc (numeroVertice * sizeof(int*));	
-	int i, j;
-	int vetorID[numeroVertice];
-	int numeroPai = 0;
-	
-	//pego a matriz
+	inicializarLista(lTransposta);	
 	for(i = 0; i < numeroVertice; i++){
 		matriz[i] = (int*) malloc (numeroVertice * sizeof(int)); //Aloca um Vetor de Inteiros para cada posição do Vetor de Ponteiros.
 		matrizDestino[i] = (int*) malloc (numeroVertice * sizeof(int));
  	}
-	
-	//inicializo a busca em profundidade
 	buscaProfundidade(l);
-	//ordeno a busca em profundidade em tempo de finalização
 	ordemDecrescenteFinalizacao(l, numeroVertice, vetorID);
-
-	//faço a transposta dela
 	matriz = matrizAdjacencia(l, grafoDirigido);
 	matrizTranspota(matriz, matrizDestino, numeroVertice);
-
-	//pego a matriz transposta e coloco essa matriz nunma lista
 	listaTransposta(lTransposta, matrizDestino, numeroVertice);
-
-	//Realizo a busca em profundidade
 	auxiliar = lTransposta -> primeiro;
 	while(auxiliar != NULL){
 		auxiliar -> cor = Branco;
@@ -110,9 +90,7 @@ void componenteFortementeConexa(Lista *l){
 		auxiliar -> pai = -1;
 		auxiliar = auxiliar -> proximo;
 	}
-
 	tempo = 0;
-	//pegar os tempos de finalizacao
 	for(i = 0; i < numeroVertice - 1; i++){
 		auxiliar = lTransposta -> primeiro;
 		while(auxiliar != NULL){
@@ -120,10 +98,8 @@ void componenteFortementeConexa(Lista *l){
 				BuscaEmProfundidade(lTransposta, auxiliar);
 			}
 			auxiliar = auxiliar -> proximo;
-		}
-		
+		}		
 	}
-
 	auxiliar = lTransposta -> primeiro;
 	while(auxiliar != NULL){
 		if(auxiliar -> pai == -1){
@@ -131,7 +107,6 @@ void componenteFortementeConexa(Lista *l){
 		}
 		auxiliar = auxiliar -> proximo;
 	}
-	
-	printf("número de componentes fortemente conexas %d\n", numeroPai);
-	//imprimirListaTempo(lTransposta);
+	telaLimpa();
+	telaQtdComponenteFConexa(numeroPai);	
 }

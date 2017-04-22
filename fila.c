@@ -3,7 +3,6 @@
 #include "fila.h"
 
 /* Operações da fila */
-
 void inicializarFila(Fila *f){
 	f -> inicio = NULL;
 	f -> fim = NULL;
@@ -19,7 +18,6 @@ void enfilerarFila(Fila *f, int id){
 	auxiliar = (noFila *) malloc(sizeof(noFila));
 	auxiliar -> id = id;
 	auxiliar -> proximo  = NULL;
-  
 	if (vaziaFila(f)){
 		f -> inicio = auxiliar;
 		f -> fim = auxiliar;
@@ -33,9 +31,9 @@ void enfilerarFila(Fila *f, int id){
 int desenfilerarFila(Fila *f){
 	int id;
 	noFila *auxiliar;
-	if (vaziaFila(f))
+	if (vaziaFila(f)){
 		return -1;
-	  
+	}
 	auxiliar = f -> inicio;
 	id = f -> inicio -> id;
 	f -> inicio = f -> inicio -> proximo;

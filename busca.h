@@ -6,6 +6,8 @@
 
 int tempo;
 
+int numeroFilho(Lista*, int);
+void imprimeArvore(Lista*);
 bool BuscaEmProfundidade(Lista*, No*);
 bool iniciarBuscaEmProfundidade(Lista*);
 void buscaProfundidade(Lista*);

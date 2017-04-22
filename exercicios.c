@@ -22,32 +22,25 @@
 **/
 void matrizAdjacenciaToListaAdjacencia(Lista *l){
 	Lista *listaNaoDirigida = (Lista*) malloc (sizeof(Lista));
-	inicializarLista(listaNaoDirigida);
-
-	int numeroVertice = nVertice(l);
+	int i, j, numeroVertice = nVertice(l);
 	int **matriz = (int**) malloc (numeroVertice * sizeof(int*));
-	int i, j;
-	
+	inicializarLista(listaNaoDirigida);
 	for(i = 0; i < numeroVertice; i++){
 		matriz[i] = (int*) malloc (numeroVertice * sizeof(int)); //Aloca um Vetor de Inteiros para cada posição do Vetor de Ponteiros.
  	}
-
  	matriz = matrizAdjacencia(l, grafoDirigido);
-
-	
-
- 	for(i = 0; i < numeroVertice; i++)
+ 	for(i = 0; i < numeroVertice; i++){
  		inserirLista(listaNaoDirigida);
-
+ 	}
 	for(i = 1; i < numeroVertice + 1; i++){
 		for(j = 1; j < numeroVertice + 1; j++){
 			if(matriz[i][j] == 1){
-				if(i != j)
+				if(i != j){
 					insereAresta(listaNaoDirigida, i, j, false, 1);
+				}
 			}
 		}
 	}
-
 	telaLimpa();
 	telaMatrizAdjacencia();
 	for(i = 0; i < numeroVertice + 1; i++){
@@ -56,7 +49,6 @@ void matrizAdjacenciaToListaAdjacencia(Lista *l){
 		}
 		printf("\n");
 	}
-
 	telaListaAdjacencia();
 	imprimirLista(listaNaoDirigida);
 }
@@ -80,7 +72,6 @@ int nAresta(Lista *l){
 	No *auxiliar = l -> primeiro;
 	noAdjacente *auxiliarAdjacente;
 	int numeroAresta = 0;
-	
 	while(auxiliar != NULL){
 		auxiliarAdjacente = auxiliar -> adjacente -> primeiro;
 		while(auxiliarAdjacente != NULL){
@@ -89,39 +80,36 @@ int nAresta(Lista *l){
 		}
 		auxiliar = auxiliar -> proximo;
 	}
-
 	return numeroAresta/2;
 }
 
 int nVertice(Lista *l){
 	No *auxiliar = l -> primeiro;
 	int numeroVertice = 0;
-	
 	while(auxiliar != NULL){
 		numeroVertice++;
 		auxiliar = auxiliar -> proximo;
 	}
-
 	return numeroVertice;
 }
 
 void comparaVerticeAresta(Lista *l, int n){
 	int numeroVertice = nVertice(l);
 	int numeroAresta = nAresta(l);
-	
-	if(n > numeroVertice)
+	if(n > numeroVertice){
 		telaNMaiorNVertice();
-	else if(n == numeroVertice)
+	} else if(n == numeroVertice){
 		telaNIgualNVertice();
-	else if(n < numeroVertice)
+	} else if(n < numeroVertice){
 		telaNMenorNVertice();
-
-	if(n > numeroAresta)
+	}
+	if(n > numeroAresta){
 		telaNMaiorNAresta();
-	else if(n == numeroAresta)
+	} else if(n == numeroAresta){
 		telaNIgualNAresta();
-	else if(n < numeroAresta)
+	} else if(n < numeroAresta){
 		telaNMenorNAresta();
+	}
 }
 
 /**

@@ -32,9 +32,9 @@ typedef struct{
 	int tamanho;
 }Lista;
 
-void exemploGrafoNaoDirigido(Lista*);
+void exemploGrafoNaoDirigido(Lista *l);
 void exemploGrafoDirigido(Lista*);
-void removerFimAresta(listaAdjacente*);
+void removerFimAresta(listaAdjacente *l);
 void removerMeioAresta(listaAdjacente*, int);
 void removerInicioAresta(listaAdjacente*);
 void removeAresta(Lista*, int, int);
@@ -46,7 +46,7 @@ bool existeAresta(Lista*, int, int);
 bool insereAresta(Lista*, int, int, bool, int);
 bool existeVertice(Lista*, int);
 void limpaListaAdjacente(listaAdjacente*);
-void limpaLista(Lista*);
+void limpaLista(Lista *l);
 void inicializarListaAdjacente(listaAdjacente*);
 void inicializarLista(Lista*);
 int vaziaListaAdjacente(listaAdjacente*);

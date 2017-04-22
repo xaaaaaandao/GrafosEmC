@@ -8,6 +8,7 @@ void telaLimpa(){
 }
 
 /* Telas de mensagens */
+
 void telaOrdenacaoTopologica(){
 	printf(ANSI_COLOR_GREEN "╔═══════════════════════╗\n" ANSI_COLOR_RESET);
 	printf(ANSI_COLOR_GREEN "║ Ordenação topológica! ║\n" ANSI_COLOR_RESET);
@@ -164,6 +165,26 @@ void telaVerticeAdicionado(int id){
 		printf(ANSI_COLOR_GREEN "╔════════════════════════════════════════════╗\n" ANSI_COLOR_RESET);
 		printf(ANSI_COLOR_GREEN "║ O vértice %d foi adicionado com sucesso! ║\n" ANSI_COLOR_RESET, id);
 		printf(ANSI_COLOR_GREEN "╚════════════════════════════════════════════╝\n" ANSI_COLOR_RESET);				
+	}
+}
+
+void telaQtdComponenteFConexa(int quantidade){
+	if(quantidade < 10){
+		printf(ANSI_COLOR_GREEN "╔════════════════════════════════════════════════════╗\n" ANSI_COLOR_RESET);
+		printf(ANSI_COLOR_GREEN "║ A quantidade de componente fortemente conexa é: %d! ║\n" ANSI_COLOR_RESET, quantidade);
+		printf(ANSI_COLOR_GREEN "╚════════════════════════════════════════════════════╝\n" ANSI_COLOR_RESET);		
+	} else if(quantidade < 100){
+		printf(ANSI_COLOR_GREEN "╔═════════════════════════════════════════════════════╗\n" ANSI_COLOR_RESET);
+		printf(ANSI_COLOR_GREEN "║ A quantidade de componente fortemente conexa é: %d! ║\n" ANSI_COLOR_RESET, quantidade);
+		printf(ANSI_COLOR_GREEN "╚═════════════════════════════════════════════════════╝\n" ANSI_COLOR_RESET);		
+	} else if(quantidade < 1000){
+		printf(ANSI_COLOR_GREEN "╔══════════════════════════════════════════════════════╗\n" ANSI_COLOR_RESET);
+		printf(ANSI_COLOR_GREEN "║ A quantidade de componente fortemente conexa é: %d! ║\n" ANSI_COLOR_RESET, quantidade);
+		printf(ANSI_COLOR_GREEN "╚══════════════════════════════════════════════════════╝\n" ANSI_COLOR_RESET);				
+	} else if(quantidade < 10000){
+		printf(ANSI_COLOR_GREEN "╔═══════════════════════════════════════════════════════╗\n" ANSI_COLOR_RESET);
+		printf(ANSI_COLOR_GREEN "║ A quantidade de componente fortemente conexa é: %d! ║\n" ANSI_COLOR_RESET, quantidade);
+		printf(ANSI_COLOR_GREEN "╚═══════════════════════════════════════════════════════╝\n" ANSI_COLOR_RESET);				
 	}
 }
 

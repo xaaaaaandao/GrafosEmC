@@ -1,6 +1,8 @@
 #ifndef ORDENACAO_H
 #define	ORDENACAO_H
 
+int tempoOrdenacao;
+
 void ordenacaoRealizarBuscaProfundidade(Lista*, No*, Lista*);
 void ordenacaoIniciarBuscaProfundidade(Lista*, Lista*);
 void ordenacaoTopologica(Lista*);
