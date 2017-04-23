@@ -448,6 +448,8 @@ void opcaoPrincipal(Lista *l){
 			if(vaziaLista(l)){
 				telaSemVertice();
 			} else {
+				opcaoGrafo();
+				opcaoGrafoPonderado();
 				telaGrafoResetado();
 				limpaTodasLista(l);
 			}
