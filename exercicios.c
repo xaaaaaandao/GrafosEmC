@@ -144,12 +144,12 @@ void grauMaximo(Lista *l, int id){
 		filaBuscaLargura = (Fila*) malloc (sizeof(Fila));
 		auxiliar = auxiliar -> proximo;
 	}
-	for(i = 0; i  < n; i++){
+	/*for(i = 0; i  < n; i++){
 		for(j = 0; j < n; j++){
 			printf("%d ", matriz[i][j]);
 		}
 		printf("\n");
-	}
+	}*/
 	//matriz[3][8] = 0;
 	k = 1;
 	maior = -1;
@@ -169,8 +169,8 @@ void grauMaximo(Lista *l, int id){
 		grau = matriz[k][posicao] + existeValor;
 		if(grau > maior){
 			maior = grau;
-			printf("k: %d\n", k);
-			printf("posicao: %d\n", posicao);
+			//printf("k: %d\n", k);
+			//printf("posicao: %d\n", posicao);
 		}
 		k++;
 	}

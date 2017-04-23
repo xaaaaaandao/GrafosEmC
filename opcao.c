@@ -253,7 +253,11 @@ void opcaoExercicio(Lista *l){
 	scanf(" %d", &opcao);
 	switch(opcao){
 		case 1:
-			grauMaximo(l, 4);
+			if(vaziaLista(l)){
+				telaSemVertice();
+			} else {
+				grauMaximo(l, opcaoVertice());	
+			}
 			opcaoPrincipal(l);
 			break;
 		case 2:
