@@ -14,7 +14,7 @@ Fila *inicializaGrauMaximo(Lista*, int);
 void preencheCor(Lista*, int, Fila *, int, int);
 void realizaGrauMaximo(Lista*, Fila *);
 void copiaLista(Lista*, Lista *);
-int posicaoMaior(int **, int, int);
+int posicaoMaior(int **, int, int, int);
 int existeCaminho(int **, int, int, int);
 void grauMaximo(Lista*, int);
 void matrizAdjacenciaToListaAdjacencia(Lista*);

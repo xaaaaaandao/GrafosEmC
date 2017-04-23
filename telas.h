@@ -12,6 +12,7 @@
 
 /* Protótipo das funções */
 void telaLimpa();
+void telaGrafoDeveDirigido();
 void telaGrafoResetado();
 void telaPaiETempos();
 void telaDescedenteTemArestaRetorno();

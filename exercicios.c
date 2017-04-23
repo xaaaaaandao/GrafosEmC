@@ -135,8 +135,8 @@ void copiaLista(Lista *original, Lista *copia){
 @param destino, é um inteiro que é o identificador do vértice que está sendo procurado;
 @return maior, retorna o maior elemento daquela linha da matriz.
 */
-int posicaoMaior(int **matriz, int n, int destino){
-	int i, j = 1, maior = -1;
+int posicaoMaior(int **matriz, int k, int n, int destino){
+	int i, j = k, maior = -1;
 	for(i = 1; i < n; i++){
 		if(matriz[j][i] > maior && i != destino){
 			maior = i;
@@ -155,15 +155,10 @@ int posicaoMaior(int **matriz, int n, int destino){
 @return maior, retorna o maior elemento daquela linha da matriz.
 */
 int existeCaminho(int **matriz, int n, int posicao, int destino){
-	int i, j;
-	for(i = 1; i < n; i++){
-		if(i == destino){
-			if(matriz[posicao][i] == 0){
-				return 0;
-			} else {
-				return matriz[posicao][i];
-			}
-		}
+	if(matriz[posicao][destino] == 0){
+		return 0;
+	} else {
+		return matriz[posicao][destino];
 	}
 }
 
@@ -203,7 +198,8 @@ void grauMaximo(Lista *l, int id){
 		filaBuscaLargura = (Fila*) malloc (sizeof(Fila));
 		auxiliar = auxiliar -> proximo;
 	}
-	/*for(i = 0; i  < n; i++){
+	/*
+	for(i = 0; i  < n; i++){
 		for(j = 0; j < n; j++){
 			printf("%d ", matriz[i][j]);
 		}
@@ -214,22 +210,23 @@ void grauMaximo(Lista *l, int id){
 	maior = -1;
 	int grau, existeValor;
 	while(k < n){
-		posicao = posicaoMaior(matriz, n, id);
-		//printf("posicao: %d\n", posicao);
-		existeValor = existeCaminho(matriz, n, posicao, id);
-		//printf("existeValor: %d\n", existeValor);
-		while(existeValor == 0){
-			matriz[k][posicao] = 0;
-			posicao = posicaoMaior(matriz, n, id);
+		if(k != id){
+			//printf("%d\n", k);		
+			posicao = posicaoMaior(matriz, k, n, id);
 			//printf("posicao: %d\n", posicao);
 			existeValor = existeCaminho(matriz, n, posicao, id);
 			//printf("existeValor: %d\n", existeValor);
-		}
-		grau = matriz[k][posicao] + existeValor;
-		if(grau > maior){
-			maior = grau;
-			//printf("k: %d\n", k);
-			//printf("posicao: %d\n", posicao);
+			while(existeValor == 0){
+				matriz[k][posicao] = 0;
+				posicao = posicaoMaior(matriz, k, n, id);
+				//printf("posicao: %d\n", posicao);
+				existeValor = existeCaminho(matriz, n, posicao, id);
+				//printf("existeValor: %d\n", existeValor);
+			}
+			grau = matriz[k][posicao] + existeValor;
+			if(grau > maior){
+				maior = grau;
+			}	
 		}
 		k++;
 	}
@@ -263,6 +260,7 @@ void matrizAdjacenciaToListaAdjacencia(Lista *l){
 			if(matriz[i][j] == 1){
 				if(i != j){
 					insereAresta(listaNaoDirigida, i, j, false, 1);
+					insereAresta(listaNaoDirigida, j, i, false, 1);
 				}
 			}
 		}
@@ -491,7 +489,11 @@ int nAresta(Lista *l){
 		}
 		auxiliar = auxiliar -> proximo;
 	}
-	return numeroAresta/2;
+	if(grafoDirigido){
+		return numeroAresta;
+	} else {
+		return numeroAresta/2;
+	}
 }
 
 /**

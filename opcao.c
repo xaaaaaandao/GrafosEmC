@@ -332,7 +332,12 @@ void opcaoExercicio(Lista *l){
 			break;
 		case 2:
 			telaLimpa();
-			matrizAdjacenciaToListaAdjacencia(l);
+			//se for dirigido
+			if(grafoDirigido){
+				matrizAdjacenciaToListaAdjacencia(l);	
+			} else {
+				telaGrafoDeveDirigido();
+			}
 			opcaoPrincipal(l);
 			break;	
 		case 3:

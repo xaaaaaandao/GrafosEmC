@@ -12,6 +12,17 @@ void telaLimpa(){
 }
 
 /**
+* A função telaGrafodirigido() mensagem para sinalizar que o grafo deve ser dirigido;
+@param nenhum, não recebe nenhum parâmetro;
+@return void, retorna nada.
+*/
+void telaGrafoDeveDirigido(){
+	printf(ANSI_COLOR_GREEN "╔════════════════════════════╗\n" ANSI_COLOR_RESET);
+	printf(ANSI_COLOR_GREEN "║ O grafo deve ser dirigido! ║\n" ANSI_COLOR_RESET);
+	printf(ANSI_COLOR_GREEN "╚════════════════════════════╝\n" ANSI_COLOR_RESET);
+}
+
+/**
 * A função telaGrafoResetado() mensagem para sinalizar que o grafo foi resetado;
 @param nenhum, não recebe nenhum parâmetro;
 @return void, retorna nada.
