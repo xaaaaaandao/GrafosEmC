@@ -6,6 +6,7 @@
 #define VERTICEAMARELO 5
 
 /* Bibliotecas necessárias */
+#include "fila.h"
 #include "lista.h"
 
 /* Protótipo das funções */
