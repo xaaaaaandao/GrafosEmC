@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 #include "fila.h"
 
 /* Operações da fila */
@@ -54,4 +55,27 @@ void imprimirFila(Fila *f){
 		auxiliar = auxiliar -> proximo;
 	}
 	printf("\n");
+}
+
+bool existeFila(Fila *f, int vertice){
+	noFila *auxiliar;
+	auxiliar = f -> inicio;
+	while (auxiliar != NULL){ 
+		if(auxiliar -> id == vertice){
+			return true;
+		}
+		auxiliar = auxiliar -> proximo;
+	}
+	return false;
+}
+
+void limpaFila(Fila *f){
+	noFila *temporario, *atual;
+	atual = f -> inicio;
+	while(atual != NULL){
+		temporario = atual -> proximo;
+		free(atual);
+		atual = temporario;
+	}
+	free(f);
 }

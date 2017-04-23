@@ -17,5 +17,7 @@ void enfilerarFila(Fila*, int);
 int desenfilerarFila(Fila*);
 int tamanhoFila(Fila*);
 void imprimirFila(Fila*);
+bool existeFila(Fila *, int);
+void limpaFila(Fila*);
 
 #endif /* FILA_H */

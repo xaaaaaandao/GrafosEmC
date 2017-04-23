@@ -6,6 +6,8 @@
 
 #include "lista.h"
 
+
+void grauMaximo(Lista*, int);
 void matrizAdjacenciaToListaAdjacencia(Lista*);
 int nAresta(Lista*);
 int nVertice(Lista*);

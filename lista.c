@@ -50,7 +50,7 @@ void exemploGrafoDirigido(Lista *l){
 	insereAresta(l, 3, 5, grafoDirigido, 1);
 	insereAresta(l, 3, 6, grafoDirigido, 1);
 	/* Exemplo: retirar quando não tem ordenação topológica */
-	insereAresta(l, 4, 1, grafoDirigido, 1);
+	//insereAresta(l, 4, 1, grafoDirigido, 1);
 	insereAresta(l, 5, 4, grafoDirigido, 1);
 
 }
@@ -264,7 +264,7 @@ void limpaLista(Lista *l){
 	free(l);
 }
 
-Lista *limpaTodasLista(Lista *l){
+void limpaTodasLista(Lista *l){
 	No *auxiliar = l -> primeiro;
 	while(auxiliar != NULL){
 		limpaListaAdjacente(auxiliar -> adjacente);
@@ -273,7 +273,6 @@ Lista *limpaTodasLista(Lista *l){
 	limpaLista(l);
 	l = (Lista*) malloc (sizeof(Lista));
 	inicializarLista(l);
-	return l;
 }
 
 void inicializarListaAdjacente(listaAdjacente *l){

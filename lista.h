@@ -47,7 +47,7 @@ bool insereAresta(Lista*, int, int, bool, int);
 bool existeVertice(Lista*, int);
 void limpaListaAdjacente(listaAdjacente*);
 void limpaLista(Lista *l);
-Lista *limpaTodasLista(Lista*);
+void limpaTodasLista(Lista*);
 void inicializarListaAdjacente(listaAdjacente*);
 void inicializarLista(Lista*);
 int vaziaListaAdjacente(listaAdjacente*);

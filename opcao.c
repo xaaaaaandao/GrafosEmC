@@ -253,7 +253,7 @@ void opcaoExercicio(Lista *l){
 	scanf(" %d", &opcao);
 	switch(opcao){
 		case 1:
-			printf("...\n");
+			grauMaximo(l, 4);
 			opcaoPrincipal(l);
 			break;
 		case 2:
