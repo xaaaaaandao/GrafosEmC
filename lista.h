@@ -1,10 +1,13 @@
 #ifndef LISTA_H
 #define	LISTA_H
 
+/* Bibliotecas necessárias */
 #include <stdbool.h>
 
+/* Definindo enumerator */
 enum coresVertices{Branco = 1, Cinza = 2, Preto = 3, Vermelho = 4, Amarelo = 5} Cores;
 
+/* Definindo algumas estruturas */
 typedef struct noadjacente{
 	int id;
 	int peso;
@@ -32,6 +35,7 @@ typedef struct{
 	int tamanho;
 }Lista;
 
+/* Protótipo das funções */
 void exemploGrafoNaoDirigido(Lista *l);
 void exemploGrafoDirigido(Lista*);
 void removerFimAresta(listaAdjacente *l);

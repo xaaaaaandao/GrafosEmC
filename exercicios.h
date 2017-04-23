@@ -1,11 +1,14 @@
 #ifndef EXERCICIOS_H
 #define	EXERCICIOS_H
 
+/* Definindo alguns valores */
 #define VERTICEVERMELHO 4
 #define VERTICEAMARELO 5
 
+/* Bibliotecas necessárias */
 #include "lista.h"
 
+/* Protótipo das funções */
 Fila *inicializaGrauMaximo(Lista*, int);
 void preencheCor(Lista*, int, Fila *, int, int);
 void realizaGrauMaximo(Lista*, Fila *);

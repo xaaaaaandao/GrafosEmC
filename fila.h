@@ -1,6 +1,7 @@
 #ifndef FILA_H
 #define FILA_H
 
+/* Definindo algumas estruturas */
 typedef struct noFila{
 	int id;
 	struct noFila *proximo;
@@ -11,6 +12,7 @@ typedef struct Fila{
 	int tamanho;
 } Fila;
 
+/* Protótipo das funções */
 void inicializarFila(Fila*);
 int vaziaFila(Fila*);
 void enfilerarFila(Fila*, int);

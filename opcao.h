@@ -1,11 +1,14 @@
 #ifndef OPCAO_H
 #define	OPCAO_H
 
+/* Bibliotecas necessárias */
 #include "lista.h"
 
+/* Variáveis globais */
 bool grafoDirigido;
 bool grafoPonderado;
 
+/* Protótipo das funções */
 void sairPrograma();
 int opcaoArestaOrigem(Lista*);
 int opcaoArestaDestino(Lista*);

@@ -9,13 +9,21 @@
 #include "ordenacao.h"
 #include "telas.h"
 
-/* Sai do programa */
-
+/**
+* A função sairPrograma() mensagem para terminar o programa;
+@param nenhum, não recebe nenhum parâmetro;
+@return void, retorna nada.
+*/
 void sairPrograma(){
 	exit(1);
 }
 
-/* Vértice de origem da aresta */
+/**
+* A função opcaoArestaOrigem(Lista *l) pega o valor de origem da aresta,
+* verificando se ele existe;
+@param l, do tipo Lista que contém os vértices existentes;
+@return void, retorna nada.
+*/
 int opcaoArestaOrigem(Lista *l){
 	int opcao;
 	telaArestaOrigem();
@@ -29,7 +37,12 @@ int opcaoArestaOrigem(Lista *l){
 	}
 }
 
-/* Vértice de destino da aresta */
+/**
+* A função opcaoArestaDestino(Lista *l) pega o valor de origem da destino,
+* verificando se ele existe;
+@param l, do tipo Lista que contém os vértices existentes;
+@return void, retorna nada.
+*/
 int opcaoArestaDestino(Lista *l){
 	int opcao;
 	telaArestaDestino();
@@ -43,7 +56,12 @@ int opcaoArestaDestino(Lista *l){
 	}	
 }
 
-/* Peso da aresta */
+/**
+* A função opcaoPesoAresta() pega o peso de uma aresta,
+* verificando se o valor é válido;
+@param nenhum, não recebe nenhum parâmetro;
+@return void, retorna nada.
+*/
 int opcaoPesoAresta(){
 	int opcao;
 	telaPesoAresta();
@@ -57,7 +75,12 @@ int opcaoPesoAresta(){
 	}
 }
 
-/* Adiciona uma nova aresta */
+/**
+* A função opcaoAresta(Lista *l) verifica se a aresta existente,
+* se o grafo é dirigido ou não dirigido, se existem vértices;
+@param l, do tipo Lista que contém os vértices existentes;
+@return void, retorna nada.
+*/
 void opcaoAresta(Lista *l){
 	//quando não tem vértices
 	if(vaziaLista(l)){
@@ -91,7 +114,12 @@ void opcaoAresta(Lista *l){
 	}
 }
 
-/* Verifica qual vértice remover */
+/**
+* A função opcaoRemoveVertice(Lista *l) verifica se a aresta existente,
+* se o grafo é dirigido ou não dirigido, se existem vértices;
+@param l, do tipo Lista que contém os vértices existentes;
+@return void, retorna nada.
+*/
 void opcaoRemoveVertice(Lista *l){
 	int id;
 	telaRemoverVertice();
@@ -110,7 +138,12 @@ void opcaoRemoveVertice(Lista *l){
 	}
 }
 
-/* Verifica qual aresta quer remover */
+/**
+* A função opcaoRemoveAresta(Lista *l) verifica se a aresta existente,
+* se o grafo é dirigido ou não dirigido, se existem vértices;
+@param l, do tipo Lista que contém os vértices existentes;
+@return void, retorna nada.
+*/
 void opcaoRemoveAresta(Lista *l){
 	if(vaziaLista(l)){
 		telaLimpa();
@@ -138,7 +171,12 @@ void opcaoRemoveAresta(Lista *l){
 	}
 }
 
-/* Verifica se é um grafo dirigido ou não */
+/**
+* A função opcaoGrafo() verifica se o grafo é dirigido
+* ou não dirigido;
+@param nenhum, não recebe nenhum parâmetro;
+@return void, retorna nada.
+*/
 void opcaoGrafo(){
 	int opcao;
 	telaGrafo();
@@ -165,7 +203,12 @@ void opcaoGrafo(){
 	}
 }
 
-/* Verificar se é grafo ponderado ou não */
+/**
+* A função opcaoGrafoPonderado() verifica se o grafo é ponderado
+* ou não ponderado;
+@param nenhum, não recebe nenhum parâmetro;
+@return void, retorna nada.
+*/
 void opcaoGrafoPonderado(){
 	int opcao;
 	telaGrafoPonderado();
@@ -192,7 +235,12 @@ void opcaoGrafoPonderado(){
 	}
 }
 
-/* Verificar se quer usar os exemplos */
+/**
+* A função opcaoCarregarArquivo(Lista *l) escolhe se o exemplo
+* é grafo dirigido ou não dirigido;
+@param l, do tipo Lista que contém os vértices existentes;
+@return void, retorna nada.
+*/
 void opcaoCarregarArquivo(Lista *l){
 	int opcao;
 	telaExemploCarregaArquivo();
@@ -219,7 +267,11 @@ void opcaoCarregarArquivo(Lista *l){
 	}
 }
 
-/* Peso da aresta */
+/**
+* A função opcaoValorN() escolhe o valor de N a ser comparado;
+@param nenhum, não recebe nenhum parâmetro;
+@return void, retorna nada.
+*/
 int opcaoValorN(){
 	int valor;
 	telaValorN();
@@ -233,6 +285,12 @@ int opcaoValorN(){
 	}
 }
 
+
+/**
+* A função opcaoVertice(Lista *l) escolhe o identificador do vértice;
+@param l, do tipo Lista que contém os vértices existentes;
+@return void, retorna nada.
+*/
 int opcaoVertice(Lista *l){
 	int vertice;
 	telaVertice();
@@ -246,7 +304,11 @@ int opcaoVertice(Lista *l){
 	}
 }
 
-/* Chama as demais funções */
+/**
+* A função opcaoExercicio(Lista *l) escolhe qual função deve ser executada;
+@param l, do tipo Lista que contém os vértices existentes;
+@return void, retorna nada.
+*/
 void opcaoExercicio(Lista *l){
 	int opcao;
 	telaExercicio();
@@ -317,7 +379,11 @@ void opcaoExercicio(Lista *l){
 	}
 }
 
-/* Chama as demais funções */
+/**
+* A função opcaoPrincipal(Lista *l) escolhe qual função deve ser executada;
+@param l, do tipo Lista que contém os vértices existentes;
+@return void, retorna nada.
+*/
 void opcaoPrincipal(Lista *l){
 	int opcao;
 	telaPrincipal();
