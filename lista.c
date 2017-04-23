@@ -406,7 +406,7 @@ void inicializarLista(Lista *l){
 * A função vaziaListaAdjacente(listaAdjacente *l) em que 
 * verificamos se  a lista de vértices adjacentes está vazia;
 @param l, é do tipo listaAdjacente que contém os vértices adjacentes existentes;
-@return inteiro, retorna 0 se não está vazia ou qualquer outro valor caso tenha vértices.
+@return inteiro, retorna 0 se está vazia ou qualquer outro valor caso tenha vértices.
 */
 int vaziaListaAdjacente(listaAdjacente *l){
 	return (l -> primeiro == NULL);
@@ -416,7 +416,7 @@ int vaziaListaAdjacente(listaAdjacente *l){
 * A função vaziaLista(Lista *l) em que 
 * verificamos se  a lista de vértices está vazia;
 @param l, é do tipo Lista que contém os vértices existentes;
-@return inteiro, retorna 0 se não está vazia ou qualquer outro valor caso tenha vértices.
+@return inteiro, retorna 0 se está vazia ou qualquer outro valor caso tenha vértices.
 */
 int vaziaLista(Lista *l){
 	return (l -> primeiro == NULL);

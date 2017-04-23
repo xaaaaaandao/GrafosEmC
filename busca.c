@@ -4,6 +4,13 @@
 #include "busca.h"
 #include "telas.h"
 
+/**
+* A função numeroFilho(Lista *l, int id) em que dado um vértice 
+* verificamos a quantidade de vértices adjacentes existente;
+@param l, é do tipo Lista que contém os vértices existentes;
+@param id, é um inteiro com o identificador do vértice a ser verificado o filho;
+@return numeroFilho, retorna um inteiro com número de filhos de um vértice.
+*/
 int numeroFilho(Lista *l, int id){
 	int numeroFilho = 0;
 	No *auxiliar = l -> primeiro;	
@@ -16,6 +23,12 @@ int numeroFilho(Lista *l, int id){
 	return numeroFilho;
 }
 
+/**
+* A função imprimeArevore(Lista *l, int id) em que imprimimos
+* a árvore com base nos pais que foram achados na busca;
+@param l, é do tipo Lista que contém os vértices existentes;
+@return void, retorna nada.
+*/
 void imprimeArvore(Lista *l){
 	No *auxiliarPai = l -> primeiro;
 	No *auxiliarFilho;	
@@ -54,7 +67,13 @@ void imprimeArvore(Lista *l){
 	}
 }
 
-/* Operações da busca em profundidade */
+/**
+* A função BuscaEmProfundidade(Lista *l, No *no) em que  
+* verificamos os adjacentes de um determinado vértice;
+@param l, é do tipo Lista que contém os vértices existentes;
+@param no, é um tipo No com vértice a ser verificado seus adjacentes;
+@return ciclico, retorna true se é aciclico ou false se é aciclico.
+*/
 bool BuscaEmProfundidade(Lista *l, No *no) {
 	static bool ciclico = false;
 	tempo++;
@@ -78,6 +97,13 @@ bool BuscaEmProfundidade(Lista *l, No *no) {
 	return ciclico;
 }
 
+/**
+* A função iniciarBuscaEmProfundidade(Lista *l) em que pintamos
+* todos os vértices, incializamos com os tempos, e depois disso chamamos todos os vértices
+* para que todos os vértices sejam procurados;
+@param l, é do tipo Lista que contém os vértices existentes;
+@return ciclico, retorna true se é aciclico ou false se é aciclico.
+*/
 bool iniciarBuscaEmProfundidade(Lista *l) {
 	No *auxiliar = l -> primeiro;
 	bool ciclico;
@@ -98,6 +124,12 @@ bool iniciarBuscaEmProfundidade(Lista *l) {
 	return ciclico;
 }
 
+/**
+* A função buscaEmProfundidade(Lista *l) em que chamamos 
+* as demais funções de busca em profundidade e após isso imprimimos a árvore;
+@param l, é do tipo Lista que contém os vértices existentes;
+@return void, retorna nada.
+*/
 void buscaProfundidade(Lista *l){
 	tempo = 0;
 	iniciarBuscaEmProfundidade(l);
@@ -105,7 +137,14 @@ void buscaProfundidade(Lista *l){
 	imprimeArvore(l);
 }
 
-/* Operações da busca em largura */
+/**
+* A função inicializaBuscaLargura(Lista *l) em que 
+* inicializamos a fila da busca em largura
+* em que pintamos todos os vértices de branco, e inicializamos os
+* tempo descoberta, finalização e pai;
+@param l, é do tipo Lista que contém os vértices existentes;
+@return f, retorna a fila inicializada.
+*/
 Fila *inicializaBuscaLargura(Lista *l){
 	Fila *f = (Fila*) malloc (sizeof(Fila));
 	No *auxiliar = l -> primeiro;
@@ -123,6 +162,17 @@ Fila *inicializaBuscaLargura(Lista *l){
 	return f;
 }
 
+/**
+* A função preencheCorValorEnfilera(Lista *l, int id, Fila *f, int tempoDescoberta, int pai)
+* em que verificamos o vértice adjacente de um determinado vértice, pintamos
+* enfileramos ele na fila; 
+@param l, é do tipo Lista que contém os vértices existentes;
+@param id, é do tipo inteiro que contém o vértice a ser procurado;
+@param f, é do tipo Fila que contém os vértices enfilerados;
+@param tempoDescoberta, é do tipo inteiro que é o tempo de descoberta;
+@param pai, é do tipo inteiro que é o pai daquele vértice;
+@return void, retorna nada.
+*/
 void preencheCorValorEnfilera(Lista *l, int id, Fila *f, int tempoDescoberta, int pai){
 	No *auxiliar = l -> primeiro;
 	while(auxiliar != NULL){
@@ -136,6 +186,14 @@ void preencheCorValorEnfilera(Lista *l, int id, Fila *f, int tempoDescoberta, in
 	}
 }
 
+/**
+* A função realizaBuscaLargura(Lista *l, Fila *f)
+* em que desenfileramos da fila os vértices e chamamos as demais funções
+* para pintar e descobrir o tempo de descoberta;
+@param l, é do tipo Lista que contém os vértices existentes;
+@param f, é do tipo Fila que contém os vértices enfilerados;
+@return void, retorna nada.
+*/
 void realizaBuscaLargura(Lista *l, Fila *f){
 	No *auxiliar;
 	noAdjacente *auxiliarAdjacente;
@@ -158,6 +216,12 @@ void realizaBuscaLargura(Lista *l, Fila *f){
 	}
 }
 
+/**
+* A função buscaLargura(Lista *l) em que chamamos as demais
+* funções para realizar a busca em largura;
+@param l, é do tipo Lista que contém os vértices existentes;
+@return void, retorna nada.
+*/
 void buscaLargura(Lista *l){
 	Fila *filaBuscaLargura = inicializaBuscaLargura(l);
 	realizaBuscaLargura(l , filaBuscaLargura);

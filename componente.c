@@ -7,6 +7,14 @@
 #include "opcao.h"
 #include "telas.h"
 
+/**
+* A função matrizTransposta(int **matrizOrigem, int **matrizDestino, int tamanho)
+* em que fazemos a tranposta de um dado vértice;
+@param matrizOrigem, é um arranjo bidimensional de inteiros é a matriz que vai ser tranposta;
+@param matrizDestino, é um arranjo bidimensional de inteiros é matriz tranpsota;
+@param tamanho, é um inteiro com o tamanho da matriz;
+@return void, retorna nada.
+*/
 void matrizTranspota(int** matrizOrigem, int **matrizDestino, int tamanho){
 	int i, j;
 	for(i = 0; i < tamanho; i++){
@@ -21,6 +29,14 @@ void matrizTranspota(int** matrizOrigem, int **matrizDestino, int tamanho){
 	}
 }
 
+/**
+* A função listaTransposta(Lista *l, int **matriz, int tamanho)
+* em que pegamos a matriz que foi tranposta e convertemos na nossa lista que contém os vértices;
+@param l, é do tipo Lista que contém os existentes;
+@param matrizDestino, é um arranjo bidimensional de inteiros é matriz tranpsota;
+@param tamanho, é um inteiro com o tamanho da matriz;
+@return void, retorna nada.
+*/
 void listaTransposta(Lista *l, int **matriz, int tamanho){
 	int i, j;
 	for(i = 0; i < tamanho - 1; i++)
@@ -33,6 +49,15 @@ void listaTransposta(Lista *l, int **matriz, int tamanho){
 	}
 }
 
+/**
+* A função ordemDecrescente(Lista *l, int numeroVertice, int vetorID[])
+* colocamos em uma vetor a ordem decrescente de tempo de finalização
+* os identificadores dos vértices;
+@param l, é do tipo Lista que contém os vértices existentes;
+@param numeroVertice, é um inteiro com a quantidade de vértices;
+@param vetorId, é um arranjo unidimensional  de inteiro com os identificadores em ordem decrescente;
+@return void, retorna nada.
+*/
 void ordemDecrescenteFinalizacao(Lista *l, int numeroVertice, int vetorID[]){
 	Lista *lAuxiliar = (Lista*) malloc (sizeof(Lista));
 	No *auxiliar = l -> primeiro, *auxiliarCopia, *auxiliarZerado;
@@ -66,6 +91,13 @@ void ordemDecrescenteFinalizacao(Lista *l, int numeroVertice, int vetorID[]){
 	}
 }
 
+/**
+* A função componenteFortementeConexa(Lista *l) em que realizamos
+* a busca em profundidade, grafo transposto e chamamos a busca em 
+* profundidade passando no grafo transposto em ordem decrescente.
+@param l, é do tipo Lista que contém os vértices existentes;
+@return void, retorna nada.
+*/
 void componenteFortementeConexa(Lista *l){
 	Lista *lTransposta = (Lista*) malloc (sizeof(Lista));
 	No *auxiliar;
