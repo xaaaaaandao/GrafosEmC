@@ -4,8 +4,12 @@
 #include "opcao.h"
 #include "telas.h"
 
-/* Carregar arquivos */
-
+/**
+* A função exemploGrafoNaoDirigido(Lista *l) em que já definimos
+* os vértices e arestas de um grafo não dirgido;
+@param l, é do tipo Lista que contem os vértices existentes;
+@return void, retorna nada.
+*/
 void exemploGrafoNaoDirigido(Lista *l){
 	int i;
 	grafoDirigido = false;
@@ -38,6 +42,12 @@ void exemploGrafoNaoDirigido(Lista *l){
 	insereAresta(l, 6, 7, grafoDirigido, 1);*/
 }
 
+/**
+* A função exemploGrafoDirigido(Lista *l) em que já definimos
+* os vértices e arestas de um grafo dirgido;
+@param l, é do tipo Lista que contem os vértices existentes;
+@return void, retorna nada.
+*/
 void exemploGrafoDirigido(Lista *l){
 	int i;
 	for(i = 0; i < 6; i++){
@@ -55,7 +65,12 @@ void exemploGrafoDirigido(Lista *l){
 
 }
 
-/* Operações de lista */
+/**
+* A função removerFimAresta(listaAdjacente *l) em que
+* removemos o último vértice da lista de adjacência.;
+@param l, é do tipo listaAdjacedente que contem os vértices adjacentes existentes;
+@return void, retorna nada.
+*/
 void removerFimAresta(listaAdjacente *l){
 	noAdjacente *ultimo = l -> primeiro, *penultimo = l -> primeiro;			 
 	while(ultimo -> proximo != NULL){
@@ -67,6 +82,12 @@ void removerFimAresta(listaAdjacente *l){
 	free(ultimo);
 }
 
+/**
+* A função removerMeioAresta(listaAdjacente *l, int id) em que 
+* removemos o vértice que está no meio da lista de adjacência;
+@param l, é do tipo listaAdjacedente que contem os vértices adjacentes existentes;
+@return void, retorna nada.
+*/
 void removerMeioAresta(listaAdjacente *l, int id){
 	noAdjacente *atual = l -> primeiro;
 	noAdjacente *anterior = l -> primeiro;
@@ -89,6 +110,12 @@ void removerMeioAresta(listaAdjacente *l, int id){
 	free(atual);
 }
 
+/**
+* A função removerInicioAresta(listaAdjacente *l) em que 
+* removemos o vértice que está no início da lista de adjacência;
+@param l, é do tipo listaAdjacedente que contem os vértices adjacentes existentes;
+@return void, retorna nada.
+*/
 void removerInicioAresta(listaAdjacente* l){
 	noAdjacente *auxiliar;
 	auxiliar = l -> primeiro;
@@ -97,6 +124,14 @@ void removerInicioAresta(listaAdjacente* l){
 	free(auxiliar);
 }
 
+/**
+* A função removeAresta(listaAdjacente *l, int origem, int destino) em que 
+* removemos um vértice que está na lista de adjacência;
+@param l, é do tipo Lista que contem os vértices existentes;
+@param int, é do tipo inteiro é o vértice de origem a ser removido;
+@param int, é do tipo inteiro é o vértice de destino a ser removido;
+@return void, retorna nada.
+*/
 void removeAresta(Lista *l, int origem, int destino){
 	bool achouDestino;
 	listaAdjacente *adjacente;
@@ -131,7 +166,12 @@ void removeAresta(Lista *l, int origem, int destino){
 	}
 }
 
-
+/**
+* A função removerInicioVertice(Lista *l) em que 
+* removemos um vértice que está no início da lista;
+@param l, é do tipo Lista que contem os vértices existentes;
+@return void, retorna nada.
+*/
 void removerInicioVertice(Lista *l){
 	No *auxiliar;
 	auxiliar = l -> primeiro;
@@ -139,7 +179,12 @@ void removerInicioVertice(Lista *l){
 	free(auxiliar);
 }
 
-
+/**
+* A função removerFimVertice(Lista *l) em que 
+* removemos um vértice que está no fim da lista;
+@param l, é do tipo Lista que contem os vértices existentes;
+@return void, retorna nada.
+*/
 void removerFimVertice(Lista *l){
 	No *ultimo = l -> primeiro, *penultimo = l -> primeiro;
 	while(ultimo->proximo != NULL){
@@ -151,6 +196,13 @@ void removerFimVertice(Lista *l){
 	free(ultimo);
 }
 
+/**
+* A função removerMeioVertice(Lista *l, int id) em que 
+* removemos um vértice que está no meio da lista;
+@param l, é do tipo Lista que contem os vértices existentes;
+@param id, é do tipo inteiro que é o vértice a ser removido;
+@return void, retorna nada.
+*/
 void removerMeioVertice(Lista *l, int id){
 	No *atual = l -> primeiro, *anterior = l -> primeiro; 
 	while(atual -> id != id){
@@ -161,6 +213,13 @@ void removerMeioVertice(Lista *l, int id){
 	free(atual);
 }
 
+/**
+* A função removeVertice(Lista *l, int id) em que 
+* removemos um vértice que está na lista;
+@param l, é do tipo Lista que contem os vértices existentes;
+@param id, é do tipo inteiro que é o vértice a ser removido;
+@return true ou false, retorna booleano true caso consiga remover ou false caso não consiga.
+*/
 bool removeVertice(Lista *l, int id){
 	No *auxiliar = l -> primeiro;
 	while(auxiliar != NULL){
@@ -179,6 +238,14 @@ bool removeVertice(Lista *l, int id){
 	}
 }
 
+/**
+* A função existeAresta(Lista *l, int origem, int destino) em que 
+* verificamos se existe uma aresta;
+@param l, é do tipo Lista que contem os vértices existentes;
+@param origem, é do tipo inteiro que é o vértice de origem da aresta;
+@param destino, é do tipo inteiro que é o vértice de destino da aresta;
+@return true ou false, retorna booleano true caso consiga exista ou false caso não exista.
+*/
 bool existeAresta(Lista *l, int origem, int destino){
 	No *auxiliar = l -> primeiro;
 	noAdjacente *auxiliarAdjacente;
@@ -198,6 +265,16 @@ bool existeAresta(Lista *l, int origem, int destino){
 	return false;
 }
 
+/**
+* A função insereAresta(Lista *l, int origem, int destino, bool tipoGrafo, int peso) em que 
+* inserimos uma aresta;
+@param l, é do tipo Lista que contem os vértices existentes;
+@param origem, é do tipo inteiro que é o vértice de origem da aresta;
+@param destino, é do tipo inteiro que é o vértice de destino da aresta;
+@param tipoGrafo, é do tipo booleano se o grafo é dirigido ou não dirigido;
+@param peso, é do tipo inteiro que é o peso da aresta;
+@return true ou false, retorna booleano true caso consiga adicionar ou false caso não adicionar.
+*/
 bool insereAresta(Lista *l, int origem, int destino, bool tipoGrafo, int peso){
 	No *auxiliar = l -> primeiro;
 	noAdjacente *auxiliarAdjacente;
@@ -232,6 +309,13 @@ bool insereAresta(Lista *l, int origem, int destino, bool tipoGrafo, int peso){
 	return false;
 }
 
+/**
+* A função existeVeritce(Lista *l, int id) em que 
+* verificamos se o vértice existe;
+@param l, é do tipo Lista que contem os vértices existentes;
+@param id, é do tipo inteiro que é o identificador vértice para verificar se ele existe;
+@return true ou false, retorna booleano true caso exista ou false caso não exista.
+*/
 bool existeVertice(Lista *l, int id){
 	No *auxiliar = l -> primeiro;
 	while(auxiliar != NULL){
@@ -242,6 +326,13 @@ bool existeVertice(Lista *l, int id){
 	return false;
 }
 
+
+/**
+* A função limpaListaAdjacente(listaAdjacente *l) em que 
+* limpamos a lista de adjacência;
+@param l, é do tipo listaAdjacedente que contem os vértices adjacentes existentes;
+@return void, retorna nada.
+*/
 void limpaListaAdjacente(listaAdjacente *l){
 	noAdjacente *temporario, *atual;
 	atual = l -> primeiro;
@@ -253,6 +344,12 @@ void limpaListaAdjacente(listaAdjacente *l){
 	free(l);
 }
 
+/**
+* A função limpaLista(Lista *l) em que 
+* limpamos a lista de vértices;
+@param l, é do tipo Lista que contem os vértices existentes;
+@return void, retorna nada.
+*/
 void limpaLista(Lista *l){
 	No *temporario, *atual;
 	atual = l -> primeiro;
@@ -264,6 +361,12 @@ void limpaLista(Lista *l){
 	free(l);
 }
 
+/**
+* A função limpaTodasLista(Lista *l) em que 
+* limpamos a lista de vértices e a lista de adjacência;
+@param l, é do tipo Lista que contem os vértices existentes;
+@return void, retorna nada.
+*/
 void limpaTodasLista(Lista *l){
 	No *auxiliar = l -> primeiro;
 	while(auxiliar != NULL){
@@ -275,26 +378,58 @@ void limpaTodasLista(Lista *l){
 	inicializarLista(l);
 }
 
+/**
+* A função inicializarListaAdjacente(listaAdjacente *l) em que 
+* inicializamos a lista de vértices adjacência;
+@param l, é do tipo listaAdjacencia que contem os vértices adjacentes existentes;
+@return void, retorna nada.
+*/
 void inicializarListaAdjacente(listaAdjacente *l){
 	l -> primeiro = NULL;
 	l -> ultimo = NULL;
 	l -> tamanho = 1;
 }
 
+/**
+* A função inicializarLista(Lista *l) em que 
+* inicializamos a lista de vértices;
+@param l, é do tipo Lista que contem os vértices existentes;
+@return void, retorna nada.
+*/
 void inicializarLista(Lista *l){
 	l -> primeiro = NULL;
 	l -> ultimo = NULL;
 	l -> tamanho = 1;
 }
 
+/**
+* A função vaziaListaAdjacente(listaAdjacente *l) em que 
+* verificamos se  a lista de vértices adjacentes está vazia;
+@param l, é do tipo listaAdjacente que contém os vértices adjacentes existentes;
+@return inteiro, retorna 0 se não está vazia ou qualquer outro valor caso tenha vértices.
+*/
 int vaziaListaAdjacente(listaAdjacente *l){
 	return (l -> primeiro == NULL);
 }  
 
+/**
+* A função vaziaLista(Lista *l) em que 
+* verificamos se  a lista de vértices está vazia;
+@param l, é do tipo Lista que contém os vértices existentes;
+@return inteiro, retorna 0 se não está vazia ou qualquer outro valor caso tenha vértices.
+*/
 int vaziaLista(Lista *l){
 	return (l -> primeiro == NULL);
 }  
 
+/**
+* A função inserirListaAdjacente(listaAdjacente *l) em que 
+* inserimos os vértices adjacentes de forma ordenada;
+@param l, é do tipo listaAdjacente que contem os vértices adjacentes existentes;
+@param id, é do tipo inteiro é o identificar do vértice a ser adicionado;
+@param inteiro, é do tipo inteiro que o valor do peso da aresta;
+@return void, retorna nada.
+*/
 void inserirListaAdjacente(listaAdjacente *l, int id, int peso){
 	bool flag = true;
 	noAdjacente *novoNo = (noAdjacente*) malloc (sizeof(noAdjacente));
@@ -351,6 +486,11 @@ void inserirListaAdjacente(listaAdjacente *l, int id, int peso){
 	l -> tamanho++;
 }
 
+/**
+* A função inserirLista(Lista *l) em que inserimos os vértices ;
+@param l, é do tipo Lista que contem os vértices existentes;
+@return void, retorna nada.
+*/
 void inserirLista(Lista *l){
 	No *novoNo = (No*) malloc (sizeof(No));
 	novoNo -> id = l -> tamanho;
@@ -367,6 +507,13 @@ void inserirLista(Lista *l){
 	l -> tamanho++;
 }
 
+/**
+* A função inserirListaOrdenacaoTopologica(Lista *l, int id) em que inserimos os vértices
+* em ordem topológica;
+@param l, é do tipo Lista que contem os vértices existentes;
+@param id, é do tipo inteiro que é o identificador do vértice adicionado;
+@return void, retorna nada.
+*/
 void insereListaOrdenacaoTopologica(Lista *l, int id){
 	No *novoNo = (No*) malloc (sizeof(No));
 	novoNo -> id = id;
@@ -383,6 +530,13 @@ void insereListaOrdenacaoTopologica(Lista *l, int id){
 	l -> tamanho++;
 }
 
+/**
+* A função getAdjacente(Lista *l, int id) em que procuramos um vértice
+* e retornamos ele;
+@param l, é do tipo Lista que contem os vértices existentes;
+@param id, é do tipo inteiro que é o identificador do vértice a ser procurado;
+@return no, retorna um nó da lista.
+*/
 No *getAdjacente(Lista *l, int id) {
 	No *no = l -> primeiro;
 	while (no -> id != id)
@@ -390,14 +544,33 @@ No *getAdjacente(Lista *l, int id) {
 	return no;
 }
 
+/**
+* A função tamanhoListaAdjacente(listaAdjacente *l) em que retornamos o 
+* tamanho da lista de adjacência;
+@param l, é do tipo listaAdjacente que contem os vértices adjacentes existentes;
+@return inteiro, retorna o tamanho da lista.
+*/
 int tamanhoListaAdjacente(listaAdjacente *l){
 	return (l -> tamanho);
 }
 
+/**
+* A função tamanhoLista(Lista *l) em que retornamos o 
+* tamanho da lista;
+@param l, é do tipo listaAdjacente que contem os vértices adjacentes existentes;
+@return inteiro, retorna o tamanho da lista.
+*/
 int tamanhoLista(Lista *l){
 	return (l -> tamanho);
 }
 
+/**
+* A função imprimirListaAdjacente(listaAdjacente *l, int id) em que imprimos 
+* a lista de adjacência;
+@param l, é do tipo listaAdjacente que contem os vértices adjacentes existentes;
+@param id, é do tipo inteiro que contem o identificador do vértice de origem;
+@return void, retorna nada.
+*/
 void imprimirListaAdjacente(listaAdjacente *l, int id){
 	if (vaziaListaAdjacente(l)){
 		printf("Não tem adjacentes!\n");
@@ -411,6 +584,12 @@ void imprimirListaAdjacente(listaAdjacente *l, int id){
 	}    
 }
 
+/**
+* A função imprimirLista(Lista *l) em que imprimos 
+* a lista de vértices e seu adjacentes;
+@param l, é do tipo Lista que contem os vértices existentes;
+@return void, retorna nada.
+*/
 void imprimirLista(Lista *l){
 	if (vaziaLista(l)){
 		printf("Empty list!\n");
@@ -425,6 +604,12 @@ void imprimirLista(Lista *l){
 	}    
 }
 
+/**
+* A função imprimirListaTempo(Lista *l) em que imprimos 
+* a lista de vértices com os tempos de descoberta e tempo de finalização;
+@param l, é do tipo Lista que contem os vértices existentes;
+@return void, retorna nada.
+*/
 void imprimirListaTempo(Lista *l){
 	if (vaziaLista(l)){
 		printf("Empty list!\n");
@@ -441,6 +626,12 @@ void imprimirListaTempo(Lista *l){
 	}    
 }
 
+/**
+* A função imprimirListaOrdenacaoTopologica(Lista *l) em que imprimos 
+* os vértices em ordem topológica;
+@param l, é do tipo Lista que contem os vértices existentes;
+@return void, retorna nada.
+*/
 void imprimirListaOrdenacaoTopologica(Lista *l){
 	if (vaziaLista(l)){
 		printf("Empty list!\n");
