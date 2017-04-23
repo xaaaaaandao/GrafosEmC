@@ -3,7 +3,15 @@
 #include <stdbool.h>
 #include "fila.h"
 
-/* Operações da fila */
+/**
+* A função imprimirMatrizAdjacencia(Lista *l, bool tipoGrafo)
+* converte a lista de adjacência convertendo para a matriz 
+* de adjacência verificando se o grafo dirigido ou não dirigido, e por
+* fim, imprime ela;
+@param l, é do tipo Lista que contem os vértices existentes;
+@param tipoGrafo, é um booleano se o grafo dirigido ou não dirigido;
+@return void, retorna nada.
+*/
 void inicializarFila(Fila *f){
 	f -> inicio = NULL;
 	f -> fim = NULL;

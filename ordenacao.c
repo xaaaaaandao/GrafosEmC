@@ -6,6 +6,14 @@
 #include "ordenacao.h"
 #include "telas.h"
 
+/**
+* A função ordenacaoRealizarBuscaProfundidade(Lista *l, No *no, Lista *listaOrdenacaoTopologica)
+* adicionamos cada vértice que é finalizado no início de uma lista, verificando seus adjacentes;
+@param l, do tipo Lista que contém os vértices existentes;
+@param no, do tipo No que contém o nó do vértice para verificar os adjacentes;
+@param listaOrdenacaoTopologica, do tipo Lista que contém os vértices ordenados topologicamente;
+@return void, retorna nada.
+*/
 void ordenacaoRealizarBuscaProfundidade(Lista *l, No *no, Lista *listaOrdenacaoTopologica) {
 	static bool ciclico = false;
 	tempoOrdenacao++;
@@ -27,6 +35,13 @@ void ordenacaoRealizarBuscaProfundidade(Lista *l, No *no, Lista *listaOrdenacaoT
 	insereListaOrdenacaoTopologica(listaOrdenacaoTopologica, no -> id);
 }
 
+/**
+* A função ordenacaoIniciarBuscaProfundidade(Lista *l, Lista *listaOrdenacaoTopologica)
+* adicionamos cada vértice que é finalizado no início de uma lista;
+@param l, do tipo Lista que contém os vértices existentes;
+@param listaOrdenacaoTopologica, do tipo Lista que contém os vértices ordenados topologicamente;
+@return void, retorna nada.
+*/
 void ordenacaoIniciarBuscaProfundidade(Lista *l, Lista *listaOrdenacaoTopologica) {
 	No *auxiliar = l -> primeiro;
 	while(auxiliar != NULL){
@@ -45,6 +60,12 @@ void ordenacaoIniciarBuscaProfundidade(Lista *l, Lista *listaOrdenacaoTopologica
 	}	
 }
 
+/**
+* A função ordenacaoTopologica(Lista *l) verifica se o grafo é dirigido
+* e tem ciclico ou aciclico;
+@param l, do tipo Lista que contém os vértices existentes;
+@return void, retorna nada.
+*/
 void ordenacaoTopologica(Lista *l){
 	//É aciclico
 	if(iniciarBuscaEmProfundidade(l) == false && grafoDirigido){

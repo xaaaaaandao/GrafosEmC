@@ -22,7 +22,7 @@ void sairPrograma(){
 * A função opcaoArestaOrigem(Lista *l) pega o valor de origem da aresta,
 * verificando se ele existe;
 @param l, do tipo Lista que contém os vértices existentes;
-@return void, retorna nada.
+@return opcao, retorna um inteiro com o vértice de origem da aresta.
 */
 int opcaoArestaOrigem(Lista *l){
 	int opcao;
@@ -41,7 +41,7 @@ int opcaoArestaOrigem(Lista *l){
 * A função opcaoArestaDestino(Lista *l) pega o valor de origem da destino,
 * verificando se ele existe;
 @param l, do tipo Lista que contém os vértices existentes;
-@return void, retorna nada.
+@return opcao, retorna um inteiro com o vértice de destino da aresta.
 */
 int opcaoArestaDestino(Lista *l){
 	int opcao;
@@ -60,7 +60,7 @@ int opcaoArestaDestino(Lista *l){
 * A função opcaoPesoAresta() pega o peso de uma aresta,
 * verificando se o valor é válido;
 @param nenhum, não recebe nenhum parâmetro;
-@return void, retorna nada.
+@return opcao, retorna um inteiro com o peso da aresta.
 */
 int opcaoPesoAresta(){
 	int opcao;
@@ -270,7 +270,7 @@ void opcaoCarregarArquivo(Lista *l){
 /**
 * A função opcaoValorN() escolhe o valor de N a ser comparado;
 @param nenhum, não recebe nenhum parâmetro;
-@return void, retorna nada.
+@return valor, retorna um inteiro com o valor de N.
 */
 int opcaoValorN(){
 	int valor;
@@ -289,7 +289,7 @@ int opcaoValorN(){
 /**
 * A função opcaoVertice(Lista *l) escolhe o identificador do vértice;
 @param l, do tipo Lista que contém os vértices existentes;
-@return void, retorna nada.
+@return vertice, retorna um inteiro com o valor do identificador do vértice.
 */
 int opcaoVertice(Lista *l){
 	int vertice;
