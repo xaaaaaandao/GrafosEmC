@@ -129,6 +129,13 @@ void opcaoRemoveVertice(Lista *l){
 		telaSemVertice();
 	} else if(existeVertice(l, id)){
 		removeVertice(l, id);
+		No *auxiliar = l -> primeiro;
+		while(auxiliar != NULL){
+			if(existeAresta(l, auxiliar -> id, id)){
+				removeAresta(l, auxiliar -> id, id);
+			}
+			auxiliar = auxiliar -> proximo;
+		}
 		telaLimpa();
 		telaVerticeRemovido();
 	} else {

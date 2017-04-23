@@ -281,11 +281,11 @@ bool insereAresta(Lista *l, int origem, int destino, bool tipoGrafo, int peso){
 	while(auxiliar != NULL){
 		if(auxiliar -> id == origem){
 			if(vaziaListaAdjacente(auxiliar -> adjacente)){
-				if(tipoGrafo){
+				if(grafoDirigido){
 					inserirListaAdjacente(auxiliar -> adjacente, destino, peso);
 				} else {
 					inserirListaAdjacente(auxiliar -> adjacente, destino, peso);
-					insereAresta(l, destino, origem, tipoGrafo, peso);
+					insereAresta(l, destino, origem, grafoDirigido, peso);
 				}
 				return true;
 			} else {
@@ -295,11 +295,11 @@ bool insereAresta(Lista *l, int origem, int destino, bool tipoGrafo, int peso){
 						return false;
 					auxiliarAdjacente = auxiliarAdjacente -> proximo;
 				}
-				if(tipoGrafo){
+				if(grafoDirigido){
 					inserirListaAdjacente(auxiliar -> adjacente, destino, peso);
 				} else {
 					inserirListaAdjacente(auxiliar -> adjacente, destino, peso);
-					insereAresta(l, destino, origem, tipoGrafo, peso);
+					insereAresta(l, destino, origem, grafoDirigido, peso);
 				}	
 				return true;		
 			}

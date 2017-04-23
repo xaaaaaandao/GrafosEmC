@@ -43,8 +43,9 @@ void listaTransposta(Lista *l, int **matriz, int tamanho){
 		inserirLista(l);
 	for(i = 1; i < tamanho; i++){
 		for(j = 1; j < tamanho; j++){
-			if(matriz[i][j] == 1)
+			if(matriz[i][j] >= 1){
 				insereAresta(l, i, j, grafoDirigido, 1);
+			}
 		}
 	}
 }
@@ -91,6 +92,25 @@ void ordemDecrescenteFinalizacao(Lista *l, int numeroVertice, int vetorID[]){
 	}
 }
 
+void dfs(Lista *l, No *no) {
+	tempo++;
+	no -> tempoDescoberta = tempo;
+	no -> cor = Cinza;
+	noAdjacente *auxiliarAdjacente = no -> adjacente -> primeiro;
+	No *auxiliar;
+	while (auxiliarAdjacente != NULL) {
+		auxiliar = getAdjacente(l, auxiliarAdjacente -> id);
+		if (auxiliar -> cor == Branco) {
+			auxiliar -> pai = no -> id;
+			dfs(l, auxiliar);
+		}
+		auxiliarAdjacente = auxiliarAdjacente -> proximo;
+	}
+	no -> cor = Preto;
+	tempo++;
+	no -> tempoFinalizacao = tempo;
+}
+
 /**
 * A função componenteFortementeConexa(Lista *l) em que realizamos
 * a busca em profundidade, grafo transposto e chamamos a busca em 
@@ -122,17 +142,24 @@ void componenteFortementeConexa(Lista *l){
 		auxiliar -> pai = -1;
 		auxiliar = auxiliar -> proximo;
 	}
+	//imprimirLista(lTransposta);
+	//exit(1);
 	tempo = 0;
 	for(i = 0; i < numeroVertice - 1; i++){
+		printf("-> %d \n", vetorID[i]);
 		auxiliar = lTransposta -> primeiro;
 		while(auxiliar != NULL){
+			//printf("vetorID[i]: %d\n", vetorID[i]);
+			//printf("auxiliar -> id %d\n", auxiliar -> id);
+			//printf("auxiliar -> cor: %d\n\n", auxiliar -> cor);
 			if(vetorID[i] == auxiliar -> id && auxiliar -> cor == Branco){
-				BuscaEmProfundidade(lTransposta, auxiliar);
+				dfs(lTransposta, auxiliar);
 			}
 			auxiliar = auxiliar -> proximo;
 		}		
 	}
 	auxiliar = lTransposta -> primeiro;
+	numeroPai = 0;
 	while(auxiliar != NULL){
 		if(auxiliar -> pai == -1){
 			numeroPai++;
@@ -141,4 +168,6 @@ void componenteFortementeConexa(Lista *l){
 	}
 	telaLimpa();
 	telaQtdComponenteFConexa(numeroPai);	
+
+	//exit(1);
 }
