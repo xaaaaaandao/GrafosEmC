@@ -174,7 +174,7 @@ void grauMaximo(Lista *l, int id){
 		}
 		k++;
 	}
-	printf("maior: %d\n", maior);
+	telaGrauMaximo(maior);
 }
 
 /**
