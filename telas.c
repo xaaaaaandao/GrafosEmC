@@ -209,6 +209,26 @@ void telaVerticeAdicionado(int id){
 	}
 }
 
+void telaGrauMaximo(int grau){
+	if(grau < 10){
+		printf(ANSI_COLOR_GREEN "╔═════════════════════╗\n" ANSI_COLOR_RESET);
+		printf(ANSI_COLOR_GREEN "║ O grau máximo é: %d  ║\n" ANSI_COLOR_RESET, grau);
+		printf(ANSI_COLOR_GREEN "╚═════════════════════╝\n" ANSI_COLOR_RESET);		
+	} else if(grau < 100){
+		printf(ANSI_COLOR_GREEN "╔═════════════════════╗\n" ANSI_COLOR_RESET);
+		printf(ANSI_COLOR_GREEN "║ O grau máximo é: %d ║\n" ANSI_COLOR_RESET, grau);
+		printf(ANSI_COLOR_GREEN "╚═════════════════════╝\n" ANSI_COLOR_RESET);		
+	} else if(grau < 1000){
+		printf(ANSI_COLOR_GREEN "╔══════════════════════╗\n" ANSI_COLOR_RESET);
+		printf(ANSI_COLOR_GREEN "║ O grau máximo é: %d ║\n" ANSI_COLOR_RESET, grau);
+		printf(ANSI_COLOR_GREEN "╚══════════════════════╝\n" ANSI_COLOR_RESET);				
+	} else if(grau < 10000){
+		printf(ANSI_COLOR_GREEN "╔═══════════════════════╗\n" ANSI_COLOR_RESET);
+		printf(ANSI_COLOR_GREEN "║ O grau máximo é: %d ║\n" ANSI_COLOR_RESET, grau);
+		printf(ANSI_COLOR_GREEN "╚═══════════════════════╝\n" ANSI_COLOR_RESET);				
+	}
+}
+
 void telaQtdComponenteFConexa(int quantidade){
 	if(quantidade < 10){
 		printf(ANSI_COLOR_GREEN "╔════════════════════════════════════════════════════╗\n" ANSI_COLOR_RESET);
