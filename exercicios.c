@@ -15,8 +15,17 @@
 
 /**
 	Exercício 1B.
-	-> Aplicar a busca em largura para cada vértice.
 **/
+/**
+* A função inicializaGrauMaximo(Lista *l, int id) em que 
+* inicializamos a fila da busca em largura
+* em que pintamos todos os vértices de branco, e inicializamos os
+* tempo descoberta, finalização e pai, por fim passamos o id do vértice que vai ser
+* enfilerado na fila;
+@param l, é do tipo Lista que contém os vértices existentes;
+@param id, é do tipo inteiro o identificador a ser enfilerado;
+@return f, retorna a fila inicializada.
+*/
 Fila *inicializaGrauMaximo(Lista *l, int id){
 	Fila *f = (Fila*) malloc (sizeof(Fila));
 	No *auxiliar = l -> primeiro;
@@ -40,6 +49,17 @@ Fila *inicializaGrauMaximo(Lista *l, int id){
 	return f;
 }
 
+/**
+* A função preencheCor(Lista *l, int id, Fila *f, int tempoDescoberta, int pai)
+* em que verificamos o vértice adjacente de um determinado vértice, pintamos
+* enfileramos ele na fila; 
+@param l, é do tipo Lista que contém os vértices existentes;
+@param id, é do tipo inteiro que contém o vértice a ser procurado;
+@param f, é do tipo Fila que contém os vértices enfilerados;
+@param tempoDescoberta, é do tipo inteiro que é o tempo de descoberta;
+@param pai, é do tipo inteiro que é o pai daquele vértice;
+@return void, retorna nada.
+*/
 void preencheCor(Lista *l, int id, Fila *f, int tempoDescoberta, int pai){
 	No *auxiliar = l -> primeiro;
 	while(auxiliar != NULL){
@@ -53,6 +73,14 @@ void preencheCor(Lista *l, int id, Fila *f, int tempoDescoberta, int pai){
 	}
 }
 
+/**
+* A função realizaGrauMaximo(Lista *l, Fila *f)
+* em que desenfileramos da fila os vértices e chamamos as demais funções
+* para pintar e descobrir o tempo de descoberta;
+@param l, é do tipo Lista que contém os vértices existentes;
+@param f, é do tipo Fila que contém os vértices enfilerados;
+@return void, retorna nada.
+*/
 void realizaGrauMaximo(Lista *l, Fila *f){
 	No *auxiliar;
 	noAdjacente *auxiliarAdjacente;
@@ -75,6 +103,13 @@ void realizaGrauMaximo(Lista *l, Fila *f){
 	}
 }
 
+/**
+* A função copiaLista(Lista *original, Lista *copia)
+* em que iremos fazer uma cópia da lista original;
+@param l, é do tipo Lista que contém os vértices existentes;
+@param copia, é do tipo Lista que contém os vértices existentes que é uma cópia;
+@return void, retorna nada.
+*/
 void copiaLista(Lista *original, Lista *copia){
 	int i, n = nVertice(original);
 	No *auxiliar = original -> primeiro;
@@ -92,6 +127,14 @@ void copiaLista(Lista *original, Lista *copia){
 	}
 }
 
+/**
+* A função posicaoMaior(int **matriz, int n, int destino)
+* em que verificamos o maior elemento daquele linha;
+@param matriz, é um arranjo bidimensional de inteiros com o caminho para um determinado vértice;
+@param n, é um inteiro que é o tamanho da matriz;
+@param destino, é um inteiro que é o identificador do vértice que está sendo procurado;
+@return maior, retorna o maior elemento daquela linha da matriz.
+*/
 int posicaoMaior(int **matriz, int n, int destino){
 	int i, j = 1, maior = -1;
 	for(i = 1; i < n; i++){
@@ -102,6 +145,15 @@ int posicaoMaior(int **matriz, int n, int destino){
 	return maior;
 }
 
+
+/**
+* A função existeCaminho(int **matriz, int n, int posicao, int destino)
+* em que tentamos achar se existe um caminho;
+@param matriz, é um arranjo bidimensional de inteiros com o caminho para um determinado vértice;
+@param n, é um inteiro que é o tamanho da matriz;
+@param destino, é um inteiro que é o identificador do vértice que está sendo procurado;
+@return maior, retorna o maior elemento daquela linha da matriz.
+*/
 int existeCaminho(int **matriz, int n, int posicao, int destino){
 	int i, j;
 	for(i = 1; i < n; i++){
@@ -115,6 +167,13 @@ int existeCaminho(int **matriz, int n, int posicao, int destino){
 	}
 }
 
+/**
+* A função grauMaximo(Lista *l, int id) em que tentamos achar um grau máximo
+* de todos os vértices até uma determinado destino;
+@param l, é do tipo Lista que contém os vértices existentes;
+@param id, é um inteiro que é o identificador do vértice que está sendo procurado;
+@return void, retorna nada.
+*/
 void grauMaximo(Lista *l, int id){
 	int i, j, k, posicao, n = nVertice(l) + 1, maior = -1;
 	Lista *copia = (Lista*) malloc (sizeof(Lista));
@@ -180,6 +239,13 @@ void grauMaximo(Lista *l, int id){
 /**
 	Exercício 2.
 **/
+/**
+* A função matrizAdjacenciaToListaAdjacencia(Lista *l, int id)
+* em que convertemos uma matriz de adjacência de um grafo dirigido
+* para uma lista não dirigia;
+@param l, é do tipo Lista que contém os vértices existentes;
+@return void, retorna nada.
+*/
 void matrizAdjacenciaToListaAdjacencia(Lista *l){
 	Lista *listaNaoDirigida = (Lista*) malloc (sizeof(Lista));
 	int i, j, numeroVertice = nVertice(l);
@@ -216,6 +282,13 @@ void matrizAdjacenciaToListaAdjacencia(Lista *l){
 /**
 	Exercício 3 pintando ele de duas cores.
 **/
+/**
+* A função inicializaBiPartido(Lista *l) inicializamos a fila 
+* que nem da busca em largura em que pintamos todos os vértices de Branco,
+* e depois disso enfileramos o primeiro vértice e enfileramos;
+@param l, é do tipo Lista que contém os vértices existentes;
+@return f, retorna Fila já inicializada.
+*/
 Fila *inicializaBiPartido(Lista *l){
 	Fila *f = (Fila*) malloc (sizeof(Fila));
 	No *auxiliar = l -> primeiro;
@@ -229,6 +302,15 @@ Fila *inicializaBiPartido(Lista *l){
 	return f;
 }
 
+/**
+* A função preencheAdjacente(Lista *l) pintamos os vértices
+* adjacente para verificar se podemos considerar o bipartido;
+@param l, é do tipo Lista que contém os vértices existentes;
+@param cor, é do tipo inteiro que é a cor a ser verificada;
+@param id, é do tipo inteiro que é o identificador ser procurado;
+@param f, é do tipo Fila que irá enfilerar os vértices;
+@return true ou false, retorna true se conseguiu pintar ou false caso não consiga.
+*/
 bool preencheAdjacente(Lista *l, int cor, int id, Fila *f){
 	No *auxiliar = l -> primeiro;
 	while(auxiliar != NULL){
@@ -251,6 +333,13 @@ bool preencheAdjacente(Lista *l, int cor, int id, Fila *f){
 	return true;
 }
 
+/**
+* A função realizaTesteBiPartido(Lista *l, Fila *f) em que pintamos 
+* todos os vértices que estão na fila;
+@param l, é do tipo Lista que contém os vértices existentes;
+@param f, é do tipo Fila que contém os vértices enfilerados;
+@return true ou false, retorna true se conseguiu pintar ou false caso não consiga.
+*/
 bool realizaTesteBiPartido(Lista *l, Fila *f){
 	No *auxiliar;
 	noAdjacente *auxiliarAdjacente;
@@ -276,6 +365,12 @@ bool realizaTesteBiPartido(Lista *l, Fila *f){
 	return true;
 }
 
+/**
+* A função ehBiPartido(Lista *l) em que verificamos
+* caso é possível verificar se é bi partido ou não;
+@param l, é do tipo Lista que contém os vértices existentes;
+@return void, retorna nada.
+*/
 void ehBiPartido(Lista *l){
 	Fila *fila = inicializaBiPartido(l);
 	if(realizaTesteBiPartido(l , fila)){
@@ -292,6 +387,13 @@ void ehBiPartido(Lista *l){
 /**
 	Exercício 5 usar busca em profundidade para verificar se os filhos tem algum adjacente 
 **/
+/**
+* A função valorTempoDescoberta(Lista *l, int id) em que verificamos
+* o tempo de descoberta de um determinado vértice;
+@param l, é do tipo Lista que contém os vértices existentes;
+@param id, é do tipo inteiro que é o identificador do vértice a ser procurado;
+@return inteiro, retorna o tempo de descoberta.
+*/
 int valorTempoDescoberta(Lista *l, int id){
 	No *auxiliar = l -> primeiro;
 	while(auxiliar != NULL){
@@ -303,6 +405,14 @@ int valorTempoDescoberta(Lista *l, int id){
 	return -1;
 }
 
+/**
+* A função verificaFilhos(Lista *l, int id, int tempoDescoberta)
+* em que comparamos dois tempos de descoberta;
+@param l, é do tipo Lista que contém os vértices existentes;
+@param id, é do tipo inteiro que é o identificador do vértice a ser procurado;
+@param tempoDescoberta, é do tipo inteiro que é o tempo de descoberta;
+@return true ou false, retorna true caso o tempo de descoberta seja maior ou false caso não seja maior.
+*/
 bool verificaFilhos(Lista *l, int id, int tempoDescoberta){
 	No *auxiliar = l -> primeiro;
 	noAdjacente *auxiliarAdjacente;
@@ -321,6 +431,13 @@ bool verificaFilhos(Lista *l, int id, int tempoDescoberta){
 	return false;
 }
 
+/**
+* A função descedenteArestaRetorno(Lista *l, int id)
+* em que verificamos se os descendentes de tal vértice tem uma aresta de retorno;
+@param l, é do tipo Lista que contém os vértices existentes;
+@param id, é do tipo inteiro que é o identificador do vértice a ser procurado;
+@return true ou false, retorna true caso o descendente tem aresta de retorno ou false caso não tenha a aresta de retorno.
+*/
 bool descendenteArestaRetorno(Lista *l, int id){
 	buscaProfundidade(l);
 	telaLimpa();
@@ -356,6 +473,12 @@ bool descendenteArestaRetorno(Lista *l, int id){
 /**
 	Exercício 6.
 **/
+/**
+* A função nAresta(Lista *l) em que verificamos 
+* a quantidade de aresta de um grafo;
+@param l, é do tipo Lista que contém os vértices existentes;
+@return numeroAresta, retorna tem o número de arestas.
+*/
 int nAresta(Lista *l){
 	No *auxiliar = l -> primeiro;
 	noAdjacente *auxiliarAdjacente;
@@ -371,6 +494,12 @@ int nAresta(Lista *l){
 	return numeroAresta/2;
 }
 
+/**
+* A função nVertice(Lista *l) em que verificamos 
+* a quantidade de vértices de um grafo;
+@param l, é do tipo Lista que contém os vértices existentes;
+@return numeroVertice, retorna tem o número de vértices.
+*/
 int nVertice(Lista *l){
 	No *auxiliar = l -> primeiro;
 	int numeroVertice = 0;
@@ -381,6 +510,13 @@ int nVertice(Lista *l){
 	return numeroVertice;
 }
 
+/**
+* A função comparaVerticeAresta(Lista *l, int n) em que verificamos 
+* se o número de aresta e vértices é maior igual ou igual a n;
+@param l, é do tipo Lista que contém os vértices existentes;
+@param n, é do tipo inteiro valor a ser comparado;
+@return void, retorna nada.
+*/
 void comparaVerticeAresta(Lista *l, int n){
 	int numeroVertice = nVertice(l);
 	int numeroAresta = nAresta(l);
