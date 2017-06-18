@@ -687,8 +687,9 @@ void telaPrincipal(){
 	printf("║12 - Componente fortmente conexa║\n");
 	printf("║13 - Exercícios                 ║\n");
 	printf("║14 - Imprimir tempo e pai       ║\n");
-	printf("║15 - Resetar grafos             ║\n");
-	printf("║16 - Sair                       ║\n");
+	printf("║15 - MST-Kruskal                ║\n");
+	printf("║16 - Resetar grafos             ║\n");
+	printf("║17 - Sair                       ║\n");
 	printf("╚════════════════════════════════╝\n");
 	printf("╔══════════════════════════════╗\n");
 	printf("║   Digite a opção desejada:   ║\n");
@@ -707,7 +708,8 @@ void telaExemploCarregaArquivo(){
 	printf("╠════════════════════════════════╣\n");
 	printf("║ 1 - Exemplo grafo dirigido     ║\n");
 	printf("║ 2 - Exemplo grafo não-dirigido ║\n");
-	printf("║ 3 - Sair                       ║\n");
+	printf("║ 3 - MST-Kruskal                ║\n");
+	printf("║ 4 - Sair                       ║\n");
 	printf("╚════════════════════════════════╝\n");
 	printf("╔════════════════════════════════╗\n");
 	printf("║    Digite a opção desejada:    ║\n");

@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include "busca.h"
+#include "mst.h"
 #include "componente.h"
 #include "exercicios.h"
 #include "matriz.h"
@@ -264,6 +265,9 @@ void opcaoCarregarArquivo(Lista *l){
 			exemploGrafoNaoDirigido(l);
 			break;
 		case 3:
+			exemploMSTKruskal(l);
+			break;
+		case 4:
 			sairPrograma();
 			break;	
 		default:
@@ -527,6 +531,10 @@ void opcaoPrincipal(Lista *l){
 			opcaoPrincipal(l);
 			break;	
 		case 15:
+			MST_Kruskal(l);
+			opcaoPrincipal(l);
+			break;
+		case 16:
 			telaLimpa();
 			if(vaziaLista(l)){
 				telaSemVertice();
@@ -538,7 +546,7 @@ void opcaoPrincipal(Lista *l){
 			}
 			opcaoPrincipal(l);
 			break;	
-		case 16:
+		case 17:
 			sairPrograma();
 			break;	
 		default:

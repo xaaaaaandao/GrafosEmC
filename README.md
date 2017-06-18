@@ -2,7 +2,7 @@
 
 Teoria dos Grafos - UTFPR - CM - (2017-1)
 
-[![Build Status](https://travis-ci.org/xaaaaaandao/GrafosEmC.svg?branch=master)](https://travis-ci.org/xaaaaaandao/GrafosEmC)
+[![Build Status](https://travis-ci.org/xaaaandao/GrafosEmC.svg?branch=master)](https://travis-ci.org/xaaaaaandao/GrafosEmC)
 
 ### Execução
 

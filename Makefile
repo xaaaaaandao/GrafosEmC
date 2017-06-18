@@ -1,27 +1,29 @@
 all:
-	gcc matriz.c -c
-	gcc lista.c -c
-	gcc telas.c -c
-	gcc opcao.c -c
-	gcc busca.c -c
-	gcc fila.c -c
-	gcc ordenacao.c -c
-	gcc exercicios.c -c
-	gcc componente.c -c
-	gcc main.c -o main matriz.o lista.o telas.o opcao.o busca.o fila.o exercicios.o ordenacao.o componente.o
+	cd libraries/ && gcc matriz.c -c
+	cd libraries/ && gcc lista.c -c
+	cd libraries/ && gcc telas.c -c
+	cd libraries/ && gcc opcao.c -c
+	cd libraries/ && gcc busca.c -c
+	cd libraries/ && gcc fila.c -c
+	cd libraries/ && gcc ordenacao.c -c
+	cd libraries/ && gcc exercicios.c -c
+	cd libraries/ && gcc componente.c -c
+	cd libraries/ && gcc mst.c -c
+	gcc main.c -o main libraries/matriz.o libraries/lista.o libraries/telas.o libraries/opcao.o libraries/busca.o libraries/fila.o libraries/exercicios.o libraries/ordenacao.o libraries/componente.o libraries/mst.o
 	./main
 
 compile:
-	gcc matriz.c -c
-	gcc lista.c -c
-	gcc telas.c -c
-	gcc opcao.c -c
-	gcc busca.c -c
-	gcc fila.c -c
-	gcc ordenacao.c -c
-	gcc exercicios.c -c
-	gcc componente.c -c
-	gcc main.c -o main matriz.o lista.o telas.o opcao.o busca.o fila.o exercicios.o ordenacao.o componente.o
+	cd libraries/ && gcc matriz.c -c
+	cd libraries/ && gcc lista.c -c
+	cd libraries/ && gcc telas.c -c
+	cd libraries/ && gcc opcao.c -c
+	cd libraries/ && gcc busca.c -c
+	cd libraries/ && gcc fila.c -c
+	cd libraries/ && gcc ordenacao.c -c
+	cd libraries/ && gcc exercicios.c -c
+	cd libraries/ && gcc componente.c -c
+	cd libraries/ && gcc mst.c -c
+	gcc main.c -o main libraries/matriz.o libraries/lista.o libraries/telas.o libraries/opcao.o libraries/busca.o libraries/fila.o libraries/exercicios.o libraries/ordenacao.o libraries/componente.o libraries/mst.o
 
 up:
 	git checkout master

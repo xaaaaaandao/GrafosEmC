@@ -36,6 +36,7 @@ typedef struct{
 }Lista;
 
 /* Protótipo das funções */
+void exemploMSTKruskal(Lista *l);
 void exemploGrafoNaoDirigido(Lista *l);
 void exemploGrafoDirigido(Lista*);
 void removerFimAresta(listaAdjacente *l);

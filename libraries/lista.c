@@ -4,6 +4,33 @@
 #include "opcao.h"
 #include "telas.h"
 
+
+void exemploMSTKruskal(Lista *l){
+	int i = 0;
+	grafoDirigido = false;
+	grafoPonderado = true;
+
+	for(i = 0; i < 9; i++){
+		inserirLista(l);
+	}
+
+	insereAresta(l, 1, 2, grafoDirigido, 4);
+	insereAresta(l, 1, 6, grafoDirigido, 8);
+	insereAresta(l, 2, 3, grafoDirigido, 8);
+	insereAresta(l, 2, 6, grafoDirigido, 11);
+	insereAresta(l, 3, 4, grafoDirigido, 7);
+	insereAresta(l, 3, 8, grafoDirigido, 4);
+	insereAresta(l, 3, 9, grafoDirigido, 2);
+	insereAresta(l, 4, 5, grafoDirigido, 9);
+	insereAresta(l, 4, 8, grafoDirigido, 14);
+	insereAresta(l, 5, 8, grafoDirigido, 10);
+	insereAresta(l, 6, 7, grafoDirigido, 1);
+	insereAresta(l, 6, 9, grafoDirigido, 7);
+	insereAresta(l, 7, 8, grafoDirigido, 2);
+	insereAresta(l, 7, 9, grafoDirigido, 6);
+}
+			
+
 /**
 * A função exemploGrafoNaoDirigido(Lista *l) em que já definimos
 * os vértices e arestas de um grafo não dirgido;
