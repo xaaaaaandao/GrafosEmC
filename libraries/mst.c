@@ -209,12 +209,14 @@ void MST_Prim(){
 		while(auxiliarAdjacente != NULL){
 			No *atualAdjacente = retornaNo(grafo, auxiliarAdjacente -> id); 
 			if((existeNo(copia, auxiliarAdjacente -> id)) && (auxiliarAdjacente -> peso < atualAdjacente -> chave)){
+//				printf("entr\n");
 				atualAdjacente -> pai = atual -> id;
 				atualAdjacente -> chave = auxiliarAdjacente -> peso;
 				retornaNo(copia, auxiliarAdjacente -> id) -> chave  = auxiliarAdjacente -> peso;  
 			}
 			auxiliarAdjacente = auxiliarAdjacente -> proximo;
 		}
+		//exit(1);
 		removeVertice(copia, menor -> id);
 	}
 
@@ -222,6 +224,7 @@ void MST_Prim(){
 	while(auxiliar != NULL){
 		printf("pai: %d\n", auxiliar -> pai);	
 		printf("id: %d\n\n", auxiliar -> id);
+		//printf("chave: %d\n", auxiliar -> chave);
 		auxiliar = auxiliar -> proximo;
 	}
 	return;

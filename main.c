@@ -14,6 +14,7 @@ int main(){
 	opcaoGrafoPonderado();
 	opcaoPrincipal(l);*/
 	//MST_Prim();
-	bellmanFord();
+	//bellmanFord();
+	Dijkstra();
 	return 0;
 }

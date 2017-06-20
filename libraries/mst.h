@@ -7,6 +7,8 @@
 
 
 No *retornaNo(Lista*, int);
+No *extrairMenor(Lista*, Lista*);
+bool existeNo(Lista*, int);
 Lista *MST_Kruskal(Lista*);
 void MST_Prim();
 

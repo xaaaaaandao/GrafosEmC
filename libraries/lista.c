@@ -263,6 +263,23 @@ bool removeVertice(Lista *l, int id){
 	} else {
 		removerMeioVertice(l, id);
 	}
+	auxiliar = l -> primeiro;
+	while(auxiliar != NULL){
+		noAdjacente *auxiliarAdjacente = auxiliar -> adjacente -> primeiro;
+		while(auxiliarAdjacente != NULL){
+			if(auxiliarAdjacente -> id == id){
+				if(auxiliar -> adjacente -> primeiro == auxiliar -> adjacente -> ultimo){
+					free(auxiliar -> adjacente);
+					auxiliar -> adjacente = (listaAdjacente*) malloc (sizeof(listaAdjacente));
+					inicializarListaAdjacente(auxiliar -> adjacente);
+				} else {
+					removeAresta(l, auxiliar-> id, id);	
+				}
+			}
+			auxiliarAdjacente = auxiliarAdjacente -> proximo;
+		}
+		auxiliar = auxiliar -> proximo;
+	}
 }
 
 /**
