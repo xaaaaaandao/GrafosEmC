@@ -5,6 +5,8 @@
 
 #include "lista.h"
 
+
+No *retornaNo(Lista*, int);
 Lista *MST_Kruskal(Lista*);
 void MST_Prim();
 

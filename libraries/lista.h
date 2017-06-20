@@ -24,6 +24,7 @@ typedef struct no{
 	int pai;
 	int tempoDescoberta;
 	int tempoFinalizacao;
+	int estimativa;
 	enum coresVertices cor;
 	int id;
 	int chave;
