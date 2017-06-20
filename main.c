@@ -5,6 +5,7 @@
 #include "libraries/telas.h"
 #include "libraries/mst.h"
 #include "libraries/fonteunica.h"
+#include "libraries/todosospares.h"
 
 int main(){
 	/*Lista *l = (Lista*) malloc (sizeof(Lista));
@@ -15,6 +16,7 @@ int main(){
 	opcaoPrincipal(l);*/
 	//MST_Prim();
 	//bellmanFord();
-	Dijkstra();
+	//Dijkstra();
+	floyd();
 	return 0;
 }

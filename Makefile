@@ -10,7 +10,8 @@ all:
 	cd libraries/ && gcc componente.c -c
 	cd libraries/ && gcc mst.c -c
 	cd libraries/ && gcc fonteunica.c -c
-	gcc main.c -o main libraries/matriz.o libraries/lista.o libraries/telas.o libraries/opcao.o libraries/busca.o libraries/fila.o libraries/exercicios.o libraries/ordenacao.o libraries/componente.o libraries/mst.o libraries/fonteunica.o
+	cd libraries/ && gcc todosospares.c -c
+	gcc main.c -o main libraries/matriz.o libraries/lista.o libraries/telas.o libraries/opcao.o libraries/busca.o libraries/fila.o libraries/exercicios.o libraries/ordenacao.o libraries/componente.o libraries/mst.o libraries/fonteunica.o libraries/todosospares.o
 	./main
 
 compile:
@@ -25,7 +26,8 @@ compile:
 	cd libraries/ && gcc componente.c -c
 	cd libraries/ && gcc mst.c -c
 	cd libraries/ && gcc fonteunica.c -c
-	gcc main.c -o main libraries/matriz.o libraries/lista.o libraries/telas.o libraries/opcao.o libraries/busca.o libraries/fila.o libraries/exercicios.o libraries/ordenacao.o libraries/componente.o libraries/mst.o libraries/fonteunica.o
+	cd libraries/ && gcc todosospares.c -c
+	gcc main.c -o main libraries/matriz.o libraries/lista.o libraries/telas.o libraries/opcao.o libraries/busca.o libraries/fila.o libraries/exercicios.o libraries/ordenacao.o libraries/componente.o libraries/mst.o libraries/fonteunica.o libraries/todosospares.o
 
 up:
 	git checkout master
