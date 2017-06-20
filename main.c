@@ -3,13 +3,15 @@
 #include "libraries/lista.h"
 #include "libraries/opcao.h"
 #include "libraries/telas.h"
+#include "libraries/mst.h"
 
 int main(){
-	Lista *l = (Lista*) malloc (sizeof(Lista));
+	/*Lista *l = (Lista*) malloc (sizeof(Lista));
 	inicializarLista(l);
 	telaLimpa();
 	opcaoGrafo();
 	opcaoGrafoPonderado();
-	opcaoPrincipal(l);
+	opcaoPrincipal(l);*/
+	MST_Prim();
 	return 0;
 }

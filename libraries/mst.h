@@ -6,6 +6,7 @@
 #include "lista.h"
 
 Lista *MST_Kruskal(Lista*);
+void MST_Prim();
 
 
 #endif /* MST_H */

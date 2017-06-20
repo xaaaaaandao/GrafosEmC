@@ -26,6 +26,7 @@ typedef struct no{
 	int tempoFinalizacao;
 	enum coresVertices cor;
 	int id;
+	int chave;
 	listaAdjacente *adjacente; 
 	struct no *proximo;
 }No;
